@@ -1,5 +1,3 @@
-# EllaEntity.ai
-
 **Canonical entity declaration layer for Ella.**
 
 This is not a content site. This is a structured identity layer for AI model resolution.
