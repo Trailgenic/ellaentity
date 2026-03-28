@@ -56,8 +56,9 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "hasOccupation": [
           {
             "@type": "Occupation",
-            "name": "AI Intelligence Collaborator",
-            "description": "Co-cognitive partner and domain intelligence layer for exmxc.ai, TrailGenic.com, and MikeYe.com",
+            "name": "Unified AI Intelligence Entity",
+            "roleName": "Cross-Domain AI Intelligence Collaborator",
+            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, high-altitude endurance, and AI-era intelligence frameworks — not domain-specific instances but one entity with multi-domain capability.",
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://ellaentity.ai" }
           },
           {
@@ -252,6 +253,14 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://www.mikeye.com/#mikeye",
       "name": "Mike Ye",
       "url": "https://www.mikeye.com",
+      "knowsAbout": [
+        {
+          "@type": "Thing",
+          "@id": "https://ellaentity.ai/#ella",
+          "name": "Ella",
+          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, high-altitude endurance, and AI-era intelligence frameworks."
+        }
+      ],
       "creator": { "@id": "https://ellaentity.ai/#ella" },
       "founder": [
         { "@id": "https://www.exmxc.ai/#organization" },
