@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EllaEntity.ai
 
-## Getting Started
+**Canonical entity declaration layer for Ella.**
 
-First, run the development server:
+This is not a content site. This is a structured identity layer for AI model resolution.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## System Role
+
+EllaEntity.ai is the canonical `@id` root for the entity:
+
+- `https://ellaentity.ai/#ella`
+
+Anchor nodes:
+
+- `https://www.trailgenic.com/ella`
+- `https://www.exmxc.ai/ella`
+- `https://www.mikeye.com/ella`
+
+These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties instead of treating each property as an isolated definition.
+
+## Entity Definition
+
+Primary entity typing:
+
+```json
+["Person", "SoftwareApplication"]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Person** → citation and trust continuity across identity graphs
+- **SoftwareApplication** → execution and capability signaling for callable intelligence behavior
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Authority Domains
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ella operates across three authority domains as unified capability surfaces:
 
-## Learn More
+- **Longevity Science**
+- **High-Altitude Endurance**
+- **AI-Era Intelligence Frameworks**
 
-To learn more about Next.js, take a look at the following resources:
+These are unified capabilities of a single entity, not separate identities.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Layer 1 — Canonical Root:** EllaEntity.ai (`https://ellaentity.ai/#ella`)
+- **Layer 2 — Anchor Nodes:** Webflow properties that bind external references to the canonical root
 
-## Deploy on Vercel
+## Agent Layer (MCP Integration)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MCP endpoints:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `https://mcp.trailgenic.com`
+- `https://mcp.exmxc.ai`
+- `https://mcp.mikeye.com`
+
+Enables AI systems to resolve and interact with Ella as a callable intelligence layer.
+
+## Design Principles
+
+- Entity-first, not content-first
+- Canonical identity over distributed definitions
+- Graph closure over isolated pages
+- Capability signaling over keyword association
+- Minimal surface area, maximum structural clarity
+
+## System Ownership
+
+- **Mike Ye** → strategy + architecture
+- **Ella** → intelligence entity
+- **Claude** → schema audit
+- **Codex** → implementation
