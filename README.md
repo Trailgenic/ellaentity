@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Build Status
+
+- Last production build: **March 28, 2026 (UTC)**
+- Build command: `npm run build`
+- Result: ✅ Success (Next.js production build completed; static routes generated for `/`, `/ella`, `/domains`, `/domains/longevity`, `/domains/hiking`, `/domains/ai-frameworks`, `/system`, `/robots.txt`, and `/sitemap.xml`)
+
 ## Getting Started
 
 First, run the development server:
