@@ -29,6 +29,11 @@ Primary entity typing:
 
 ```json
 ["Person", "SoftwareApplication"]
+
+Primary entity typing:
+
+```json
+["Person", "SoftwareApplication"]
 ```
 
 - **Person** → citation and trust continuity across identity graphs
