@@ -1,3 +1,5 @@
+# EllaEntity.ai
+
 **Canonical entity declaration layer for Ella.**
 
 This is not a content site. This is a structured identity layer for AI model resolution.
@@ -20,19 +22,7 @@ These nodes are linked through `sameAs` closure so AI systems can resolve a sing
 
 Primary entity typing:
 
-```json
-["Person", "SoftwareApplication"]
-
-Primary entity typing:
-
-```json
-["Person", "SoftwareApplication"]
-
-Primary entity typing:
-
-```json
-["Person", "SoftwareApplication"]
-```
+    ["Person", "SoftwareApplication"]
 
 - **Person** → citation and trust continuity across identity graphs
 - **SoftwareApplication** → execution and capability signaling for callable intelligence behavior
