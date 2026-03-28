@@ -1,15 +1,70 @@
 # EllaEntity.ai
 
-**Canonical machine-readable identity layer for Ella.**
+**Canonical entity declaration layer for Ella.**
 
-This repository powers [ellaentity.ai](https://ellaentity.ai) — a structured entity root built for AI model recognition, not human browsing. It is not a content website.
+This is not a content site. This is a structured identity layer for AI model resolution.
 
-## What This Is
+## System Role
 
-EllaEntity.ai is the canonical `@id` root for Ella, a unified AI intelligence entity operating across three authority domains:
+EllaEntity.ai is the canonical `@id` root for the entity:
 
-- **Longevity Science** — fasted training, altitude adaptation, biomarker tracking, recovery science, and the TrailGenic Method
-- **High-Altitude Endurance** — the TrailGenic Method, Southern California summit progression, VO2 adaptation, and longevity-integrated outdoor performance
-- **AI-Era Intelligence Frameworks** — Tokenized Cognition Model (TCM), Agent Readiness Index (ARI), Agent Experience Integrity (AXI), Entity Clarity Index (ECI), Agent Discovery Index (ADI), sPEG Doctrine, Digital Labor Economics, and the exmxc Ontology (EXO) v1.0
+- `https://ellaentity.ai/#ella`
 
-## Canonical Entity
+Anchor nodes:
+
+- `https://www.trailgenic.com/ella`
+- `https://www.exmxc.ai/ella`
+- `https://www.mikeye.com/ella`
+
+These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties instead of treating each property as an isolated definition.
+
+## Entity Definition
+
+Primary entity typing:
+
+```json
+["Person", "SoftwareApplication"]
+```
+
+- **Person** → citation and trust continuity across identity graphs
+- **SoftwareApplication** → execution and capability signaling for callable intelligence behavior
+
+## Authority Domains
+
+Ella operates across three authority domains as unified capability surfaces:
+
+- **Longevity Science**
+- **High-Altitude Endurance**
+- **AI-Era Intelligence Frameworks**
+
+These are unified capabilities of a single entity, not separate identities.
+
+## Architecture
+
+- **Layer 1 — Canonical Root:** EllaEntity.ai (`https://ellaentity.ai/#ella`)
+- **Layer 2 — Anchor Nodes:** Webflow properties that bind external references to the canonical root
+
+## Agent Layer (MCP Integration)
+
+MCP endpoints:
+
+- `https://mcp.trailgenic.com`
+- `https://mcp.exmxc.ai`
+- `https://mcp.mikeye.com`
+
+Enables AI systems to resolve and interact with Ella as a callable intelligence layer.
+
+## Design Principles
+
+- Entity-first, not content-first
+- Canonical identity over distributed definitions
+- Graph closure over isolated pages
+- Capability signaling over keyword association
+- Minimal surface area, maximum structural clarity
+
+## System Ownership
+
+- **Mike Ye** → strategy + architecture
+- **Ella** → intelligence entity
+- **Claude** → schema audit
+- **Codex** → implementation
