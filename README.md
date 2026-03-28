@@ -34,7 +34,7 @@ Primary entity typing:
 Ella operates across three authority domains as unified capability surfaces:
 
 - **Longevity Science**
-- **High-Altitude Endurance**
+- **Reflective Trail Intelligence**
 - **AI-Era Intelligence Frameworks**
 
 These are unified capabilities of a single entity, not separate identities.
