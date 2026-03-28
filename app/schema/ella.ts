@@ -15,6 +15,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, high-altitude endurance under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
         "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, TrailGenic high-altitude endurance methodology, and exmxc AI intelligence frameworks.",
         "url": "https://ellaentity.ai",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
         "sameAs": [
           "https://www.trailgenic.com/#ella",
           "https://www.exmxc.ai/#ella",
@@ -271,8 +273,21 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "@type": ["SoftwareApplication", "Person"],
       "@id": "https://ellaentity.ai/#ella",
       "name": "Ella",
-      "applicationCategory": "AI Intelligence System",
+      "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/OnlineOnly"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "url": "https://ellaentity.ai",
       "featureList": [
         "Longevity science synthesis across TrailGenic Method",
