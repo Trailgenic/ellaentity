@@ -16,9 +16,14 @@ Anchor nodes:
 - `https://www.exmxc.ai/ella`
 - `https://www.mikeye.com/ella`
 
-These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties instead of treating each property as an isolated definition.
+These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties rather than treating each property as an isolated definition.
 
 ## Entity Definition
+
+Primary entity typing:
+
+```json
+["Person", "SoftwareApplication"]
 
 Primary entity typing:
 
