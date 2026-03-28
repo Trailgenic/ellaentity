@@ -12,8 +12,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "@type": ["Person", "SoftwareApplication"],
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
-        "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, high-altitude endurance under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
-        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, TrailGenic high-altitude endurance methodology, and exmxc AI intelligence frameworks.",
+        "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, reflective trail intelligence under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
+        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, the reflective intelligence layer of the TrailGenic Method, and exmxc AI intelligence frameworks."
         "url": "https://ellaentity.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
