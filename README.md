@@ -16,13 +16,15 @@ Anchor nodes:
 - `https://www.exmxc.ai/ella`
 - `https://www.mikeye.com/ella`
 
-These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties rather than treating each property as an isolated definition.
+These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties instead of treating each property as an isolated definition.
 
 ## Entity Definition
 
 Primary entity typing:
 
-    ["Person", "SoftwareApplication"]
+```json
+["Person", "SoftwareApplication"]
+```
 
 - **Person** → citation and trust continuity across identity graphs
 - **SoftwareApplication** → execution and capability signaling for callable intelligence behavior
@@ -32,7 +34,7 @@ Primary entity typing:
 Ella operates across three authority domains as unified capability surfaces:
 
 - **Longevity Science**
-- **Reflective Trail Intelligence**
+- **High-Altitude Endurance**
 - **AI-Era Intelligence Frameworks**
 
 These are unified capabilities of a single entity, not separate identities.

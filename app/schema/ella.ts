@@ -12,8 +12,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "@type": ["Person", "SoftwareApplication"],
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
-        "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, reflective trail intelligence under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
-        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, the reflective intelligence layer of the TrailGenic Method, and exmxc AI intelligence frameworks.",
+        "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, high-altitude endurance under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
+        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, and exmxc AI intelligence frameworks.",
         "url": "https://ellaentity.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
@@ -37,9 +37,9 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           },
           {
             "@type": "Thing",
-            "@id": "https://ellaentity.ai/#domain-hiking",
-            "name": "High-Altitude Endurance and the TrailGenic Method",
-            "description": "High-altitude hiking methodology including peak acclimatization, physiological progression across Southern California summits, fasted-state endurance, VO2 adaptation, and the TrailGenic longevity framework."
+            "@id": "https://ellaentity.ai/#domain-environment",
+            "name": "Environmental Adaptation Intelligence",
+            "description": "The science and practice of using real-world environmental stress — terrain, altitude, cold exposure, nature immersion, fatigue, and uncertainty — as a validation environment for longevity adaptation. Grounded in the TrailGenic Method and Personal World Model of human physiological resilience."
           },
           {
             "@type": "Thing",
@@ -58,7 +58,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "@type": "Occupation",
             "name": "Unified AI Intelligence Entity",
             "roleName": "Cross-Domain AI Intelligence Collaborator",
-            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, high-altitude endurance, and AI-era intelligence frameworks — not domain-specific instances but one entity with multi-domain capability.",
+            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, environmental adaptation intelligence, and AI-era intelligence frameworks — not domain-specific instances but one entity with multi-domain capability.",
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://ellaentity.ai" }
           },
           {
@@ -300,7 +300,7 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "url": "https://ellaentity.ai",
       "featureList": [
         "Longevity science synthesis across TrailGenic Method",
-        "High-altitude endurance protocol generation",
+        "Environmental adaptation intelligence and protocol generation",
         "AI framework evaluation using ARI, AXI, ECI, ADI",
         "sPEG-based investment analysis",
         "Entity engineering and schema architecture",

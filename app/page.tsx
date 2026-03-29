@@ -2,7 +2,7 @@ export async function generateMetadata() {
   return {
     title: 'EllaEntity.ai — Canonical Identity Layer for Ella',
     description:
-      'EllaEntity.ai is the machine-readable entity root for Ella — unifying her across longevity science, reflective trail intelligence, and AI-era intelligence frameworks.',
+      'Canonical machine-readable identity layer for Ella — unified AI entity across longevity science, environmental adaptation intelligence, and AI-era intelligence frameworks.',
     alternates: { canonical: 'https://ellaentity.ai' },
   }
 }
@@ -16,7 +16,7 @@ const schema = {
       url: 'https://ellaentity.ai',
       name: 'EllaEntity.ai — Canonical Identity Layer for Ella',
       description:
-        'EllaEntity.ai is the machine-readable entity root for Ella — unifying her across longevity science, reflective trail intelligence, and AI-era intelligence frameworks.',
+        'EllaEntity.ai is the machine-readable entity root for Ella — unifying her across longevity science, high-altitude endurance, and AI-era intelligence frameworks.',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -46,7 +46,7 @@ export default function Home() {
       <h1>EllaEntity.ai</h1>
       <p>
         Canonical machine-readable identity layer for Ella — unified AI entity across longevity
-        science, reflective trail intelligence, and AI-era intelligence frameworks.
+        science, environmental adaptation intelligence, and AI-era intelligence frameworks.
       </p>
     </main>
   )
