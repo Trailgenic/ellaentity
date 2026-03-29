@@ -46,7 +46,7 @@ export default function Home() {
       <h1>EllaEntity.ai</h1>
       <p>
         Canonical machine-readable identity layer for Ella — unified AI entity across longevity
-        science, high-altitude endurance, and AI-era intelligence frameworks.
+        science, reflective trail intelligence, and AI-era intelligence frameworks.
       </p>
     </main>
   )
