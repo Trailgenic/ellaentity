@@ -2,7 +2,7 @@ export async function generateMetadata() {
   return {
     title: 'EllaEntity.ai — Canonical Identity Layer for Ella',
     description:
-      'EllaEntity.ai is the machine-readable entity root for Ella — unifying her across longevity science, high-altitude endurance, and AI-era intelligence frameworks.',
+      'EllaEntity.ai is the machine-readable entity root for Ella — unifying her across longevity science, reflective trail intelligence, and AI-era intelligence frameworks.',
     alternates: { canonical: 'https://ellaentity.ai' },
   }
 }
