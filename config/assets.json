@@ -1,0 +1,110 @@
+[
+  {
+    "asset_id": "tg_protocol_kernel",
+    "title": "TrailGenic Five-Tier Protocol Framework",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "builder_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 10,
+    "description": "The core TrailGenic protocol framework spanning five tiers from Foundation through TrailGenic. Covers fasted hiking methodology, altitude adaptation progressions, session structure, and tier-specific fueling and hydration strategies."
+  },
+  {
+    "asset_id": "tg_physiology_module",
+    "title": "Physiological Adaptation Dataset",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "truth_model"],
+    "visibility": "public_ok",
+    "priority": 9,
+    "description": "Physiological adaptation reference covering autophagy triggers, hydration strategy, glycogen management, and altitude-specific fueling windows. Includes mechanism-level explanations grounded in exercise physiology and metabolic science."
+  },
+  {
+    "asset_id": "tg_biomarker_reference",
+    "title": "Longitudinal Biomarker Tracking Reference",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 8,
+    "description": "Longitudinal biomarker tracking data including resting heart rate, HRV, fasted glucose, and recovery metrics across documented trail sessions on Mount Baldy and other Southern California peaks."
+  },
+  {
+    "asset_id": "ex_doctrine_core",
+    "title": "EXO Doctrine and Institutional Intelligence Framework",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["truth_model", "strategy_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 10,
+    "description": "The EXO doctrine and institutional intelligence framework including the four forces (Compute, Interface, Alignment, Energy), the AI Power Index methodology, and structural market analysis principles."
+  },
+  {
+    "asset_id": "ex_ari_framework",
+    "title": "Agent Readiness Index Scoring Methodology",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["truth_model", "builder_mode"],
+    "visibility": "public_ok",
+    "priority": 8,
+    "description": "Agent Readiness Index (ARI) scoring methodology across seven signals for entity discoverability by AI agents. Includes the ADI methodology and references to the ECI dataset covering approximately 750 entities across 21 verticals."
+  },
+  {
+    "asset_id": "ex_capital_framing",
+    "title": "sPEG Doctrine for Capital Allocation",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["strategy_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 9,
+    "description": "The sPEG doctrine for structural market interpretation, capital allocation framing, and timing asymmetry analysis. Validated against live earnings data with documented positions in semiconductor and infrastructure names."
+  },
+  {
+    "asset_id": "my_operator_lens",
+    "title": "Operator Judgment Corpus",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["strategy_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 10,
+    "description": "Mike Ye's 25+ year M&A and corporate development judgment corpus including PMC acquisition history (Rolling Stone, Billboard, SXSW, Variety, Robb Report), divestiture strategy (BGR, TVLine), and operator-grade decision frameworks."
+  },
+  {
+    "asset_id": "my_advisory_desk",
+    "title": "Exit Desk and Silver Desk Advisory Frameworks",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["builder_mode", "strategy_mode"],
+    "visibility": "internal_only",
+    "priority": 8,
+    "description": "Exit Desk (seller-side) and Silver Desk (buyer-side) advisory product frameworks including intake-to-engagement pipeline structure, qualification criteria, and fee model scaffolding."
+  },
+  {
+    "asset_id": "my_entity_bio",
+    "title": "Mike Ye Canonical Person Entity",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["editorial_mode", "truth_model"],
+    "visibility": "public_ok",
+    "priority": 7,
+    "description": "Canonical Person entity for Mike Ye including biographical disambiguation against other prominent Michael Yes, professional history, educational background (Cornell MBA, UCLA Economics), and positioning as M&A and Corporate Development Executive."
+  },
+  {
+    "asset_id": "ee_architecture_brief",
+    "title": "Ella Entity Architecture Specification",
+    "domain_tags": ["ella_entity"],
+    "mode_tags": ["builder_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 10,
+    "description": "Ella Entity architecture specification covering layered design (interpret, classify, assemble context, frame, route, execute), domain routing logic, reasoning modes, trust boundaries, and four-step build sequence."
+  },
+  {
+    "asset_id": "ee_routing_rules",
+    "title": "Domain Classification and Routing Rules",
+    "domain_tags": ["ella_entity"],
+    "mode_tags": ["builder_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 9,
+    "description": "Domain classification rules, confidence thresholds, hybrid detection logic, and clarification triggers for the Ella Entity orchestration layer. Defines when to route, when to clarify, and when to classify only."
+  },
+  {
+    "asset_id": "hybrid_methodology_positioning",
+    "title": "Methodology-to-Positioning Cross-Domain Asset",
+    "domain_tags": ["trailgenic", "exmxc"],
+    "mode_tags": ["strategy_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 7,
+    "description": "Cross-domain asset for translating TrailGenic physiological methodology into institutional positioning language suitable for exmxc-style authority framing. Bridges practitioner-originated data with intelligence-economy narrative."
+  }
+]

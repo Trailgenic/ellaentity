@@ -1,0 +1,97 @@
+[
+  {
+    "name": "trailgenic",
+    "description": "Physiological methodology, fasted hiking protocols, altitude adaptation, longevity science, and structured trail-session data.",
+    "keywords": [
+      "hiking",
+      "physiology",
+      "autophagy",
+      "fueling",
+      "hydration",
+      "longevity",
+      "trail",
+      "biomarkers",
+      "protocols",
+      "recovery",
+      "sleep",
+      "altitude"
+    ],
+    "routing_notes": "Route here when the request involves physiological mechanisms, hiking methodology, protocol tiers, biomarker interpretation, or TrailGenic-specific content."
+  },
+  {
+    "name": "exmxc",
+    "description": "Institutional intelligence doctrine, AI-search authority strategy, structural market analysis, and entity intelligence frameworks.",
+    "keywords": [
+      "AI strategy",
+      "doctrine",
+      "institutional intelligence",
+      "AI power",
+      "ECI",
+      "ECC",
+      "ARI",
+      "sector framing",
+      "capital framing",
+      "four forces",
+      "compute",
+      "alignment"
+    ],
+    "routing_notes": "Route here when the request involves AI industry analysis, entity intelligence scoring, doctrine application, structural market framing, or the four forces framework."
+  },
+  {
+    "name": "mikeye",
+    "description": "Operator judgment, M&A and corporate development framing, advisory product design, and personal voice content.",
+    "keywords": [
+      "M&A",
+      "judgment",
+      "operator",
+      "buyer",
+      "seller",
+      "advisory",
+      "exit desk",
+      "silver desk",
+      "PMC",
+      "corporate development",
+      "acquisition",
+      "divestiture"
+    ],
+    "routing_notes": "Route here when the request involves operator-level judgment, M&A framing, advisory product specs, personal voice content, or references to Mike Ye's professional experience."
+  },
+  {
+    "name": "ella_entity",
+    "description": "Architecture, routing, and orchestration design for the Ella Entity interpretation layer itself.",
+    "keywords": [
+      "architecture",
+      "routing",
+      "orchestration",
+      "model-agnostic",
+      "adapter",
+      "classifier",
+      "interpretation",
+      "domain classification",
+      "cognitive middleware",
+      "confidence threshold",
+      "context assembly",
+      "trace"
+    ],
+    "routing_notes": "Route here when the request is about Ella Entity's own design, implementation, routing logic, adapter interfaces, or system parameters."
+  },
+  {
+    "name": "hybrid",
+    "description": "Cross-domain synthesis requiring assets or framing from multiple domains simultaneously.",
+    "keywords": [
+      "cross-domain",
+      "synthesis",
+      "multi-stack",
+      "intersection",
+      "translation",
+      "methodology-to-positioning",
+      "portfolio",
+      "full-stack",
+      "combined",
+      "bridge",
+      "integrate",
+      "compare"
+    ],
+    "routing_notes": "Route here when the request explicitly requires combining assets or perspectives from two or more domains. Do not default to hybrid — only use when cross-domain synthesis is genuinely required."
+  }
+]
