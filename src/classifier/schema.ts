@@ -1,7 +1,12 @@
+import { z } from "zod";
 import { ClassificationOutputSchema } from "../types/domain";
 
-// Re-export for classifier-internal use
+// Re-export for classifier-internal and cross-module use
 export { ClassificationOutputSchema };
 
-// Classifier-specific schemas will be added in Step 2
-// e.g., ClassifierPromptContextSchema, ClassifierRawResponseSchema
+// Classifier request envelope (used in eval harness)
+export const ClassifierRequestSchema = z.object({
+  raw_input: z.string().trim().min(1),
+});
+
+export type ClassifierRequest = z.infer<typeof ClassifierRequestSchema>;
