@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export const EXECUTOR_MODEL = "gpt-4.1";
+
 export const ExecutorOutputSchema = z.object({
   draft: z.string(),
   model_used: z.string(),
