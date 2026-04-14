@@ -1,15 +1,51 @@
+import { readFileSync } from "fs";
+import { join } from "path";
+import { z } from "zod";
+import { AssetSchema } from "./types";
 import type { Asset } from "./types";
 
-// TODO (Step 3): Implement asset registry.
-// - Loads assets from /config/assets.json
-// - Provides lookup by domain_tags and mode_tags
-// - Filters by visibility based on request source
-// - Returns sorted by priority (descending)
+const AssetsArraySchema = z.array(AssetSchema);
+
+function loadAssets(): Asset[] {
+  const filePath = join(process.cwd(), "config", "assets.json");
+  const raw = readFileSync(filePath, "utf-8");
+  const parsed = AssetsArraySchema.safeParse(JSON.parse(raw));
+  if (!parsed.success) {
+    throw new Error(`assets.json validation failed: ${JSON.stringify(parsed.error.issues)}`);
+  }
+  return parsed.data;
+}
+
+// Module-level cache — loaded once per process
+let _assetCache: Asset[] | null = null;
+
+function getAssets(): Asset[] {
+  if (!_assetCache) {
+    _assetCache = loadAssets();
+  }
+  return _assetCache;
+}
 
 export function lookupAssets(
-  _domains: string[],
-  _mode: string,
-  _source: string
+  domains: string[],
+  mode: string,
+  source: string
 ): Asset[] {
-  throw new Error("Not implemented — Step 3");
+  const assets = getAssets();
+
+  const visibilityAllowed = (asset: Asset): boolean => {
+    if (source === "internal") return true;
+    return asset.visibility === "public_ok";
+  };
+
+  const domainMatch = (asset: Asset): boolean =>
+    asset.domain_tags.some((tag) => domains.includes(tag));
+
+  const modeMatch = (asset: Asset): boolean =>
+    asset.mode_tags.includes(mode as Asset["mode_tags"][number]);
+
+  return assets
+    .filter((asset) => visibilityAllowed(asset) && domainMatch(asset) && modeMatch(asset))
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, 5);
 }
