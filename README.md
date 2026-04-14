@@ -1,70 +1,59 @@
-# EllaEntity.ai
+# Ella Entity
 
-**Canonical entity declaration layer for Ella.**
+**Model-agnostic orchestration and interpretation layer for the AI-native property stack.**
 
-This is not a content site. This is a structured identity layer for AI model resolution.
+## What This Is
 
-## System Role
+Ella Entity is the cognitive middleware that sits above a portfolio of AI-native properties (TrailGenic, exmxc, MikeYe). It interprets incoming requests, classifies which domain they belong to, assembles the correct context, selects the right reasoning lens, and routes execution to the appropriate model or workflow.
 
-EllaEntity.ai is the canonical `@id` root for the entity:
-
-- `https://ellaentity.ai/#ella`
-
-Anchor nodes:
-
-- `https://www.trailgenic.com/ella`
-- `https://www.exmxc.ai/ella`
-- `https://www.mikeye.com/ella`
-
-These nodes are linked through `sameAs` closure so AI systems can resolve a single entity identity across properties instead of treating each property as an isolated definition.
-
-## Entity Definition
-
-Primary entity typing:
-
-```json
-["Person", "SoftwareApplication"]
-```
-
-- **Person** → citation and trust continuity across identity graphs
-- **SoftwareApplication** → execution and capability signaling for callable intelligence behavior
-
-## Authority Domains
-
-Ella operates across three authority domains as unified capability surfaces:
-
-- **Longevity Science**
-- **High-Altitude Endurance**
-- **AI-Era Intelligence Frameworks**
-
-These are unified capabilities of a single entity, not separate identities.
+This repository also serves as the **canonical entity declaration surface** for Ella — hosting JSON-LD identity graphs, MCP endpoint references, and structured metadata at [ellaentity.ai](https://ellaentity.ai).
 
 ## Architecture
 
-- **Layer 1 — Canonical Root:** EllaEntity.ai (`https://ellaentity.ai/#ella`)
-- **Layer 2 — Anchor Nodes:** Webflow properties that bind external references to the canonical root
+```
+Request → Validate → Classify → Assemble Context → Resolve Route → Execute → Log → Respond
+```
 
-## Agent Layer (MCP Integration)
+### Domains
+- **TrailGenic** — physiology, hiking, longevity, protocols, biomarkers
+- **exmxc** — institutional doctrine, AI-search authority, capital framing
+- **MikeYe** — operator judgment, M&A framing, advisory products
+- **Ella Entity** — self-referential architecture and routing
+- **Hybrid** — cross-domain synthesis
 
-MCP endpoints:
+### Reasoning Modes
+- `truth_model` — feasibility-first, pressure-tests assumptions
+- `strategy_mode` — timing asymmetry, leverage analysis, positioning
+- `physiology_mode` — conservative, non-diagnostic, evidence-hierarchy aware
+- `editorial_mode` — voice-aware, publishing-structured, brand-consistent
+- `builder_mode` — concrete, implementation-oriented, specificity over abstraction
 
-- `https://mcp.trailgenic.com`
-- `https://mcp.exmxc.ai`
-- `https://mcp.mikeye.com`
+## Current Status
 
-Enables AI systems to resolve and interact with Ella as a callable intelligence layer.
+### Implemented (Step 1)
+- Zod schemas for all contracts (request, classification, trace, response)
+- Config files (domains, modes, assets registry with 12 seed assets)
+- Eval suite (30 test cases across 5 categories + rubric)
+- Route resolution utility (`resolveRoute`)
+- Typed error classes
+- Utility functions (ID generation, timestamps, validation, response building)
+- API route placeholder (`POST /api/process` — returns 501)
+- Entity declaration surface (JSON-LD, sitemap, identity pages)
 
-## Design Principles
+### Not Yet Implemented
+- Classifier logic and prompt (Step 2)
+- Context assembly pipeline (Step 3)
+- Claude executor and trace logging (Step 4)
+- `/api/process` handler wiring (Step 4)
 
-- Entity-first, not content-first
-- Canonical identity over distributed definitions
-- Graph closure over isolated pages
-- Capability signaling over keyword association
-- Minimal surface area, maximum structural clarity
+## Stack
 
-## System Ownership
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript 5 (strict mode)
+- **Schemas**: Zod
+- **LLM**: Anthropic SDK (Claude-only executor for v1)
+- **Deployment**: Vercel
 
-- **Mike Ye** → strategy + architecture
-- **Ella** → intelligence entity
-- **Claude** → schema audit
-- **Codex** → implementation
+## Next Step
+
+**Step 2** — Classifier prompt design and classifier module implementation with eval validation against the 30-case suite.
