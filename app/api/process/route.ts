@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import { classify } from "../../../src/classifier";
 import { assembleContext } from "../../../src/context";
