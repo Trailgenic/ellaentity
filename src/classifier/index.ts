@@ -14,13 +14,7 @@ export async function classify(rawInput: string): Promise<ClassificationOutput> 
     const response = await client.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 512,
-      system: [
-        {
-          type: "text",
-          text: CLASSIFIER_SYSTEM_PROMPT,
-          cache_control: { type: "ephemeral" },
-        },
-      ],
+      system: CLASSIFIER_SYSTEM_PROMPT,
       messages: [
         {
           role: "user",
