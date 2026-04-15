@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
 
   if (route === "clarify") {
     clarification_prompt =
-      "Your request needs a bit more context. Could you clarify which area you're focused on — physiological methodology, institutional intelligence, advisory services, or system architecture?";
+      "Your request needs a bit more context. Could you clarify which area you're focused on - physiological methodology, institutional intelligence, advisory services, or system architecture?";
   }
 
   // 6. Build response
