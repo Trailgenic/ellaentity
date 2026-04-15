@@ -28,7 +28,7 @@ export async function classify(rawInput: string): Promise<ClassificationOutput> 
       throw new ClassificationError("No text block in classifier response");
     }
 
-    responseText = textBlock.text.trim();
+    responseText = textBlock.text.trim().replace(/^```json\s*/i, "").replace(/```\s*$/, "").trim();
   } catch (err) {
     if (err instanceof ClassificationError) throw err;
     const message = err instanceof Error ? err.message : String(err);
