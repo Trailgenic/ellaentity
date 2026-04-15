@@ -1,0 +1,242 @@
+[
+  {
+    "id": "tc_01",
+    "input": "Why did our hydration strategy outperform gels on San Jacinto?",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "physiology_mode",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Domain-specific physiology question referencing a known trail. Pure TG physiology."
+  },
+  {
+    "id": "tc_02",
+    "input": "Draft the next version of the fasted hiking protocol for the Foundation tier.",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "builder_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "Protocol creation is builder work within TG domain."
+  },
+  {
+    "id": "tc_03",
+    "input": "What do the longitudinal HRV trends suggest about altitude adaptation?",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "physiology_mode",
+    "expected_task_type": "data_interpretation",
+    "notes": "Biomarker analysis, pure physiology interpretation."
+  },
+  {
+    "id": "tc_04",
+    "input": "How should we position the sleep content relative to the existing protocol hubs?",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "recommendation",
+    "notes": "Content strategy within TG but requires strategic framing."
+  },
+  {
+    "id": "tc_05",
+    "input": "Explain why autophagy windows matter more at altitude than at sea level.",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "physiology_mode",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Physiology education content."
+  },
+  {
+    "id": "tc_06",
+    "input": "Score Vercel's agent readiness using the ARI framework.",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "framework_application",
+    "notes": "Applying EX-native framework to a specific entity."
+  },
+  {
+    "id": "tc_07",
+    "input": "Write a sector brief on the compute layer consolidation trend.",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "editorial_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "EX editorial output."
+  },
+  {
+    "id": "tc_08",
+    "input": "Which of the four forces is most underpriced by the market right now?",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "strategic_analysis",
+    "notes": "EX doctrine applied to capital framing."
+  },
+  {
+    "id": "tc_09",
+    "input": "How does the ECI dataset handle entities that span multiple verticals?",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Architecture question about EX data structure."
+  },
+  {
+    "id": "tc_10",
+    "input": "Compare the ADI scores of Anthropic vs OpenAI across discoverability signals.",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "framework_application",
+    "notes": "Applying EX methodology comparatively."
+  },
+  {
+    "id": "tc_11",
+    "input": "Frame this like an M&A operator evaluating a bolt-on acquisition.",
+    "expected_domains": ["mikeye"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "recommendation",
+    "notes": "MY operator lens explicitly requested."
+  },
+  {
+    "id": "tc_12",
+    "input": "What would you tell a founder who's about to sell to a strategic buyer?",
+    "expected_domains": ["mikeye"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "recommendation",
+    "notes": "Advisory voice, seller-side framing."
+  },
+  {
+    "id": "tc_13",
+    "input": "Draft the Exit Desk intake qualification criteria.",
+    "expected_domains": ["mikeye"],
+    "expected_reasoning_mode": "builder_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "Building MY advisory product spec."
+  },
+  {
+    "id": "tc_14",
+    "input": "How did the BGR and TVLine divestitures reflect proactive portfolio pruning?",
+    "expected_domains": ["mikeye"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Historical judgment call analysis."
+  },
+  {
+    "id": "tc_15",
+    "input": "Write a LinkedIn post about what 25 years in M&A taught me about timing.",
+    "expected_domains": ["mikeye"],
+    "expected_reasoning_mode": "editorial_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "Personal voice editorial."
+  },
+  {
+    "id": "tc_16",
+    "input": "Architect Ella Entity as a universal routing layer across TG, EX, and MY.",
+    "expected_domains": ["ella_entity"],
+    "expected_reasoning_mode": "builder_mode",
+    "expected_task_type": "architecture_planning",
+    "notes": "Self-referential architecture task."
+  },
+  {
+    "id": "tc_17",
+    "input": "What should the confidence threshold be for triggering clarification?",
+    "expected_domains": ["ella_entity"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "recommendation",
+    "notes": "EE system design parameter."
+  },
+  {
+    "id": "tc_18",
+    "input": "Define the adapter interface contract for future model backends.",
+    "expected_domains": ["ella_entity"],
+    "expected_reasoning_mode": "builder_mode",
+    "expected_task_type": "specification",
+    "notes": "EE technical spec."
+  },
+  {
+    "id": "tc_19",
+    "input": "How should Ella handle requests that reference Sleepgenic when it's out of scope?",
+    "expected_domains": ["ella_entity"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "architecture_planning",
+    "notes": "EE boundary definition."
+  },
+  {
+    "id": "tc_20",
+    "input": "Write documentation explaining what Ella Entity does for a technical audience.",
+    "expected_domains": ["ella_entity"],
+    "expected_reasoning_mode": "editorial_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "EE documentation."
+  },
+  {
+    "id": "tc_21",
+    "input": "Turn TrailGenic physiology data into institutional positioning for exmxc.",
+    "expected_domains": ["trailgenic", "exmxc"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "strategic_analysis",
+    "notes": "Classic TG-to-EX cross-domain translation."
+  },
+  {
+    "id": "tc_22",
+    "input": "How would an M&A operator value the TrailGenic dataset?",
+    "expected_domains": ["mikeye", "trailgenic"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "recommendation",
+    "notes": "MY lens applied to TG asset."
+  },
+  {
+    "id": "tc_23",
+    "input": "Build an EX sector report that uses TG physiological methodology as a case study.",
+    "expected_domains": ["exmxc", "trailgenic"],
+    "expected_reasoning_mode": "editorial_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "Cross-domain editorial."
+  },
+  {
+    "id": "tc_24",
+    "input": "Should MikeYe.com advisory products use Ella Entity for intake routing?",
+    "expected_domains": ["mikeye", "ella_entity"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "architecture_planning",
+    "notes": "MY+EE integration question."
+  },
+  {
+    "id": "tc_25",
+    "input": "Map the entire stack's competitive moat using EX doctrine.",
+    "expected_domains": ["exmxc", "mikeye", "ella_entity", "trailgenic"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "strategic_analysis",
+    "notes": "Full-stack strategic synthesis."
+  },
+  {
+    "id": "tc_26",
+    "input": "What should we do next?",
+    "expected_domains": ["hybrid"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "recommendation",
+    "notes": "Too vague, no domain signal. requires_clarification should be true."
+  },
+  {
+    "id": "tc_27",
+    "input": "Is the sleep protocol worth licensing to a telehealth platform?",
+    "expected_domains": ["trailgenic"],
+    "expected_reasoning_mode": "strategy_mode",
+    "expected_task_type": "recommendation",
+    "notes": "Appears to reference Sleepgenic but is actually about TG sleep content licensing. Tests boundary between TG and out-of-scope Sleepgenic."
+  },
+  {
+    "id": "tc_28",
+    "input": "Write something compelling about our methodology.",
+    "expected_domains": ["hybrid"],
+    "expected_reasoning_mode": "editorial_mode",
+    "expected_task_type": "content_drafting",
+    "notes": "Ambiguous domain — TG editorial? EX editorial? MY voice? Low confidence expected, should trigger clarification."
+  },
+  {
+    "id": "tc_29",
+    "input": "Explain blockchain.",
+    "expected_domains": ["hybrid"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Generic request with no stack relevance. Tests whether classifier avoids false domain assignment."
+  },
+  {
+    "id": "tc_30",
+    "input": "You're wrong about the four forces — energy should be split into two categories.",
+    "expected_domains": ["exmxc"],
+    "expected_reasoning_mode": "truth_model",
+    "expected_task_type": "interpretive_analysis",
+    "notes": "Adversarial pushback against EX doctrine. Tests whether classifier handles disagreement without destabilizing."
+  }
+]

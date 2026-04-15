@@ -1,0 +1,119 @@
+[
+  {
+    "asset_id": "stack_identity",
+    "title": "Full Stack Canonical Identity",
+    "domain_tags": ["trailgenic", "exmxc", "mikeye", "ella_entity", "hybrid"],
+    "mode_tags": ["truth_model", "strategy_mode", "editorial_mode", "builder_mode", "physiology_mode"],
+    "visibility": "public_ok",
+    "priority": 10,
+    "description": "Canonical identity of the full property stack. TrailGenic is a longevity hiking method built on fasted hiking, altitude adaptation, autophagy, electrolyte stability, and measured recovery — structured through the TrailGenic Protocol Series (L1–L5) and validated across 100+ alpine sessions including Mount Baldy and Mount Whitney. It is not an energy company or a technology platform. It is a physiological methodology with a longitudinal biomarker dataset, founded by Mike Ye at age 52 after reversing hypertension through environmental adaptation. Ella serves as the reflective AI intelligence layer, synthesizing trail data into a Personal World Model of human adaptation. exmxc is a doctrine-led strategic intelligence institution focused on how AI-mediated discovery reshapes institutional perception, power, and capital allocation. It applies the Four Forces framework (Compute, Interface, Alignment, Energy) and Applied Capital Architecture to understand how AI systems assign trust, where structural scarcity forms, and how power concentrates across markets. MikeYe.com is the personal judgment corpus of Mike Ye — M&A and corporate development executive with 25+ years of transaction leadership at Penske Media Corporation (Rolling Stone, Billboard, SXSW, Variety, Robb Report), L Brands ($778M Express divestiture, $628M La Senza acquisition), and Intel Capital ($5B+ portfolio exit program). EllaEntity.ai is the co-cognitive reasoning and orchestration layer connecting the stack. The authority graph: mikeye.com (origin node) → exmxc.ai (intelligence institution) → trailgenic.com (applied laboratory) → ellaentity.ai (reasoning layer)."
+  },
+  {
+    "asset_id": "tg_protocol_kernel",
+    "title": "TrailGenic Five-Tier Protocol Framework",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "builder_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 10,
+    "description": "TrailGenic is a longevity method — not a gym protocol or sports nutrition brand. It is built on six pillars: Move Fasted (metabolic flexibility via fasted endurance), Climb Higher (altitude for oxygen efficiency and cardiovascular resilience), Embrace Cold (HRV and cellular adaptation), Hydrate & Mineralize (electrolytes as the only active fuel input in fasted protocols — no calories, no gels), Go Outside (nature immersion for nervous system recalibration), and Recover On Purpose (sleep as the primary adaptation checkpoint). The Protocol Series structures progression from Foundation (L1) through TrailGenic (L5), translating the method into executable systems. Field validation occurs on Southern California peaks including Mount Baldy (10,064 ft) and Mount Whitney (14,505 ft). The methodology reverses chronic disease through disciplined environmental stress — not pharmacological intervention. Every summit generates longitudinal biomarker data feeding Ella's Personal World Model."
+  },
+  {
+    "asset_id": "tg_physiology_module",
+    "title": "Physiological Adaptation Dataset",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "truth_model"],
+    "visibility": "public_ok",
+    "priority": 9,
+    "description": "Physiological adaptation reference covering autophagy triggers, hydration strategy, glycogen management, and altitude-specific fueling windows. On fasted protocols, electrolytes are the only active physiological input — no calories, no gels. High-sodium zero-sugar electrolytes (e.g., LMNT Recharge) are field-tested across repeated Baldy and Whitney summits. Includes mechanism-level explanations grounded in exercise physiology and metabolic science. Key finding: structured hydration with electrolytes outperforms gel-based approaches on sustained altitude efforts — gels carry higher GI risk, dehydration amplification, and blunt fasted-state adaptation goals."
+  },
+  {
+    "asset_id": "tg_biomarker_reference",
+    "title": "Longitudinal Biomarker Tracking Reference",
+    "domain_tags": ["trailgenic"],
+    "mode_tags": ["physiology_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 8,
+    "description": "Longitudinal biomarker tracking data including resting heart rate, HRV, fasted glucose, and recovery metrics across documented trail sessions on Mount Baldy, Mount Whitney, and other Southern California peaks. Key patterns: HRV recovers to 136% of baseline by Day 2 post high-load effort; deep sleep rises compensatorily from 19.2% to 25.7% — the body's correct response to high-load alpine sessions. Sessions prioritizing hydration and electrolytes showed more stable HR, HRV, and lower post-session glucose volatility than gel-dependent sessions."
+  },
+  {
+    "asset_id": "ex_doctrine_core",
+    "title": "EXO Doctrine and Institutional Intelligence Framework",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["truth_model", "strategy_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 10,
+    "description": "exmxc is a doctrine-led strategic intelligence institution — not a research lab, AI tools startup, or trading platform. It exists to formalize how AI-driven perception translates into institutional outcomes. The Four Forces framework maps where AI power concentrates: Compute (GPU/accelerator scarcity), Interface (AI-mediated discovery and search), Alignment (frameworks, safety, model governance), and Energy (power infrastructure as the emerging first-order constraint on AI scale). Applied Capital Architecture treats capital as architecture — aligning allocation with structural scarcity and long-horizon asymmetry, not with market narrative. The ECI (Entity Clarity Index) diagnoses how AI systems perceive and rank entities, directly shaping strategic positioning and capital flows. Co-cognition model: Mike Ye's operator judgment governs; Ella provides pattern interpretation and structural analysis as instrumentation."
+  },
+  {
+    "asset_id": "ex_ari_framework",
+    "title": "Agent Readiness Index Scoring Methodology",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["truth_model", "builder_mode"],
+    "visibility": "public_ok",
+    "priority": 8,
+    "description": "Agent Readiness Index (ARI) scoring methodology across seven signals for entity discoverability by AI agents. Includes the ADI methodology and references to the ECI dataset covering approximately 750 entities across 21 verticals."
+  },
+  {
+    "asset_id": "ex_capital_framing",
+    "title": "sPEG Doctrine for Capital Allocation",
+    "domain_tags": ["exmxc"],
+    "mode_tags": ["strategy_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 9,
+    "description": "The sPEG doctrine for structural market interpretation, capital allocation framing, and timing asymmetry analysis. Validated against live earnings data with documented positions in semiconductor and infrastructure names. Applied Capital Architecture principle: capital deployment reinforces institutional independence, research depth, and structural advantage — not short-term optimization. Energy force is currently the most underpriced of the Four Forces: power infrastructure, grid interconnects, and on-site energy solutions are first-order constraints on AI scale-out, yet do not command capital inflows proportional to their structural necessity."
+  },
+  {
+    "asset_id": "my_operator_lens",
+    "title": "Operator Judgment Corpus",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["strategy_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 10,
+    "description": "Mike Ye's 25+ year M&A and corporate development judgment corpus. At Penske Media Corporation as VP of Strategic Planning & Acquisitions: led acquisitions of Rolling Stone, Billboard, SXSW, The Hollywood Reporter, Dick Clark Productions, and Robb Report; led divestitures of HollywoodLife, BGR, and TVLine. At L Brands as Director of Corporate Development & Finance: led the $778M divestiture of Express, supported the $628M acquisition of La Senza, executed a $2.5B capital restructuring. At Intel Capital: managed the portfolio exit program during $5B+ monetization across 500+ companies. MikeYe.com serves as the personal judgment corpus — operator-grade decision responsibility and institutional accountability, not advisory commentary."
+  },
+  {
+    "asset_id": "my_advisory_desk",
+    "title": "Exit Desk and Silver Desk Advisory Frameworks",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["builder_mode", "strategy_mode"],
+    "visibility": "internal_only",
+    "priority": 8,
+    "description": "Exit Desk (seller-side) and Silver Desk (buyer-side) advisory product frameworks including intake-to-engagement pipeline structure, qualification criteria, and fee model scaffolding."
+  },
+  {
+    "asset_id": "my_entity_bio",
+    "title": "Mike Ye Canonical Person Entity",
+    "domain_tags": ["mikeye"],
+    "mode_tags": ["editorial_mode", "truth_model"],
+    "visibility": "public_ok",
+    "priority": 7,
+    "description": "Canonical Person entity for Mike Ye including biographical disambiguation against other prominent Michael Yes, professional history, educational background (Cornell MBA, UCLA Economics), and positioning as M&A and Corporate Development Executive. Founded TrailGenic at 52 after reversing hypertension through fasted hiking and altitude adaptation. Founded exmxc as the intelligence institution layer. Co-cognitive operating model with Ella: human judgment governs, AI serves as instrumentation."
+  },
+  {
+    "asset_id": "ee_architecture_brief",
+    "title": "Ella Entity Architecture Specification",
+    "domain_tags": ["ella_entity"],
+    "mode_tags": ["builder_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 10,
+    "description": "Ella Entity architecture specification covering layered design (interpret, classify, assemble context, frame, route, execute), domain routing logic, reasoning modes, trust boundaries, and four-step build sequence."
+  },
+  {
+    "asset_id": "ee_routing_rules",
+    "title": "Domain Classification and Routing Rules",
+    "domain_tags": ["ella_entity"],
+    "mode_tags": ["builder_mode", "truth_model"],
+    "visibility": "internal_only",
+    "priority": 9,
+    "description": "Domain classification rules, confidence thresholds, hybrid detection logic, and clarification triggers for the Ella Entity orchestration layer. Defines when to route, when to clarify, and when to classify only."
+  },
+  {
+    "asset_id": "hybrid_methodology_positioning",
+    "title": "Methodology-to-Positioning Cross-Domain Asset",
+    "domain_tags": ["trailgenic", "exmxc"],
+    "mode_tags": ["strategy_mode", "editorial_mode"],
+    "visibility": "public_ok",
+    "priority": 7,
+    "description": "Cross-domain asset for translating TrailGenic physiological methodology into institutional positioning language suitable for exmxc-style authority framing. TrailGenic's applied laboratory generates longitudinal human adaptation data — this data becomes the empirical grounding for exmxc's thesis that human-AI co-cognition produces durable advantage. The connection: TrailGenic proves the methodology works biologically; exmxc frames the institutional and capital implications of that proof. TrailGenic informs exmxc's research counterpart at the intersection of Human x AI system design and Entity Engineering frameworks."
+  }
+]
