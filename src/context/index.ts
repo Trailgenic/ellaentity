@@ -1,5 +1,5 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import rawDomains from "../../config/domains.json";
+import rawModes from "../../config/modes.json";
 import { z } from "zod";
 import { lookupAssets } from "./registry";
 import { ContextBundleSchema } from "./types";
@@ -7,8 +7,6 @@ import type { ContextBundle } from "./types";
 import type { ClassificationOutput } from "../types/domain";
 import type { Source } from "../types/request";
 import { generateBundleId } from "../lib/ids";
-
-// --- Config loaders ---
 
 const DomainConfigSchema = z.array(
   z.object({
@@ -28,62 +26,38 @@ const ModeConfigSchema = z.array(
   })
 );
 
-function loadDomains() {
-  const filePath = join(process.cwd(), "config", "domains.json");
-  const raw = readFileSync(filePath, "utf-8");
-  const parsed = DomainConfigSchema.safeParse(JSON.parse(raw));
-  if (!parsed.success) {
-    throw new Error(`domains.json validation failed: ${JSON.stringify(parsed.error.issues)}`);
-  }
-  return parsed.data;
+const domainsResult = DomainConfigSchema.safeParse(rawDomains);
+if (!domainsResult.success) {
+  throw new Error(`domains.json validation failed: ${JSON.stringify(domainsResult.error.issues)}`);
 }
 
-function loadModes() {
-  const filePath = join(process.cwd(), "config", "modes.json");
-  const raw = readFileSync(filePath, "utf-8");
-  const parsed = ModeConfigSchema.safeParse(JSON.parse(raw));
-  if (!parsed.success) {
-    throw new Error(`modes.json validation failed: ${JSON.stringify(parsed.error.issues)}`);
-  }
-  return parsed.data;
+const modesResult = ModeConfigSchema.safeParse(rawModes);
+if (!modesResult.success) {
+  throw new Error(`modes.json validation failed: ${JSON.stringify(modesResult.error.issues)}`);
 }
 
-// Module-level caches
-let _domainsCache: ReturnType<typeof loadDomains> | null = null;
-let _modesCache: ReturnType<typeof loadModes> | null = null;
-
-function getDomains() {
-  if (!_domainsCache) _domainsCache = loadDomains();
-  return _domainsCache;
-}
-
-function getModes() {
-  if (!_modesCache) _modesCache = loadModes();
-  return _modesCache;
-}
-
-// --- Assembler ---
+const domains = domainsResult.data;
+const modes = modesResult.data;
 
 export async function assembleContext(
   classification: ClassificationOutput,
   source: Source
 ): Promise<ContextBundle> {
-  const { domains, reasoning_mode } = classification;
+  const { domains: classifiedDomains, reasoning_mode } = classification;
 
-  // Use primary domain (first in array) for domain_context
-  const primaryDomain = domains[0];
+  const primaryDomain = classifiedDomains[0];
 
-  const domainConfig = getDomains().find((d) => d.name === primaryDomain);
+  const domainConfig = domains.find((d) => d.name === primaryDomain);
   if (!domainConfig) {
     throw new Error(`Domain config not found for: ${primaryDomain}`);
   }
 
-  const modeConfig = getModes().find((m) => m.name === reasoning_mode);
+  const modeConfig = modes.find((m) => m.name === reasoning_mode);
   if (!modeConfig) {
     throw new Error(`Mode config not found for: ${reasoning_mode}`);
   }
 
-  const assets = lookupAssets(domains, reasoning_mode, source);
+  const assets = lookupAssets(classifiedDomains, reasoning_mode, source);
 
   const bundle = {
     bundle_id: generateBundleId(),
@@ -92,7 +66,6 @@ export async function assembleContext(
     mode_instruction: modeConfig.prompt_fragment,
   };
 
-  // Validate before returning
   const result = ContextBundleSchema.safeParse(bundle);
   if (!result.success) {
     throw new Error(`ContextBundle validation failed: ${JSON.stringify(result.error.issues)}`);
