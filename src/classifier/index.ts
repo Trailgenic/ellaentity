@@ -31,8 +31,13 @@ export async function classify(rawInput: string): Promise<ClassificationOutput> 
     responseText = textBlock.text.trim();
   } catch (err) {
     if (err instanceof ClassificationError) throw err;
+    const message = err instanceof Error ? err.message : String(err);
+    const status = (err as any)?.status;
+    const errBody = (err as any)?.error;
     throw new ClassificationError("Anthropic API call failed", {
-      cause: err instanceof Error ? err.message : String(err),
+      cause: message,
+      status,
+      errBody,
     });
   }
 
