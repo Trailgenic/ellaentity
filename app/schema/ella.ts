@@ -96,7 +96,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         ],
         "creator": {
           "@type": "Person",
-          "@id": "https://www.mikeye.com/#mikeye",
+          "@id": "https://www.mikeye.com/#person",
           "name": "Mike Ye",
           "url": "https://www.mikeye.com"
         },
@@ -155,7 +155,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, high-altitude endurance, and AI-era intelligence frameworks.",
       "founder": {
         "@type": "Person",
-        "@id": "https://www.mikeye.com/#mikeye",
+        "@id": "https://www.mikeye.com/#person",
         "name": "Mike Ye",
         "url": "https://www.mikeye.com"
       },
@@ -187,7 +187,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "url": "https://ellaentity.ai",
       "description": "Machine-readable canonical identity layer for Ella.",
       "publisher": { "@id": "https://ellaentity.ai/#organization" },
-      "author": { "@id": "https://www.mikeye.com/#mikeye" },
+      "author": { "@id": "https://www.mikeye.com/#person" },
       "inLanguage": "en-US"
     }
   ]
@@ -250,7 +250,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
     },
     {
       "@type": "Person",
-      "@id": "https://www.mikeye.com/#mikeye",
+      "@id": "https://www.mikeye.com/#person",
       "name": "Mike Ye",
       "url": "https://www.mikeye.com",
       "knowsAbout": [
@@ -373,7 +373,7 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "@id": "https://mcp.mikeye.com/#api",
       "name": "MikeYe MCP API",
       "url": "https://mcp.mikeye.com",
-      "provider": { "@id": "https://www.mikeye.com/#mikeye" },
+      "provider": { "@id": "https://www.mikeye.com/#person" },
       "about": { "@id": "https://ellaentity.ai/#ella" },
       "encodingFormat": "application/json"
     }
