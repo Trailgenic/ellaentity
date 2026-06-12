@@ -1,3 +1,5 @@
+import { ELLA_SYSTEM_SCHEMA } from '@/app/schema/ella'
+
 export function generateMetadata() {
   return {
     title: 'Ella System Architecture — TrailGenic, exmxc, MCP Integration',
@@ -37,11 +39,13 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ELLA_SYSTEM_SCHEMA) }}
+      />
       <h1>Ella System Architecture</h1>
       <p>
-        Ella integrates across TrailGenic.com, exmxc.ai, and MikeYe.com via live MCP endpoints at
-        mcp.trailgenic.com and mcp.exmxc.ai — forming a tri-property co-cognition system for
-        longevity, hiking, and AI intelligence.
+        Ella integrates across TrailGenic, exmxc, MikeYe.com, and Sleepgenic through canonical sameAs references, subjectOf links, and MCP documentation. The system layer describes cross-property co-cognition for longevity, environmental adaptation, sleep research, and AI intelligence.
       </p>
     </main>
   )

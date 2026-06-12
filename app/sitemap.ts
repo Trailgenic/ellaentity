@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: 'https://ellaentity.ai/works',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://ellaentity.ai/domains',
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -39,7 +45,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: 'https://ellaentity.ai/domains/sleep',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://ellaentity.ai/system',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://ellaentity.ai/system/mcp',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
