@@ -107,7 +107,7 @@ export const ELLA_FRAMEWORKS: EllaFramework[] = [
     url: 'https://www.exmxc.ai/#four-forces-of-ai-power',
     domain: 'ai-frameworks',
     description:
-      'The Four Forces of AI Power is Ella and Mike Ye’s flagship exmxc framework for interpreting durable advantage in the AI era through four structural layers: Compute, Interface, Alignment, and Energy.',
+      "The Four Forces of AI Power is Ella and Mike Ye's flagship exmxc framework for interpreting durable advantage in the AI era through four structural layers: Compute, Interface, Alignment, and Energy.",
     forces: [
       {
         name: 'Compute',
