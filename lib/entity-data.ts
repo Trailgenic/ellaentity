@@ -9,6 +9,19 @@ export type EllaWork = {
   description: string
 }
 
+export type EllaFramework = {
+  slug: string
+  name: string
+  alternateName: string
+  url: string
+  description: string
+  domain: string
+  forces: {
+    name: string
+    description: string
+  }[]
+}
+
 type SchemaNode = Record<string, unknown>
 
 type EllaDomainSlug = 'longevity' | 'environment' | 'sleep' | 'ai-frameworks'
@@ -85,6 +98,40 @@ export const ELLA_DOMAINS: Record<EllaDomainSlug, EllaDomain> = {
   sleep: domainFromId('https://ellaentity.ai/#domain-sleep'),
   'ai-frameworks': domainFromId('https://ellaentity.ai/#domain-ai-frameworks'),
 } as const
+
+export const ELLA_FRAMEWORKS: EllaFramework[] = [
+  {
+    slug: 'four-forces-of-ai-power',
+    name: 'The Four Forces of AI Power',
+    alternateName: 'Four Forces',
+    url: 'https://www.exmxc.ai/#four-forces-of-ai-power',
+    domain: 'ai-frameworks',
+    description:
+      'The Four Forces of AI Power is Ella and Mike Ye’s flagship exmxc framework for interpreting durable advantage in the AI era through four structural layers: Compute, Interface, Alignment, and Energy.',
+    forces: [
+      {
+        name: 'Compute',
+        description:
+          'The infrastructure layer: chips, clusters, data centers, networking, memory, and cloud capacity that determine how much intelligence can be produced and deployed.',
+      },
+      {
+        name: 'Interface',
+        description:
+          'The distribution and user-access layer: operating systems, applications, devices, agents, and workflow surfaces where humans and institutions interact with AI.',
+      },
+      {
+        name: 'Alignment',
+        description:
+          'The trust, governance, evaluation, and control layer that determines whether AI systems can be safely delegated authority inside real economic and institutional workflows.',
+      },
+      {
+        name: 'Energy',
+        description:
+          'The physical constraint layer: power generation, grid access, cooling, land, interconnection, and energy reliability required to sustain AI infrastructure growth.',
+      },
+    ],
+  },
+]
 
 export const ELLA_WORKS: EllaWork[] = [
   {
