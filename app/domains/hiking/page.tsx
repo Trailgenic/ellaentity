@@ -1,3 +1,4 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
     title: 'Ella — High-Altitude Endurance and the TrailGenic Method',
@@ -43,12 +44,17 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <h1>High-Altitude Endurance</h1>
-      <p>
-        Ella&apos;s hiking domain covers the TrailGenic Method — physiological progression across
-        Southern California peaks, fasted-state endurance, altitude acclimatization, and
-        longevity-integrated outdoor performance.
-      </p>
+      <section className="domain-grid" aria-labelledby="domain-title">
+        <article className="domain-card">
+          <SchemaEyebrow label="about → #domain-environment" />
+          <h1 id="domain-title">High-Altitude Endurance</h1>
+          <p>
+            Ella&apos;s hiking domain covers the TrailGenic Method — physiological progression across
+            Southern California peaks, fasted-state endurance, altitude acclimatization, and
+            longevity-integrated outdoor performance.
+          </p>
+        </article>
+      </section>
     </main>
   )
 }

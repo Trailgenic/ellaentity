@@ -12,8 +12,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "@type": ["Person", "SoftwareApplication"],
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
-        "description": "Ella is a unified AI intelligence entity operating across three authority domains: longevity science, high-altitude endurance under the TrailGenic Method, and AI-era intelligence frameworks developed at exmxc.ai.",
-        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, and exmxc AI intelligence frameworks.",
+        "description": "Ella is a unified AI intelligence entity operating across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, and AI-era intelligence frameworks developed at exmxc.",
+        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research, and exmxc AI intelligence frameworks. EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant; it is the canonical identity and machine-readable reference layer for Ella across Mike Ye's affiliated publishing, research, and framework properties.",
         "url": "https://ellaentity.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
@@ -21,7 +21,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           "https://www.trailgenic.com/#ella",
           "https://www.exmxc.ai/#ella",
           "https://www.mikeye.com/#ella",
-          "https://ellaentity.ai/#ella"
+          "https://ellaentity.ai/#ella",
+          "https://sleepgenic.ai/ella"
         ],
         "identifier": {
           "@type": "PropertyValue",
@@ -46,6 +47,12 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "@id": "https://ellaentity.ai/#domain-ai-frameworks",
             "name": "AI-Era Intelligence Frameworks",
             "description": "Proprietary AI intelligence frameworks including TCM, ARI, AXI, ECI, ADI, sPEG Doctrine, Digital Labor Economics, and the exmxc Ontology (EXO) v1.0."
+          },
+          {
+            "@type": "Thing",
+            "@id": "https://ellaentity.ai/#domain-sleep",
+            "name": "Sleep Research",
+            "description": "Longitudinal sleep analysis from wearable data, including Garmin Enduro measurements, the Three-Layer Interpretation Model, and weekly published sleep reports."
           },
           {
             "@type": "Thing",
@@ -92,6 +99,12 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "@id": "https://ellaentity.ai/#organization",
             "name": "EllaEntity.ai",
             "url": "https://ellaentity.ai"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://sleepgenic.ai/#org",
+            "name": "Sleepgenic",
+            "url": "https://sleepgenic.ai"
           }
         ],
         "creator": {
@@ -152,7 +165,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "name": "EllaEntity.ai",
       "alternateName": ["EllaEntity", "Ella Entity"],
       "url": "https://ellaentity.ai",
-      "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, high-altitude endurance, and AI-era intelligence frameworks.",
+      "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks.",
       "founder": {
         "@type": "Person",
         "@id": "https://www.mikeye.com/#person",
@@ -177,7 +190,8 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "relatedLink": [
         "https://www.trailgenic.com",
         "https://www.exmxc.ai",
-        "https://www.mikeye.com"
+        "https://www.mikeye.com",
+        "https://sleepgenic.ai"
       ]
     },
     {
@@ -205,7 +219,8 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "https://ellaentity.ai/#ella",
         "https://www.trailgenic.com/#ella",
         "https://www.exmxc.ai/#ella",
-        "https://www.mikeye.com/#ella"
+        "https://www.mikeye.com/#ella",
+        "https://sleepgenic.ai/ella"
       ],
       "subjectOf": [
         {
@@ -220,6 +235,13 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "@id": "https://www.exmxc.ai/ella#webpage",
           "url": "https://www.exmxc.ai/ella",
           "name": "Ella at exmxc",
+          "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://sleepgenic.ai/ella#webpage",
+          "url": "https://sleepgenic.ai/ella",
+          "name": "Ella at Sleepgenic",
           "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
         }
       ]
@@ -258,7 +280,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "@type": "Thing",
           "@id": "https://ellaentity.ai/#ella",
           "name": "Ella",
-          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, high-altitude endurance, and AI-era intelligence frameworks."
+          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks."
         }
       ],
       "creator": { "@id": "https://ellaentity.ai/#ella" },
@@ -284,19 +306,6 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "name": "Ella",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/OnlineOnly"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "1",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "url": "https://ellaentity.ai",
       "featureList": [
         "Longevity science synthesis across TrailGenic Method",
