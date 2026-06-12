@@ -1,5 +1,28 @@
 import type { Metadata } from 'next'
+import { Fragment_Mono, Newsreader, Young_Serif } from 'next/font/google'
+import { RidgeFooter } from '@/app/components/RidgeFooter'
+import { SiteHeader } from '@/app/components/SiteHeader'
 import { ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA } from '@/app/schema/ella'
+import './globals.css'
+
+const display = Young_Serif({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+})
+
+const body = Newsreader({
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-body',
+})
+
+const machine = Fragment_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-machine',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ellaentity.ai'),
@@ -26,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable} ${machine.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -37,7 +60,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ELLA_ORG_SCHEMA) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <RidgeFooter />
+      </body>
     </html>
   )
 }

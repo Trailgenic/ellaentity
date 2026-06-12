@@ -1,3 +1,5 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+
 import { ELLA_MCP_SCHEMA } from '@/app/schema/ella'
 
 const endpoints = [
@@ -55,22 +57,28 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ELLA_MCP_SCHEMA) }}
       />
 
-      <h1>Ella MCP Access</h1>
-      <p>
-        This page documents the machine interfaces associated with Ella. The MCP schema is emitted
-        only on this page so crawlers can distinguish general site identity from protocol access
-        documentation.
-      </p>
+      <section className="content-panel" aria-labelledby="mcp-title">
+        <h1 id="mcp-title">Ella MCP Access</h1>
+        <p>
+          This page documents the machine interfaces associated with Ella. The MCP schema is emitted
+          only on this page so crawlers can distinguish general site identity from protocol access
+          documentation.
+        </p>
+      </section>
 
       <section aria-labelledby="mcp-endpoints">
+        <SchemaEyebrow label="potentialAction → EntryPoint" />
         <h2 id="mcp-endpoints">MCP endpoints</h2>
-        {endpoints.map((endpoint) => (
-          <article key={endpoint.host}>
-            <h3>{endpoint.host}</h3>
-            <p><a href={endpoint.url}>{endpoint.url}</a></p>
-            <p>{endpoint.exposes}</p>
-          </article>
-        ))}
+        <div className="work-list">
+          {endpoints.map((endpoint) => (
+            <article className="work-card" key={endpoint.host}>
+              <span className="work-type">EntryPoint</span>
+              <h3>{endpoint.host}</h3>
+              <p><a href={endpoint.url}>{endpoint.url}</a></p>
+              <p>{endpoint.exposes}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   )

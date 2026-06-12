@@ -1,3 +1,5 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+
 type Work = {
   name: string
   url: string
@@ -93,25 +95,31 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <h1>Ella Works</h1>
-      <p>
-        This page lists Ella&apos;s co-authored output in a format intended for both human readers and
-        structured-data consumers. Each work is rendered from the same data record that feeds the
-        JSON-LD graph, so new works can be appended without duplicating prose and schema markup.
-      </p>
+      <section className="content-panel" aria-labelledby="works-title">
+        <h1 id="works-title">Ella Works</h1>
+        <p>
+          This page lists Ella&apos;s co-authored output in a format intended for both human readers and
+          structured-data consumers. Each work is rendered from the same data record that feeds the
+          JSON-LD graph, so new works can be appended without duplicating prose and schema markup.
+        </p>
+      </section>
 
       <section aria-labelledby="co-authored-output">
+        <SchemaEyebrow label="author → ellaentity.ai/#ella" />
         <h2 id="co-authored-output">Co-authored output</h2>
-        {works.map((work) => (
-          <article key={work.url}>
-            <h3><a href={work.url}>{work.name}</a></h3>
-            <p>{work.description}</p>
-            <p>
-              Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}
-              <code>https://ellaentity.ai/#ella</code>.
-            </p>
-          </article>
-        ))}
+        <div className="work-list">
+          {works.map((work) => (
+            <article className="work-card" key={work.url}>
+              <span className="work-type">{work.type}</span>
+              <h3><a href={work.url}>{work.name}</a></h3>
+              <p>{work.description}</p>
+              <p>
+                Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}
+                <code>https://ellaentity.ai/#ella</code>.
+              </p>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   )

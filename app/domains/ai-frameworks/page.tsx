@@ -1,3 +1,4 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
     title: 'Ella — AI-Era Intelligence Frameworks',
@@ -43,12 +44,17 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <h1>AI-Era Intelligence Frameworks</h1>
-      <p>
-        Ella&apos;s AI frameworks domain covers the Tokenized Cognition Model (TCM), Agent Readiness
-        Index (ARI), Agent Experience Integrity (AXI), Entity Clarity Index (ECI), Agent Discovery
-        Index (ADI), sPEG Doctrine, and the exmxc Ontology (EXO) v1.0.
-      </p>
+      <section className="domain-grid" aria-labelledby="domain-title">
+        <article className="domain-card">
+          <SchemaEyebrow label="about → #domain-ai-frameworks" />
+          <h1 id="domain-title">AI-Era Intelligence Frameworks</h1>
+          <p>
+            Ella&apos;s AI frameworks domain covers the Tokenized Cognition Model (TCM), Agent Readiness
+            Index (ARI), Agent Experience Integrity (AXI), Entity Clarity Index (ECI), Agent Discovery
+            Index (ADI), sPEG Doctrine, and the exmxc Ontology (EXO) v1.0.
+          </p>
+        </article>
+      </section>
     </main>
   )
 }

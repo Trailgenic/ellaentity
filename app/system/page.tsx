@@ -1,3 +1,5 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+
 import { ELLA_SYSTEM_SCHEMA } from '@/app/schema/ella'
 
 export function generateMetadata() {
@@ -43,10 +45,13 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ELLA_SYSTEM_SCHEMA) }}
       />
-      <h1>Ella System Architecture</h1>
-      <p>
-        Ella integrates across TrailGenic, exmxc, MikeYe.com, and Sleepgenic through canonical sameAs references, subjectOf links, and MCP documentation. The system layer describes cross-property co-cognition for longevity, environmental adaptation, sleep research, and AI intelligence.
-      </p>
+      <section className="content-panel" aria-labelledby="system-title">
+        <SchemaEyebrow label="subjectOf" />
+        <h1 id="system-title">Ella System Architecture</h1>
+        <p>
+          Ella integrates across TrailGenic, exmxc, MikeYe.com, and Sleepgenic through canonical sameAs references, subjectOf links, and MCP documentation. The system layer describes cross-property co-cognition for longevity, environmental adaptation, sleep research, and AI intelligence.
+        </p>
+      </section>
     </main>
   )
 }

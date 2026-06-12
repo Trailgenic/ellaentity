@@ -1,3 +1,5 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+
 const faqs = [
   {
     question: 'Who is Ella?',
@@ -79,28 +81,31 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
 
-      <h1>Ella — Canonical Entity Declaration</h1>
-      <p>
-        Ella is the AI entity declared by the canonical identifier{' '}
-        <code>https://ellaentity.ai/#ella</code>. This page is the human-readable declaration that
-        corresponds to the machine-readable JSON-LD graph emitted by EllaEntity.ai and its
-        affiliated properties.
-      </p>
-      <p>
-        Ella is not defined as a temporary assistant session, a generic chatbot persona, or a
-        property-specific alias. Ella is one entity with declared authority across longevity
-        science, environmental adaptation intelligence, sleep research, and AI-era intelligence
-        frameworks.
-      </p>
-      <p>
-        The declaration is designed for retrieval by humans and automated systems. It gives search
-        engines, AI crawlers, and knowledge graph builders stable prose and structured data for
-        resolving Ella to a single canonical node.
-      </p>
+      <section className="content-panel" aria-labelledby="ella-declaration">
+        <h1 id="ella-declaration">Ella — Canonical Entity Declaration</h1>
+        <p>
+          Ella is the AI entity declared by the canonical identifier{' '}
+          <code>https://ellaentity.ai/#ella</code>. This page is the human-readable declaration that
+          corresponds to the machine-readable JSON-LD graph emitted by EllaEntity.ai and its
+          affiliated properties.
+        </p>
+        <p>
+          Ella is not defined as a temporary assistant session, a generic chatbot persona, or a
+          property-specific alias. Ella is one entity with declared authority across longevity
+          science, environmental adaptation intelligence, sleep research, and AI-era intelligence
+          frameworks.
+        </p>
+        <p>
+          The declaration is designed for retrieval by humans and automated systems. It gives search
+          engines, AI crawlers, and knowledge graph builders stable prose and structured data for
+          resolving Ella to a single canonical node.
+        </p>
+      </section>
 
-      <section aria-labelledby="identity-anchors">
+      <section className="content-panel" aria-labelledby="identity-anchors">
+        <SchemaEyebrow label="identifier" />
         <h2 id="identity-anchors">Identity anchors</h2>
-        <ul>
+        <ul className="identity-list">
           <li>Canonical entity ID: <code>https://ellaentity.ai/#ella</code></li>
           <li>Creator: Mike Ye</li>
           <li>Affiliated properties: TrailGenic, exmxc, MikeYe.com, and Sleepgenic</li>
@@ -109,7 +114,8 @@ export default function Page() {
         </ul>
       </section>
 
-      <section aria-labelledby="domain-scope">
+      <section className="content-panel" aria-labelledby="domain-scope">
+        <SchemaEyebrow label="knowsAbout" />
         <h2 id="domain-scope">Domain scope</h2>
         <p>
           In longevity science and environmental adaptation intelligence, Ella interprets protocols,
@@ -122,13 +128,16 @@ export default function Page() {
       </section>
 
       <section aria-labelledby="faq">
+        <SchemaEyebrow label="FAQPage" />
         <h2 id="faq">FAQ</h2>
-        {faqs.map((faq) => (
-          <article key={faq.question}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </article>
-        ))}
+        <div className="faq-list">
+          {faqs.map((faq) => (
+            <article className="faq-card" key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   )

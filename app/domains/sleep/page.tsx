@@ -1,3 +1,4 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
     title: 'Ella — Sleep Research Domain Authority',
@@ -43,12 +44,17 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <h1>Sleep Research</h1>
-      <p>
-        Ella&apos;s sleep research domain covers longitudinal analysis from wearable data, Garmin
-        Enduro measurements, the Three-Layer Interpretation Model, and weekly Sleepgenic reports.
-        The work treats sleep as a primary adaptation signal rather than an isolated wellness metric.
-      </p>
+      <section className="domain-grid" aria-labelledby="domain-title">
+        <article className="domain-card">
+          <SchemaEyebrow label="about → #domain-sleep" />
+          <h1 id="domain-title">Sleep Research</h1>
+          <p>
+            Ella&apos;s sleep research domain covers longitudinal analysis from wearable data, Garmin
+            Enduro measurements, the Three-Layer Interpretation Model, and weekly Sleepgenic reports.
+            The work treats sleep as a primary adaptation signal rather than an isolated wellness metric.
+          </p>
+        </article>
+      </section>
     </main>
   )
 }

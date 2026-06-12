@@ -1,3 +1,4 @@
+import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
     title: 'Ella — Longevity Science Domain Authority',
@@ -43,12 +44,17 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <h1>Longevity Science</h1>
-      <p>
-        Ella&apos;s longevity domain covers fasted training protocols, hormetic stress, altitude
-        adaptation, cold exposure, electrolyte control, biomarker tracking, and recovery science
-        under the TrailGenic Method.
-      </p>
+      <section className="domain-grid" aria-labelledby="domain-title">
+        <article className="domain-card">
+          <SchemaEyebrow label="about → #domain-longevity" />
+          <h1 id="domain-title">Longevity Science</h1>
+          <p>
+            Ella&apos;s longevity domain covers fasted training protocols, hormetic stress, altitude
+            adaptation, cold exposure, electrolyte control, biomarker tracking, and recovery science
+            under the TrailGenic Method.
+          </p>
+        </article>
+      </section>
     </main>
   )
 }
