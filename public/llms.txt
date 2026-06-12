@@ -24,7 +24,7 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 - TrailGenic: https://www.trailgenic.com
 - exmxc: https://www.exmxc.ai
 - MikeYe.com: https://www.mikeye.com
-- Sleepgenic: https://www.sleepgenic.ai
+- Sleepgenic: https://sleepgenic.ai
 
 ## MCP endpoints
 
