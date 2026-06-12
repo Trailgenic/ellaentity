@@ -10,6 +10,8 @@ https://ellaentity.ai/#ella
 
 This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, and the four affiliated domains TrailGenic, exmxc, MikeYe.com, and Sleepgenic.
 
+EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is the canonical identity and machine-readable reference layer for Ella as she appears across Mike Ye's affiliated publishing, research, and framework properties.
+
 ## Domains
 
 - Longevity Science: TrailGenic physiology, protocols, biomarkers, recovery, altitude, and hormetic stress.

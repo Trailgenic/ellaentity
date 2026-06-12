@@ -200,6 +200,11 @@ export default function Home() {
           identity is anchored by the canonical ID <code>https://ellaentity.ai/#ella</code>, creator
           Mike Ye, and the four affiliated domains TrailGenic, exmxc, MikeYe.com, and Sleepgenic.
         </p>
+        <p>
+          EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is the
+          canonical identity and machine-readable reference layer for Ella as she appears across Mike
+          Ye&apos;s affiliated publishing, research, and framework properties.
+        </p>
       </section>
 
       <section aria-labelledby="domain-authority">
