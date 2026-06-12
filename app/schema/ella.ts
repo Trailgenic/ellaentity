@@ -22,7 +22,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           "https://www.exmxc.ai/#ella",
           "https://www.mikeye.com/#ella",
           "https://ellaentity.ai/#ella",
-          "https://www.sleepgenic.ai/#ella"
+          "https://sleepgenic.ai/ella"
         ],
         "identifier": {
           "@type": "PropertyValue",
@@ -102,9 +102,9 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           },
           {
             "@type": "Organization",
-            "@id": "https://www.sleepgenic.ai/#organization",
+            "@id": "https://sleepgenic.ai/#org",
             "name": "Sleepgenic",
-            "url": "https://www.sleepgenic.ai"
+            "url": "https://sleepgenic.ai"
           }
         ],
         "creator": {
@@ -191,7 +191,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
         "https://www.trailgenic.com",
         "https://www.exmxc.ai",
         "https://www.mikeye.com",
-        "https://www.sleepgenic.ai"
+        "https://sleepgenic.ai"
       ]
     },
     {
@@ -220,7 +220,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "https://www.trailgenic.com/#ella",
         "https://www.exmxc.ai/#ella",
         "https://www.mikeye.com/#ella",
-        "https://www.sleepgenic.ai/#ella"
+        "https://sleepgenic.ai/ella"
       ],
       "subjectOf": [
         {
@@ -239,8 +239,8 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         },
         {
           "@type": "WebPage",
-          "@id": "https://www.sleepgenic.ai/ella#webpage",
-          "url": "https://www.sleepgenic.ai/ella",
+          "@id": "https://sleepgenic.ai/ella#webpage",
+          "url": "https://sleepgenic.ai/ella",
           "name": "Ella at Sleepgenic",
           "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
         }
