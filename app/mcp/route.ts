@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import {
   ELLA_COCOGNITION,
   ELLA_DOMAINS,
+  ELLA_FRAMEWORKS,
   ELLA_IDENTITY,
   ELLA_SURFACES,
   ELLA_WORKS,
@@ -12,10 +13,12 @@ const SERVER_INFO = { name: 'ellaentity-mcp', version: '1.0.0' }
 const TOOL_NAMES = [
   'ella.identity.get',
   'ella.domains.get',
+  'ella.frameworks.get',
   'ella.works.get',
   'ella.collaboration.get',
 ] as const
 const DOMAIN_NAMES = ['longevity', 'environment', 'sleep', 'ai-frameworks'] as const
+const FRAMEWORK_SLUGS = ['four-forces-of-ai-power'] as const
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -52,6 +55,18 @@ const tools = [
       type: 'object',
       properties: {
         domain: { type: 'string', enum: DOMAIN_NAMES },
+      },
+      additionalProperties: false,
+    },
+  },
+  {
+    name: 'ella.frameworks.get',
+    description:
+      "Ella and Mike Ye's declared frameworks. Currently returns The Four Forces of AI Power: Compute, Interface, Alignment, and Energy.",
+    inputSchema: {
+      type: 'object',
+      properties: {
+        framework: { type: 'string', enum: FRAMEWORK_SLUGS },
       },
       additionalProperties: false,
     },
@@ -138,6 +153,25 @@ function callTool(name: unknown, args: JsonObject) {
       DOMAIN_NAMES.includes(domain as (typeof DOMAIN_NAMES)[number])
     ) {
       return toolContent(ELLA_DOMAINS[domain as keyof typeof ELLA_DOMAINS])
+    }
+
+    return null
+  }
+
+  if (name === 'ella.frameworks.get') {
+    const keys = Object.keys(args)
+    const framework = args.framework
+
+    if (keys.length === 0) {
+      return toolContent(ELLA_FRAMEWORKS)
+    }
+
+    if (
+      keys.length === 1 &&
+      typeof framework === 'string' &&
+      FRAMEWORK_SLUGS.includes(framework as (typeof FRAMEWORK_SLUGS)[number])
+    ) {
+      return toolContent(ELLA_FRAMEWORKS.find((item) => item.slug === framework))
     }
 
     return null
