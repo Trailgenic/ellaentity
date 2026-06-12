@@ -31,6 +31,7 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 - TrailGenic MCP: https://mcp.trailgenic.com
 - exmxc MCP: https://mcp.exmxc.ai
 - MikeYe MCP: https://mcp.mikeye.com
+- EllaEntity MCP (native): https://mcp.ellaentity.ai
 
 ## Entity surfaces
 

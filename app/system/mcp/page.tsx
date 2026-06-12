@@ -18,6 +18,11 @@ const endpoints = [
     url: 'https://mcp.mikeye.com',
     exposes: 'Mike Ye institutional identity, operator context, creator attribution, and cross-property intelligence references.',
   },
+  {
+    host: 'mcp.ellaentity.ai',
+    url: 'https://mcp.ellaentity.ai',
+    exposes: 'It serves the canonical identity graph directly through ella.identity.get, ella.domains.get, ella.works.get, and ella.collaboration.get.',
+  },
 ]
 
 export function generateMetadata() {

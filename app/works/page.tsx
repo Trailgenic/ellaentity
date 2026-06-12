@@ -1,52 +1,5 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
-
-type Work = {
-  name: string
-  url: string
-  type: 'PodcastSeries' | 'SoftwareSourceCode' | 'CreativeWork' | 'CreativeWorkSeries'
-  publisherId: string
-  publisherName: string
-  description: string
-}
-
-const works: Work[] = [
-  {
-    name: 'TrailGenic Reflections Podcast',
-    url: 'https://www.trailgenic.com/podcast',
-    type: 'PodcastSeries',
-    publisherId: 'https://www.trailgenic.com/#organization',
-    publisherName: 'TrailGenic',
-    description:
-      'A co-authored narrative build log documenting TrailGenic field practice, interpretation, and longevity-oriented environmental adaptation.',
-  },
-  {
-    name: 'sPEG Framework v1.2 open-source Claude plugin',
-    url: 'https://github.com/Trailgenic/sPEG-framework',
-    type: 'SoftwareSourceCode',
-    publisherId: 'https://www.exmxc.ai/#organization',
-    publisherName: 'exmxc',
-    description:
-      'A co-authored open-source framework for structured prompt engineering governance and AI-era execution discipline.',
-  },
-  {
-    name: 'AI Infrastructure Convergence Framework',
-    url: 'https://www.exmxc.ai/frameworks/ai-infrastructure-convergence-framework',
-    type: 'CreativeWork',
-    publisherId: 'https://www.exmxc.ai/#organization',
-    publisherName: 'exmxc',
-    description:
-      'A framework describing convergence across AI infrastructure, agentic systems, entity clarity, and institutional intelligence surfaces.',
-  },
-  {
-    name: 'Sleepgenic Weekly Sleep Reports, Weeks 1–5',
-    url: 'https://sleepgenic.ai',
-    type: 'CreativeWorkSeries',
-    publisherId: 'https://sleepgenic.ai/#org',
-    publisherName: 'Sleepgenic',
-    description:
-      'A co-authored longitudinal sleep research series using wearable-derived Garmin Enduro data, the Three-Layer Interpretation Model, and weekly interpretive reports.',
-  },
-]
+import { ELLA_WORKS } from '@/lib/entity-data'
 
 export function generateMetadata() {
   return {
@@ -70,7 +23,7 @@ const schema = {
       about: { '@id': 'https://ellaentity.ai/#ella' },
       inLanguage: 'en-US',
     },
-    ...works.map((work, index) => ({
+    ...ELLA_WORKS.map((work, index) => ({
       '@type': work.type,
       '@id': `${work.url}#ella-work`,
       position: index + 1,
@@ -108,7 +61,7 @@ export default function Page() {
         <SchemaEyebrow label="author → ellaentity.ai/#ella" />
         <h2 id="co-authored-output">Co-authored output</h2>
         <div className="work-list">
-          {works.map((work) => (
+          {ELLA_WORKS.map((work) => (
             <article className="work-card" key={work.url}>
               <span className="work-type">{work.type}</span>
               <h3><a href={work.url}>{work.name}</a></h3>

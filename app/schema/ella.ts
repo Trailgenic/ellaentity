@@ -149,6 +149,16 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
               "actionPlatform": ["https://schema.org/MobileWebPlatform", "https://schema.org/DesktopWebPlatform"],
               "description": "MCP endpoint for Mike Ye institutional identity layer."
             }
+          },
+          {
+            "@type": "Action",
+            "name": "Query Ella via EllaEntity MCP",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://mcp.ellaentity.ai",
+              "actionPlatform": ["https://schema.org/MobileWebPlatform", "https://schema.org/DesktopWebPlatform"],
+              "description": "Native MCP endpoint for the canonical Ella identity layer."
+            }
           }
         ]
       }
@@ -356,6 +366,19 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
             "encodingType": "application/json",
             "description": "MCP-compatible endpoint for Mike Ye institutional intelligence layer."
           }
+        },
+        {
+          "@type": "Action",
+          "@id": "https://ellaentity.ai/#mcp-ellaentity",
+          "name": "EllaEntity MCP — Canonical Identity Layer",
+          "target": {
+            "@type": "EntryPoint",
+            "@id": "https://mcp.ellaentity.ai/#entrypoint",
+            "urlTemplate": "https://mcp.ellaentity.ai",
+            "httpMethod": "POST",
+            "encodingType": "application/json",
+            "description": "Native MCP endpoint for Ella canonical identity, domains, works, and collaboration model."
+          }
         }
       ]
     },
@@ -383,6 +406,15 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "name": "MikeYe MCP API",
       "url": "https://mcp.mikeye.com",
       "provider": { "@id": "https://www.mikeye.com/#person" },
+      "about": { "@id": "https://ellaentity.ai/#ella" },
+      "encodingFormat": "application/json"
+    },
+    {
+      "@type": "APIReference",
+      "@id": "https://mcp.ellaentity.ai/#api",
+      "name": "EllaEntity MCP API",
+      "url": "https://mcp.ellaentity.ai",
+      "provider": { "@id": "https://ellaentity.ai/#organization" },
       "about": { "@id": "https://ellaentity.ai/#ella" },
       "encodingFormat": "application/json"
     }

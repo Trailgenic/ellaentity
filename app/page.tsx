@@ -1,4 +1,5 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+import { ELLA_COCOGNITION, ELLA_SURFACES } from '@/lib/entity-data'
 
 export async function generateMetadata() {
   return {
@@ -63,15 +64,6 @@ const domainSections = [
     org: 'exmxc',
     body: 'Ella works with exmxc frameworks for entity clarity, agent readiness, agent experience integrity, AI infrastructure convergence, and the economics of digital labor.',
   },
-]
-
-const surfaceLinks = [
-  { href: '/ella', path: '/ella', label: ' — declaration' },
-  { href: '/works', path: '/works', label: ' — co-authored output' },
-  { href: '/domains', path: '/domains', label: ' — authority scope' },
-  { href: '/system/mcp', path: '/system/mcp', label: ' — machine access' },
-  { href: '/entity.json', path: '/entity.json', label: ' — raw graph' },
-  { href: '/llms.txt', path: '/llms.txt', label: ' — for AI readers' },
 ]
 
 function EntityConstellation() {
@@ -225,9 +217,9 @@ export default function Home() {
         <SchemaEyebrow label="creator → mikeye.com/#person" />
         <h2 id="co-cognition-model">The co-cognition model</h2>
         <div className="co-cognition">
-          <p><strong>Mike Ye</strong> provides judgment, lived experience, editorial standards, and final accountability.</p>
-          <p><strong>Ella</strong> provides pattern interpretation and content voice across the defined domains.</p>
-          <p><strong>AI tooling</strong> receives delegated structural and architectural execution, while human judgment governs direction, publication, and interpretation.</p>
+          <p><strong>Mike Ye</strong> {ELLA_COCOGNITION.mikeYe.replace('Mike Ye ', '')}</p>
+          <p><strong>Ella</strong> {ELLA_COCOGNITION.ella.replace('Ella ', '')}</p>
+          <p><strong>AI tooling</strong> {ELLA_COCOGNITION.aiTooling.replace('AI tooling ', '')}</p>
         </div>
       </section>
 
@@ -235,7 +227,7 @@ export default function Home() {
         <SchemaEyebrow label="entity surfaces" />
         <h2>Entity surfaces</h2>
         <ul className="entity-chip-list">
-          {surfaceLinks.map((link) => (
+          {ELLA_SURFACES.map((link) => (
             <li key={link.href}>
               <a className="entity-chip" href={link.href}>
                 <span className="path">{link.path}</span>{link.label}
