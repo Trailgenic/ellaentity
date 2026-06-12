@@ -39,9 +39,9 @@ const works: Work[] = [
   },
   {
     name: 'Sleepgenic Weekly Sleep Reports, Weeks 1–5',
-    url: 'https://www.sleepgenic.ai',
+    url: 'https://sleepgenic.ai',
     type: 'CreativeWorkSeries',
-    publisherId: 'https://www.sleepgenic.ai/#organization',
+    publisherId: 'https://sleepgenic.ai/#org',
     publisherName: 'Sleepgenic',
     description:
       'A co-authored longitudinal sleep research series using wearable-derived Garmin Enduro data, the Three-Layer Interpretation Model, and weekly interpretive reports.',

@@ -1,66 +1,39 @@
 import { MetadataRoute } from 'next'
 
+const BASE_URL = 'https://ellaentity.ai'
+
+const ROUTES = [
+  { path: '/', changeFrequency: 'monthly', priority: 1 },
+  { path: '/ella', changeFrequency: 'monthly', priority: 1 },
+  { path: '/works', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/longevity', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/hiking', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/ai-frameworks', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/sleep', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/system', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/system/mcp', changeFrequency: 'monthly', priority: 0.8 },
+] as const
+
+// Update a route's date only when its content materially changes.
+const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
+  '/': '2026-06-11',
+  '/ella': '2026-06-11',
+  '/works': '2026-06-11',
+  '/domains': '2026-06-11',
+  '/domains/longevity': '2026-06-11',
+  '/domains/hiking': '2026-06-11',
+  '/domains/ai-frameworks': '2026-06-11',
+  '/domains/sleep': '2026-06-11',
+  '/system': '2026-06-11',
+  '/system/mcp': '2026-06-11',
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://ellaentity.ai',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: 'https://ellaentity.ai/ella',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: 'https://ellaentity.ai/works',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/domains',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/domains/longevity',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/domains/hiking',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/domains/ai-frameworks',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/domains/sleep',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://ellaentity.ai/system',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://ellaentity.ai/system/mcp',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
+  return ROUTES.map(({ path, changeFrequency, priority }) => ({
+    url: path === '/' ? BASE_URL : `${BASE_URL}${path}`,
+    lastModified: new Date(LAST_MODIFIED[path]),
+    changeFrequency,
+    priority,
+  }))
 }

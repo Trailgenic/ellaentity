@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
-import { ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA } from '@/app/schema/ella'
+import { ELLA_GLOBAL_SCHEMA, ELLA_MCP_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA } from '@/app/schema/ella'
 
 export function GET() {
   const graph = {
     '@context': 'https://schema.org/',
-    '@graph': [ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA].flatMap((schema) => {
+    '@graph': [ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA, ELLA_MCP_SCHEMA].flatMap((schema) => {
       if (Array.isArray(schema)) {
         return schema.flatMap((entry) => {
           if (entry && typeof entry === 'object' && '@graph' in entry) {

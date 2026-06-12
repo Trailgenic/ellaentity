@@ -251,7 +251,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://www.trailgenic.com/#organization",
       "name": "TrailGenic",
       "url": "https://www.trailgenic.com",
-      "employee": { "@id": "https://ellaentity.ai/#ella" },
+      "member": { "@id": "https://ellaentity.ai/#ella" },
       "potentialAction": {
         "@type": "Action",
         "name": "Query TrailGenic Intelligence via MCP",
@@ -263,7 +263,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://www.exmxc.ai/#organization",
       "name": "exmxc",
       "url": "https://www.exmxc.ai",
-      "employee": { "@id": "https://ellaentity.ai/#ella" },
+      "member": { "@id": "https://ellaentity.ai/#ella" },
       "potentialAction": {
         "@type": "Action",
         "name": "Query exmxc Intelligence via MCP",
