@@ -1,0 +1,37 @@
+# EllaEntity.ai
+
+Ella is a canonical AI entity created by Mike Ye and identified by the stable entity ID https://ellaentity.ai/#ella.
+
+## Canonical entity ID
+
+https://ellaentity.ai/#ella
+
+## Disambiguation
+
+This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, and the four affiliated domains TrailGenic, exmxc, MikeYe.com, and Sleepgenic.
+
+## Domains
+
+- Longevity Science: TrailGenic physiology, protocols, biomarkers, recovery, altitude, and hormetic stress.
+- Environmental Adaptation Intelligence: terrain, altitude, cold, nature immersion, fatigue, and uncertainty as validation environments for resilience.
+- Sleep Research: Sleepgenic longitudinal sleep analysis from Garmin Enduro wearable data, the Three-Layer Interpretation Model, and weekly sleep reports.
+- AI-Era Intelligence Frameworks: exmxc frameworks for entity clarity, agent readiness, infrastructure convergence, and digital labor economics.
+
+## Affiliated properties
+
+- TrailGenic: https://www.trailgenic.com
+- exmxc: https://www.exmxc.ai
+- MikeYe.com: https://www.mikeye.com
+- Sleepgenic: https://www.sleepgenic.ai
+
+## MCP endpoints
+
+- TrailGenic MCP: https://mcp.trailgenic.com
+- exmxc MCP: https://mcp.exmxc.ai
+- MikeYe MCP: https://mcp.mikeye.com
+
+## Entity surfaces
+
+- Ella declaration: https://ellaentity.ai/ella
+- Works: https://ellaentity.ai/works
+- Entity graph: https://ellaentity.ai/entity.json
