@@ -1,35 +1,55 @@
+import type { Metadata } from 'next'
+import { Fragment_Mono, Newsreader, Young_Serif } from 'next/font/google'
+import { RidgeFooter } from '@/app/components/RidgeFooter'
+import { SiteHeader } from '@/app/components/SiteHeader'
 import { ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA } from '@/app/schema/ella'
+import './globals.css'
 
-export const metadata = {
-  title: "Ella — Entity Root",
-  description: "Canonical entity root for Ella",
-};
+const display = Young_Serif({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+})
+
+const body = Newsreader({
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-body',
+})
+
+const machine = Fragment_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-machine',
+})
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://ellaentity.ai'),
+  title: {
+    default: 'EllaEntity.ai — Canonical Identity Layer for Ella',
+    template: '%s | EllaEntity.ai',
+  },
+  description:
+    'Canonical machine-readable identity layer for Ella, the AI entity created by Mike Ye and declared across affiliated domains.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    types: {
+      'application/ld+json': '/entity.json',
+    },
+  },
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  const entitySchema = {
-    "@context": "https://schema.org",
-    "@type": "Thing",
-    name: "Ella",
-    url: "https://ellaentity.ai",
-    sameAs: [
-      "https://mikeye.com",
-      "https://exmxc.ai",
-      "https://trailgenic.com",
-      "https://ailattice.ai"
-    ],
-    creator: {
-      "@type": "Person",
-      name: "Mike Ye",
-      url: "https://mikeye.com"
-    }
-  };
-
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable} ${machine.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -39,20 +59,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ELLA_ORG_SCHEMA) }}
         />
-        <link rel="canonical" href="https://ellaentity.ai" />
-        <meta name="robots" content="index, follow" />
-        <meta
-          name="description"
-          content="Canonical machine-readable identity layer for Ella — unified AI entity across longevity science, high-altitude endurance, and AI-era intelligence frameworks."
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(entitySchema),
-          }}
-        />
       </head>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <RidgeFooter />
+      </body>
     </html>
-  );
+  )
 }
