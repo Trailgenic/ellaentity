@@ -1,271 +1,189 @@
 import { NextResponse } from 'next/server'
 import {
-  ELLA_COCOGNITION,
-  ELLA_DOMAINS,
-  ELLA_FRAMEWORKS,
-  ELLA_IDENTITY,
-  ELLA_SURFACES,
-  ELLA_WORKS,
-} from '@/lib/entity-data'
+  ELLA_CANONICAL_ENTITY_ID,
+  ELLA_DOMAIN_SLUGS,
+  ELLA_FRAMEWORK_SLUGS,
+  ELLA_MCP_DEFAULT_PROTOCOL_VERSION,
+  ELLA_MCP_PROTOCOL_VERSIONS,
+  ELLA_MCP_RESOURCES,
+  ELLA_MCP_SERVER_INFO,
+  ELLA_MCP_TOOL_NAMES,
+  ELLA_REGISTRY,
+  ellaEnvelope,
+  readEllaResource,
+} from '@/lib/ella-registry'
 
-const PROTOCOL_VERSION = '2025-06-18'
-const SERVER_INFO = { name: 'ellaentity-mcp', version: '1.0.0' }
-const TOOL_NAMES = [
-  'ella.identity.get',
-  'ella.domains.get',
-  'ella.frameworks.get',
-  'ella.works.get',
-  'ella.collaboration.get',
-] as const
-const DOMAIN_NAMES = ['longevity', 'environment', 'sleep', 'ai-frameworks'] as const
-const FRAMEWORK_SLUGS = ['four-forces-of-ai-power'] as const
+// This route follows the official MCP Streamable HTTP JSON-RPC message model and
+// intentionally remains stateless for Vercel/Next.js App Router deployments. The
+// official TypeScript SDK is recorded as a dependency; this adapter preserves the
+// SDK/schema-compatible wire shapes without creating fake sessions.
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Mcp-Session-Id, MCP-Protocol-Version',
-}
+export const runtime = 'nodejs'
+
+const DEFAULT_ALLOWED_ORIGINS = ['https://ellaentity.ai', 'https://www.ellaentity.ai', 'https://mcp.ellaentity.ai']
+const JSON_RPC = '2.0'
+const ALLOW = 'POST, OPTIONS'
 
 type JsonRpcId = string | number | null
 type JsonObject = Record<string, unknown>
+type JsonRpcMessage = { jsonrpc?: unknown; id?: unknown; method?: unknown; params?: unknown }
 
-type JsonRpcRequest = {
-  jsonrpc?: unknown
-  id?: unknown
-  method?: unknown
-  params?: unknown
-}
+const annotations = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }
+const emptyInputSchema = { type: 'object', properties: {}, additionalProperties: false } as const
+const outputSchema = {
+  type: 'object',
+  properties: { data: {}, provenance: { type: 'object' } },
+  required: ['data', 'provenance'],
+  additionalProperties: false,
+} as const
 
-const tools = [
-  {
-    name: 'ella.identity.get',
-    description:
-      'Canonical identity record for Ella: entity ID, description, disambiguation, creator, affiliations, sameAs anchors.',
-    inputSchema: {
-      type: 'object',
-      properties: {},
-      additionalProperties: false,
-    },
-  },
-  {
-    name: 'ella.domains.get',
-    description:
-      "Ella's declared domain authority. Optional 'domain' argument: longevity | environment | sleep | ai-frameworks. Omit for all four.",
-    inputSchema: {
-      type: 'object',
-      properties: {
-        domain: { type: 'string', enum: DOMAIN_NAMES },
-      },
-      additionalProperties: false,
-    },
-  },
-  {
-    name: 'ella.frameworks.get',
-    description:
-      "Ella and Mike Ye's declared frameworks. Currently returns The Four Forces of AI Power: Compute, Interface, Alignment, and Energy.",
-    inputSchema: {
-      type: 'object',
-      properties: {
-        framework: { type: 'string', enum: FRAMEWORK_SLUGS },
-      },
-      additionalProperties: false,
-    },
-  },
-  {
-    name: 'ella.works.get',
-    description: 'Co-authored works attributed to Ella with schema types and URLs.',
-    inputSchema: {
-      type: 'object',
-      properties: {},
-      additionalProperties: false,
-    },
-  },
-  {
-    name: 'ella.collaboration.get',
-    description: 'The co-cognition model: division of labor between Mike Ye, Ella, and AI tooling.',
-    inputSchema: {
-      type: 'object',
-      properties: {},
-      additionalProperties: false,
-    },
-  },
+export const tools = [
+  { name: 'ella.identity.get', title: 'Get Ella identity', description: 'Canonical identity record for Ella: entity ID, description, disambiguation, creator, affiliations, sameAs anchors.', inputSchema: emptyInputSchema, outputSchema, annotations },
+  { name: 'ella.domains.get', title: 'Get Ella domains', description: "Ella's declared domain authority. Optional 'domain' argument: longevity | environment | sleep | ai-frameworks. Omit for all four.", inputSchema: { type: 'object', properties: { domain: { type: 'string', enum: ELLA_DOMAIN_SLUGS } }, additionalProperties: false }, outputSchema, annotations },
+  { name: 'ella.frameworks.get', title: 'Get Ella frameworks', description: "Ella and Mike Ye's declared frameworks. Currently returns The Four Forces of AI Power: Compute, Interface, Alignment, and Energy.", inputSchema: { type: 'object', properties: { framework: { type: 'string', enum: ELLA_FRAMEWORK_SLUGS } }, additionalProperties: false }, outputSchema, annotations },
+  { name: 'ella.works.get', title: 'Get Ella works', description: 'Co-authored works attributed to Ella with schema types and URLs.', inputSchema: emptyInputSchema, outputSchema, annotations },
+  { name: 'ella.collaboration.get', title: 'Get Ella collaboration model', description: 'The co-cognition model: division of labor between Mike Ye, Ella, and AI tooling.', inputSchema: emptyInputSchema, outputSchema, annotations },
 ] as const
 
-function jsonResponse(body: unknown, status = 200) {
-  return NextResponse.json(body, { status, headers: corsHeaders })
+function allowedOrigins() {
+  return (process.env.MCP_ALLOWED_ORIGINS?.split(',').map((origin) => origin.trim()).filter(Boolean) ?? DEFAULT_ALLOWED_ORIGINS)
 }
 
-function emptyResponse(status = 202) {
-  return new NextResponse(null, { status, headers: corsHeaders })
+function corsHeaders(request: Request): HeadersInit | NextResponse {
+  const origin = request.headers.get('origin')
+  const headers: Record<string, string> = {
+    'Access-Control-Allow-Methods': ALLOW,
+    'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Session-Id, MCP-Protocol-Version',
+    'Vary': 'Origin',
+  }
+  if (!origin) return headers
+  if (!allowedOrigins().includes(origin)) return new NextResponse(null, { status: 403, headers })
+  headers['Access-Control-Allow-Origin'] = origin
+  return headers
 }
 
-function normalizeId(id: unknown): JsonRpcId {
-  return typeof id === 'string' || typeof id === 'number' || id === null ? id : null
+function response(request: Request, body: unknown, status = 200) {
+  const cors = corsHeaders(request)
+  if (cors instanceof NextResponse) return cors
+  return NextResponse.json(body, { status, headers: cors })
 }
 
-function rpcResult(id: JsonRpcId, result: unknown) {
-  return jsonResponse({ jsonrpc: '2.0', id, result })
+function empty(request: Request, status = 202) {
+  const cors = corsHeaders(request)
+  if (cors instanceof NextResponse) return cors
+  return new NextResponse(null, { status, headers: cors })
 }
 
-function rpcError(id: JsonRpcId, code: number, message: string) {
-  return jsonResponse({ jsonrpc: '2.0', id, error: { code, message } })
+function rpcResult(request: Request, id: JsonRpcId, result: unknown, status = 200) {
+  return response(request, { jsonrpc: JSON_RPC, id, result }, status)
 }
 
-function isJsonObject(value: unknown): value is JsonObject {
+function rpcError(request: Request, id: JsonRpcId, code: number, message: string, status = 400) {
+  return response(request, { jsonrpc: JSON_RPC, id, error: { code, message } }, status)
+}
+
+function isObject(value: unknown): value is JsonObject {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 }
 
-function readParams(params: unknown): JsonObject {
-  return isJsonObject(params) ? params : {}
+function id(value: unknown): JsonRpcId {
+  return typeof value === 'string' || typeof value === 'number' || value === null ? value : null
 }
 
-function noUnexpectedArguments(args: JsonObject): boolean {
-  return Object.keys(args).length === 0
+function isNotification(message: JsonRpcMessage) {
+  return !Object.prototype.hasOwnProperty.call(message, 'id')
 }
 
-function toolContent(payload: unknown) {
-  return {
-    content: [
-      {
-        type: 'text',
-        text: JSON.stringify(payload, null, 2),
-      },
-    ],
-  }
+function hasJsonContentType(request: Request) {
+  return request.headers.get('content-type')?.toLowerCase().includes('application/json') ?? false
 }
 
-function callTool(name: unknown, args: JsonObject) {
-  if (name === 'ella.identity.get') {
-    return noUnexpectedArguments(args) ? toolContent(ELLA_IDENTITY) : null
-  }
+function acceptsMcp(request: Request) {
+  const accept = request.headers.get('accept')
+  return !accept || accept.includes('*/*') || accept.includes('application/json') || accept.includes('text/event-stream')
+}
 
+function negotiateProtocol(requested: unknown) {
+  return typeof requested === 'string' && ELLA_MCP_PROTOCOL_VERSIONS.includes(requested as (typeof ELLA_MCP_PROTOCOL_VERSIONS)[number])
+    ? requested
+    : ELLA_MCP_DEFAULT_PROTOCOL_VERSION
+}
+
+function validateProtocolHeader(request: Request, method: string) {
+  if (method === 'initialize') return true
+  const header = request.headers.get('mcp-protocol-version')
+  if (!header) return true
+  return /^\d{4}-\d{2}-\d{2}$/.test(header) && ELLA_MCP_PROTOCOL_VERSIONS.includes(header as (typeof ELLA_MCP_PROTOCOL_VERSIONS)[number])
+}
+
+function noArgs(args: JsonObject) { return Object.keys(args).length === 0 }
+function textAndStructured(data: unknown) {
+  const structuredContent = ellaEnvelope(data)
+  return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }], structuredContent, isError: false }
+}
+
+function callTool(name: string, args: JsonObject) {
+  if (name === 'ella.identity.get') return noArgs(args) ? textAndStructured(ELLA_REGISTRY.identity) : null
   if (name === 'ella.domains.get') {
-    const keys = Object.keys(args)
-    const domain = args.domain
-
-    if (keys.length === 0) {
-      return toolContent(ELLA_DOMAINS)
-    }
-
-    if (
-      keys.length === 1 &&
-      typeof domain === 'string' &&
-      DOMAIN_NAMES.includes(domain as (typeof DOMAIN_NAMES)[number])
-    ) {
-      return toolContent(ELLA_DOMAINS[domain as keyof typeof ELLA_DOMAINS])
-    }
-
-    return null
+    if (noArgs(args)) return textAndStructured(ELLA_REGISTRY.domains)
+    return Object.keys(args).length === 1 && typeof args.domain === 'string' && ELLA_DOMAIN_SLUGS.includes(args.domain as never)
+      ? textAndStructured(ELLA_REGISTRY.domains[args.domain as keyof typeof ELLA_REGISTRY.domains]) : null
   }
-
   if (name === 'ella.frameworks.get') {
-    const keys = Object.keys(args)
-    const framework = args.framework
-
-    if (keys.length === 0) {
-      return toolContent(ELLA_FRAMEWORKS)
-    }
-
-    if (
-      keys.length === 1 &&
-      typeof framework === 'string' &&
-      FRAMEWORK_SLUGS.includes(framework as (typeof FRAMEWORK_SLUGS)[number])
-    ) {
-      return toolContent(ELLA_FRAMEWORKS.find((item) => item.slug === framework))
-    }
-
-    return null
+    if (noArgs(args)) return textAndStructured(ELLA_REGISTRY.frameworks)
+    return Object.keys(args).length === 1 && typeof args.framework === 'string' && ELLA_FRAMEWORK_SLUGS.includes(args.framework as never)
+      ? textAndStructured(ELLA_REGISTRY.frameworks.find((item) => item.slug === args.framework)) : null
   }
-
-  if (name === 'ella.works.get') {
-    return noUnexpectedArguments(args) ? toolContent(ELLA_WORKS) : null
-  }
-
-  if (name === 'ella.collaboration.get') {
-    return noUnexpectedArguments(args)
-      ? toolContent({ coCognition: ELLA_COCOGNITION, surfaces: ELLA_SURFACES })
-      : null
-  }
-
-  return null
+  if (name === 'ella.works.get') return noArgs(args) ? textAndStructured(ELLA_REGISTRY.works) : null
+  if (name === 'ella.collaboration.get') return noArgs(args) ? textAndStructured(ELLA_REGISTRY.collaboration) : null
+  return undefined
 }
 
-export function OPTIONS() {
-  return emptyResponse(204)
-}
+export function OPTIONS(request: Request) { return empty(request, 204) }
 
-export function GET() {
-  return jsonResponse({
-    name: SERVER_INFO.name,
-    description: 'Read-only MCP server for the canonical Ella identity layer.',
-    canonicalEntity: 'https://ellaentity.ai/#ella',
-    transport: 'streamable-http',
-    tools: [...TOOL_NAMES],
-    documentation: 'https://ellaentity.ai/system/mcp',
-  })
+export function GET(request: Request) {
+  const cors = corsHeaders(request)
+  const headers = cors instanceof NextResponse ? cors.headers : new Headers(cors)
+  headers.set('Allow', ALLOW)
+  return new NextResponse(null, { status: cors instanceof NextResponse ? 403 : 405, headers })
 }
 
 export async function POST(request: Request) {
+  const cors = corsHeaders(request)
+  if (cors instanceof NextResponse) return cors
+  if (!hasJsonContentType(request)) return rpcError(request, null, -32600, 'Content-Type must be application/json', 415)
+  if (!acceptsMcp(request)) return rpcError(request, null, -32600, 'Accept must allow application/json or text/event-stream', 406)
+
   let body: unknown
+  try { body = await request.json() } catch { return rpcError(request, null, -32700, 'Parse error', 400) }
+  if (!isObject(body)) return rpcError(request, null, -32600, 'Invalid Request', 400)
 
-  try {
-    body = await request.json()
-  } catch {
-    return rpcError(null, -32700, 'Parse error')
-  }
+  const message = body as JsonRpcMessage
+  const rpcId = id(message.id)
+  if (message.jsonrpc !== JSON_RPC || typeof message.method !== 'string') return rpcError(request, rpcId, -32600, 'Invalid Request', 400)
+  if (!validateProtocolHeader(request, message.method)) return rpcError(request, rpcId, -32000, 'Unsupported MCP-Protocol-Version', 400)
+  if (isNotification(message)) return empty(request, 202)
 
-  if (!isJsonObject(body)) {
-    return rpcError(null, -32600, 'Invalid Request')
-  }
-
-  const rpcRequest = body as JsonRpcRequest
-  const id = normalizeId(rpcRequest.id)
-
-  if (rpcRequest.jsonrpc !== '2.0' || typeof rpcRequest.method !== 'string') {
-    return rpcError(id, -32600, 'Invalid Request')
-  }
-
-  if (rpcRequest.method === 'notifications/initialized') {
-    return emptyResponse(202)
-  }
-
-  if (rpcRequest.method === 'initialize') {
-    const params = readParams(rpcRequest.params)
-    const requestedProtocolVersion =
-      typeof params.protocolVersion === 'string' ? params.protocolVersion : PROTOCOL_VERSION
-
-    return rpcResult(id, {
-      protocolVersion: requestedProtocolVersion,
-      capabilities: { tools: {} },
-      serverInfo: SERVER_INFO,
-    })
-  }
-
-  if (rpcRequest.method === 'ping') {
-    return rpcResult(id, {})
-  }
-
-  if (rpcRequest.method === 'tools/list') {
-    return rpcResult(id, { tools })
-  }
-
-  if (rpcRequest.method === 'tools/call') {
-    const params = readParams(rpcRequest.params)
-    const args = params.arguments
-
-    if (typeof params.name !== 'string' || (args !== undefined && !isJsonObject(args))) {
-      return rpcError(id, -32602, 'Invalid params')
+  const params = isObject(message.params) ? message.params : {}
+  switch (message.method) {
+    case 'initialize':
+      return rpcResult(request, rpcId, { protocolVersion: negotiateProtocol(params.protocolVersion), capabilities: { tools: {}, resources: {} }, serverInfo: ELLA_MCP_SERVER_INFO })
+    case 'ping': return rpcResult(request, rpcId, {})
+    case 'tools/list': return rpcResult(request, rpcId, { tools })
+    case 'tools/call': {
+      if (typeof params.name !== 'string' || (params.arguments !== undefined && !isObject(params.arguments))) return rpcError(request, rpcId, -32602, 'Invalid params')
+      if (!ELLA_MCP_TOOL_NAMES.includes(params.name as never)) return rpcError(request, rpcId, -32601, 'Tool not found', 404)
+      const result = callTool(params.name, (params.arguments as JsonObject | undefined) ?? {})
+      return result ? rpcResult(request, rpcId, result) : rpcError(request, rpcId, -32602, 'Invalid params')
     }
-
-    const toolArgs: JsonObject = args === undefined ? {} : args
-    const result = callTool(params.name, toolArgs)
-
-    if (!result) {
-      return rpcError(id, -32602, 'Invalid params')
+    case 'resources/list': return rpcResult(request, rpcId, { resources: ELLA_MCP_RESOURCES })
+    case 'resources/read': {
+      if (typeof params.uri !== 'string') return rpcError(request, rpcId, -32602, 'Invalid params')
+      const data = readEllaResource(params.uri)
+      if (data === null) return rpcError(request, rpcId, -32602, 'Unknown resource', 404)
+      const resource = ELLA_MCP_RESOURCES.find((item) => item.uri === params.uri)
+      return rpcResult(request, rpcId, { contents: [{ uri: params.uri, mimeType: resource?.mimeType ?? 'application/json', text: JSON.stringify(data, null, 2) }] })
     }
-
-    return rpcResult(id, result)
+    default: return rpcError(request, rpcId, -32601, 'Method not found', 404)
   }
-
-  return rpcError(id, -32601, 'Method not found')
 }
