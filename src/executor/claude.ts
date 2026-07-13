@@ -1,4 +1,3 @@
-// @ts-ignore -- package install may be restricted in this environment
 import OpenAI from "openai";
 import { EXECUTOR_MODEL } from "./types";
 import type { ExecutorOutput } from "./types";
@@ -6,7 +5,14 @@ import type { ContextBundle } from "../context/types";
 import type { ClassificationOutput } from "../types/domain";
 import { ExecutionError } from "../lib/errors";
 
-const client = new OpenAI();
+function getOpenAIClient(): OpenAI {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new ExecutionError("OPENAI_API_KEY is not configured");
+  }
+
+  return new OpenAI({ apiKey });
+}
 
 function buildSystemPrompt(contextBundle: ContextBundle): string {
   const assetDescriptions = contextBundle.assets
@@ -32,6 +38,7 @@ export async function executeWithClaude(
   contextBundle: ContextBundle
 ): Promise<ExecutorOutput> {
   const systemPrompt = buildSystemPrompt(contextBundle);
+  const client = getOpenAIClient();
 
   let response: OpenAI.Chat.ChatCompletion;
 

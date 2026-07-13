@@ -1,13 +1,20 @@
-// @ts-ignore -- package may be unavailable in restricted install environments; runtime integration validated in later steps.
 import Anthropic from "@anthropic-ai/sdk";
 import { CLASSIFIER_SYSTEM_PROMPT } from "./prompt";
 import { ClassificationOutputSchema } from "../types/domain";
 import type { ClassificationOutput } from "../types/domain";
 import { ClassificationError } from "../lib/errors";
 
-const client = new Anthropic();
+function getAnthropicClient(): Anthropic {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new ClassificationError("ANTHROPIC_API_KEY is not configured");
+  }
+
+  return new Anthropic({ apiKey });
+}
 
 export async function classify(rawInput: string): Promise<ClassificationOutput> {
+  const client = getAnthropicClient();
   let responseText: string;
 
   try {
@@ -32,8 +39,8 @@ export async function classify(rawInput: string): Promise<ClassificationOutput> 
   } catch (err) {
     if (err instanceof ClassificationError) throw err;
     const message = err instanceof Error ? err.message : String(err);
-    const status = (err as any)?.status;
-    const errBody = (err as any)?.error;
+    const status = typeof err === "object" && err !== null && "status" in err ? (err as Record<string, unknown>).status : undefined;
+    const errBody = typeof err === "object" && err !== null && "error" in err ? (err as Record<string, unknown>).error : undefined;
     throw new ClassificationError("Anthropic API call failed", {
       cause: message,
       status,

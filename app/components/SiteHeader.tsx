@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const navItems = [
   { href: '/ella', label: '/ella' },
   { href: '/works', label: '/works' },
@@ -9,14 +11,14 @@ const navItems = [
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <a className="wordmark" href="/" aria-label="EllaEntity.ai home">
+      <Link className="wordmark" href="/" aria-label="EllaEntity.ai home">
         EllaEntity<span>.ai</span>
-      </a>
+      </Link>
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href}>
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>
