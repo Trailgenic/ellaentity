@@ -12,7 +12,7 @@ const endpoints = [
   { host: 'mcp.trailgenic.com', url: 'https://mcp.trailgenic.com', exposes: 'TrailGenic longevity, environmental adaptation, high-altitude hiking, and field-method intelligence.' },
   { host: 'mcp.exmxc.ai', url: 'https://mcp.exmxc.ai', exposes: 'exmxc AI intelligence frameworks, entity clarity systems, agent-readiness doctrine, and infrastructure-convergence models.' },
   { host: 'mcp.mikeye.com', url: 'https://mcp.mikeye.com', exposes: 'Mike Ye institutional identity, operator context, creator attribution, and cross-property intelligence references.' },
-  { host: 'mcp.ellaentity.ai', url: 'https://mcp.ellaentity.ai/mcp', exposes: `Native public read-only Streamable HTTP MCP endpoint for ${ELLA_CANONICAL_ENTITY_ID}.` },
+  { host: 'mcp.ellaentity.ai', url: 'https://mcp.ellaentity.ai', exposes: `Native public read-only Streamable HTTP MCP endpoint for ${ELLA_CANONICAL_ENTITY_ID}.` },
 ]
 
 export function generateMetadata() {

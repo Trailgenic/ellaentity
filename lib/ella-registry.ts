@@ -1,4 +1,4 @@
-import { ELLA_GLOBAL_SCHEMA, ELLA_MCP_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA } from '@/app/schema/ella'
+import { ELLA_GLOBAL_SCHEMA, ELLA_MCP_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA } from '../app/schema/ella'
 import {
   ELLA_COCOGNITION,
   ELLA_DOMAINS,
@@ -6,11 +6,11 @@ import {
   ELLA_IDENTITY,
   ELLA_SURFACES,
   ELLA_WORKS,
-} from '@/lib/entity-data'
+} from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.1.0' } as const
-export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.1.1' } as const
+export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
 export const ELLA_REGISTRY_DATA_VERSION = '2026-07-13.mcp-v1-1' as const
 export const ELLA_REGISTRY_LAST_MODIFIED = '2026-07-13' as const
