@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
 import { GET, OPTIONS, POST } from '../app/mcp/route'
 import { ELLA_MCP_RESOURCES, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
 
@@ -113,6 +114,7 @@ test('tools list and calls are behavioral and schema-valid', async () => {
   assert.deepEqual(tools.map((tool: { name: string }) => tool.name), ELLA_MCP_TOOL_NAMES)
 
   const ajv = new Ajv()
+  addFormats(ajv)
 
   for (const tool of tools) {
     assert.ok(tool.title)

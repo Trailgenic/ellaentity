@@ -29,7 +29,7 @@ export default function Page() {
 
       <section className="content-panel" aria-labelledby="mcp-title">
         <h1 id="mcp-title">Ella MCP Access</h1>
-        <p>This page documents Ella's public, read-only Model Context Protocol surfaces. The canonical entity ID is <code>{ELLA_CANONICAL_ENTITY_ID}</code>.</p>
+        <p>This page documents Ella&apos;s public, read-only Model Context Protocol surfaces. The canonical entity ID is <code>{ELLA_CANONICAL_ENTITY_ID}</code>.</p>
         <p>The native server is <code>{ELLA_MCP_SERVER_INFO.name}</code> version <code>{ELLA_MCP_SERVER_INFO.version}</code>. It supports MCP protocol versions <code>{ELLA_MCP_PROTOCOL_VERSIONS.join(', ')}</code>.</p>
         <p>Public MCP access exposes canonical identity, domains, frameworks, works, collaboration records, and the entity graph. It does not expose private conversations, credentials, memory, traces, internal prompts, unpublished content, private user information, or <code>/api/process</code>.</p>
       </section>

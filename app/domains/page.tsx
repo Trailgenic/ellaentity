@@ -45,7 +45,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <section className="content-panel" aria-labelledby="domains-title">
-        <h1 id="domains-title">Ella's Domain Authority</h1>
+        <h1 id="domains-title">Ella&apos;s Domain Authority</h1>
         <p>
           Ella operates with defined authority across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, and AI-era intelligence frameworks developed at exmxc.
         </p>
@@ -53,7 +53,7 @@ export default function Page() {
 
       <section aria-labelledby="domains-scope">
         <SchemaEyebrow label="knowsAbout" />
-        <h2 id="domains-scope">Ella's Domain Authority</h2>
+        <h2 id="domains-scope">Ella&apos;s Domain Authority</h2>
         <div className="domain-grid">
           <article className="domain-card">
             <span className="domain-fragment">#domain-longevity</span>

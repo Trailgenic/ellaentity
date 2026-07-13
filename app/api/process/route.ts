@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       {
         error: "CLASSIFICATION_ERROR",
         message: err instanceof Error ? err.message : "Classification failed",
-        details: (err as any)?.details ?? null,
+        details: err instanceof EllaError ? err.details ?? null : null,
       },
       { status: 502 }
     );
