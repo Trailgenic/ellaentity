@@ -3,9 +3,10 @@ import test from 'node:test'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { GET, OPTIONS, POST } from '../app/mcp/route'
-import { ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
+import { ELLA_CANONICAL_ENTITY_ID, ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_SERVER_INFO, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
 
 const endpoint = 'https://ellaentity.ai/mcp'
+const mcpRootEndpoint = 'https://mcp.ellaentity.ai/'
 const accept = 'application/json, text/event-stream'
 const contentType = 'application/json'
 const defaultProtocolVersion = ELLA_MCP_PROTOCOL_VERSIONS[0]
@@ -61,15 +62,87 @@ test('GET and OPTIONS implement method and CORS behavior', async () => {
   assert.equal(blocked.status, 403)
 })
 
-test('POST validates content negotiation and origins', async () => {
-  const body = { jsonrpc: '2.0', id: 1, method: 'ping', params: {} }
+async function pingWithHeaders(headers: HeadersInit, includeDefaultAccept = true) {
+  const response = await POST(
+    new Request(endpoint, {
+      method: 'POST',
+      headers: {
+        ...(includeDefaultAccept ? { accept } : {}),
+        'content-type': contentType,
+        origin: 'https://ellaentity.ai',
+        'mcp-protocol-version': defaultProtocolVersion,
+        'x-test-preserved': 'preserved-value',
+        ...headers,
+      },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 'ping-accept', method: 'ping', params: {} }),
+    }),
+  )
+  const text = await response.text()
+  return { response, body: text ? JSON.parse(text) : null }
+}
 
-  assert.equal((await POST(request('POST', body, { accept: '' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { accept: 'application/json' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { accept: 'text/event-stream' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { accept: 'text/plain' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { 'content-type': 'text/plain' }))).status, 415)
-  assert.equal((await POST(request('POST', body, { origin: 'https://evil.example' }))).status, 403)
+test('POST validates content negotiation and origins', async () => {
+  const accepted = [
+    await pingWithHeaders({}, false),
+    await pingWithHeaders({ accept: '' }),
+    await pingWithHeaders({ accept: '*/*' }),
+    await pingWithHeaders({ accept: 'Application/Json; charset=utf-8' }),
+    await pingWithHeaders({ accept }),
+  ]
+
+  for (const result of accepted) {
+    assert.equal(result.response.status, 200)
+    assert.deepEqual(result.body.result, {})
+    assert.equal(result.body.id, 'ping-accept')
+    assert.equal(result.response.headers.get('access-control-allow-origin'), 'https://ellaentity.ai')
+  }
+
+  assert.equal((await pingWithHeaders({ accept: 'text/event-stream' })).response.status, 406)
+  assert.equal((await pingWithHeaders({ accept: 'text/plain' })).response.status, 406)
+  assert.equal((await POST(request('POST', { jsonrpc: '2.0', id: 1, method: 'ping', params: {} }, { 'content-type': 'text/plain' }))).status, 415)
+  assert.equal((await POST(request('POST', { jsonrpc: '2.0', id: 1, method: 'ping', params: {} }, { origin: 'https://evil.example' }))).status, 403)
+})
+
+
+test('canonical MCP root discovery and route aliases are preserved', async () => {
+  const discovery = await GET(new Request(mcpRootEndpoint, { method: 'GET', headers: { host: 'mcp.ellaentity.ai' } }))
+  assert.equal(discovery.status, 200)
+  assert.match(discovery.headers.get('content-type') ?? '', /application\/json/)
+  const body = await discovery.json()
+
+  assert.equal(body.canonicalEntityId, ELLA_CANONICAL_ENTITY_ID)
+  assert.deepEqual(body.tools, ELLA_MCP_TOOL_NAMES)
+  assert.deepEqual(body.resources, ELLA_MCP_RESOURCES.map((resource) => resource.uri))
+  assert.deepEqual(body.supportedProtocolVersions, ELLA_MCP_PROTOCOL_VERSIONS)
+  assert.equal(body.server.version, ELLA_MCP_SERVER_INFO.version)
+  assert.equal(body.documentationUrl, 'https://ellaentity.ai/system/mcp')
+  assert.equal(body.entityGraphUrl, 'https://ellaentity.ai/entity.json')
+  assert.match(body.scope, /Public read-only/)
+
+  const rewrittenDiscovery = await GET(new Request('https://mcp.ellaentity.ai/mcp?mcpRoot=1', { method: 'GET', headers: { host: 'mcp.ellaentity.ai' } }))
+  assert.equal(rewrittenDiscovery.status, 200)
+
+  const getMcp = await GET(new Request('https://mcp.ellaentity.ai/mcp', { method: 'GET', headers: { host: 'mcp.ellaentity.ai' } }))
+  assert.equal(getMcp.status, 405)
+  assert.equal(getMcp.headers.get('allow'), 'POST, OPTIONS')
+
+  const rootInitialize = await POST(new Request(mcpRootEndpoint, {
+    method: 'POST',
+    headers: { accept, 'content-type': contentType, origin: 'https://mcp.ellaentity.ai', 'mcp-protocol-version': defaultProtocolVersion },
+    body: JSON.stringify({ jsonrpc: '2.0', id: 'root-init', method: 'initialize', params: { protocolVersion: defaultProtocolVersion, capabilities: {}, clientInfo: { name: 'root-test-client', version: '1.0.0' } } }),
+  }))
+  assert.equal(rootInitialize.status, 200)
+  const rootInitializeBody = await rootInitialize.json()
+  assert.equal(rootInitializeBody.result.serverInfo.version, ELLA_MCP_SERVER_INFO.version)
+
+  const aliasTools = await POST(new Request('https://mcp.ellaentity.ai/mcp', {
+    method: 'POST',
+    headers: { accept, 'content-type': contentType, origin: 'https://mcp.ellaentity.ai', 'mcp-protocol-version': defaultProtocolVersion },
+    body: JSON.stringify({ jsonrpc: '2.0', id: 'alias-tools', method: 'tools/list', params: {} }),
+  }))
+  assert.equal(aliasTools.status, 200)
+  const aliasToolsBody = await aliasTools.json()
+  assert.deepEqual(aliasToolsBody.result.tools.map((tool: { name: string }) => tool.name), ELLA_MCP_TOOL_NAMES)
 })
 
 test('initialize validates official params and reports server capabilities', async () => {
