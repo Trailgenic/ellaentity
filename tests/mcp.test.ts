@@ -82,13 +82,20 @@ async function pingWithHeaders(headers: HeadersInit, includeDefaultAccept = true
 }
 
 test('POST validates content negotiation and origins', async () => {
+  const jsonOnly = await pingWithHeaders({ accept: 'Application/Json; charset=utf-8' })
   const accepted = [
     await pingWithHeaders({}, false),
     await pingWithHeaders({ accept: '' }),
     await pingWithHeaders({ accept: '*/*' }),
-    await pingWithHeaders({ accept: 'Application/Json; charset=utf-8' }),
+    jsonOnly,
     await pingWithHeaders({ accept }),
   ]
+
+  assert.deepEqual(jsonOnly.body, {
+    jsonrpc: '2.0',
+    id: 'ping-accept',
+    result: {},
+  })
 
   for (const result of accepted) {
     assert.equal(result.response.status, 200)

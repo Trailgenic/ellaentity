@@ -99,20 +99,29 @@ function acceptedMcpRequestNeedsNormalization(request: Request) {
   return null
 }
 
-function normalizedMcpRequest(request: Request) {
+async function normalizedMcpRequest(request: Request) {
   const needsNormalization = acceptedMcpRequestNeedsNormalization(request)
 
   if (needsNormalization === null) {
     return null
   }
 
-  if (!needsNormalization) {
-    return request
+  const body = await request.text()
+  const headers: Record<string, string> = {}
+
+  request.headers.forEach((value, key) => {
+    headers[key] = value
+  })
+
+  if (needsNormalization) {
+    headers.accept = NORMALIZED_ACCEPT
   }
 
-  const headers = new Headers(request.headers)
-  headers.set('accept', NORMALIZED_ACCEPT)
-  return new Request(request, { headers })
+  return new Request(request.url, {
+    method: request.method,
+    headers,
+    body,
+  })
 }
 
 function isCanonicalMcpRootRequest(request: Request) {
@@ -188,7 +197,7 @@ export async function POST(request: Request) {
     return jsonRpcError(request, 415, -32600, 'Content-Type must be application/json')
   }
 
-  const mcpRequest = normalizedMcpRequest(request)
+  const mcpRequest = await normalizedMcpRequest(request)
 
   if (!mcpRequest) {
     return jsonRpcError(request, 406, -32600, 'Accept must include application/json or */*; text/event-stream alone is not supported for JSON responses')
