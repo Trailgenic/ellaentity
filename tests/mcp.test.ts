@@ -92,7 +92,7 @@ test('POST validates content negotiation and origins', async () => {
 
   for (const result of accepted) {
     assert.equal(result.response.status, 200)
-    assert.equal(result.body.result, {})
+    assert.deepEqual(result.body.result, {})
     assert.equal(result.body.id, 'ping-accept')
     assert.equal(result.response.headers.get('access-control-allow-origin'), 'https://ellaentity.ai')
   }
