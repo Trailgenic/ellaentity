@@ -63,13 +63,17 @@ function hasJsonContentType(request: Request) {
 }
 
 function hasCompatibleAcceptType(request: Request) {
-  const accept = request.headers.get('accept')?.toLowerCase()
+  const accept = request.headers.get('accept')
 
-  if (!accept) {
+  if (!accept?.trim()) {
     return true
   }
 
-  return accept.includes('*/*') || ACCEPTED_RESPONSE_TYPES.some((type) => accept.includes(type))
+  const acceptedTypes = accept.toLowerCase().split(',').map((type) => type.trim())
+
+  return acceptedTypes.some(
+    (type) => type === '*/*' || ACCEPTED_RESPONSE_TYPES.some((acceptedType) => type.startsWith(acceptedType)),
+  )
 }
 
 export function OPTIONS(request: Request) {
