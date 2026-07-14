@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         {
           source: '/',
           has: [{ type: 'host', value: 'mcp.ellaentity.ai' }],
-          destination: '/mcp',
+          destination: '/mcp?mcpRoot=1',
         },
       ],
     }
