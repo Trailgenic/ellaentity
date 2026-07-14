@@ -3,14 +3,14 @@ import test from 'node:test'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { GET, OPTIONS, POST } from '../app/mcp/route'
-import { ELLA_MCP_RESOURCES, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
+import { ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
 
 const endpoint = 'https://ellaentity.ai/mcp'
 const accept = 'application/json, text/event-stream'
 const contentType = 'application/json'
-const protocolVersion = '2025-06-18'
+const defaultProtocolVersion = ELLA_MCP_PROTOCOL_VERSIONS[0]
 
-function request(method: string, body?: unknown, headers: HeadersInit = {}) {
+function request(method: string, body?: unknown, headers: HeadersInit = {}, protocolVersion: (typeof ELLA_MCP_PROTOCOL_VERSIONS)[number] = defaultProtocolVersion) {
   return new Request(endpoint, {
     method,
     headers: {
@@ -23,7 +23,7 @@ function request(method: string, body?: unknown, headers: HeadersInit = {}) {
   })
 }
 
-async function rpc(method: string, params: unknown = {}, id: string | number = 1, headers: HeadersInit = {}) {
+async function rpc(method: string, params: unknown = {}, id: string | number = 1, headers: HeadersInit = {}, protocolVersion: (typeof ELLA_MCP_PROTOCOL_VERSIONS)[number] = defaultProtocolVersion) {
   const response = await POST(
     request(
       'POST',
@@ -34,6 +34,7 @@ async function rpc(method: string, params: unknown = {}, id: string | number = 1
         params,
       },
       headers,
+      protocolVersion,
     ),
   )
   const text = await response.text()
@@ -72,23 +73,31 @@ test('POST validates content negotiation and origins', async () => {
 })
 
 test('initialize validates official params and reports server capabilities', async () => {
-  const valid = await rpc('initialize', {
-    protocolVersion,
-    capabilities: {},
-    clientInfo: { name: 'behavior-test-client', version: '1.0.0' },
-  })
+  for (const protocolVersion of ELLA_MCP_PROTOCOL_VERSIONS) {
+    const valid = await rpc(
+      'initialize',
+      {
+        protocolVersion,
+        capabilities: {},
+        clientInfo: { name: 'behavior-test-client', version: '1.0.0' },
+      },
+      1,
+      {},
+      protocolVersion,
+    )
 
-  assert.equal(valid.response.status, 200)
-  assert.equal(valid.body.result.serverInfo.name, 'ellaentity-mcp')
-  assert.equal(valid.body.result.protocolVersion, protocolVersion)
-  assert.ok(valid.body.result.capabilities.tools)
-  assert.ok(valid.body.result.capabilities.resources)
+    assert.equal(valid.response.status, 200)
+    assert.equal(valid.body.result.serverInfo.name, 'ellaentity-mcp')
+    assert.equal(valid.body.result.protocolVersion, protocolVersion)
+    assert.ok(valid.body.result.capabilities.tools)
+    assert.ok(valid.body.result.capabilities.resources)
+  }
 
   const missingProtocol = await rpc('initialize', {
     capabilities: {},
     clientInfo: { name: 'behavior-test-client', version: '1.0.0' },
   })
-  assert.ok(missingProtocol.body.error || missingProtocol.body.result.protocolVersion === protocolVersion)
+  assert.ok(missingProtocol.body.error || missingProtocol.body.result.protocolVersion === defaultProtocolVersion)
 
   const invalidId = await POST(request('POST', { jsonrpc: '2.0', id: null, method: 'ping', params: {} }))
   assert.notEqual(invalidId.status, 200)
@@ -108,7 +117,7 @@ test('notifications return no JSON-RPC body', async () => {
 })
 
 test('tools list and calls are behavioral and schema-valid', async () => {
-  const list = await rpc('tools/list')
+  const list = await rpc('tools/list', {}, 1, { 'mcp-protocol-version': '2025-11-25' }, '2025-11-25')
   const tools = list.body.result.tools
 
   assert.deepEqual(tools.map((tool: { name: string }) => tool.name), ELLA_MCP_TOOL_NAMES)
