@@ -6,7 +6,7 @@ export const runtime = 'nodejs'
 const DEFAULT_ALLOWED_ORIGINS = ['https://ellaentity.ai', 'https://www.ellaentity.ai', 'https://mcp.ellaentity.ai']
 const ALLOW_METHODS = 'POST, OPTIONS'
 const ALLOW_HEADERS = 'Content-Type, Accept, Mcp-Session-Id, MCP-Protocol-Version'
-const REQUIRED_ACCEPT_TYPES = ['application/json', 'text/event-stream'] as const
+const ACCEPTED_RESPONSE_TYPES = ['application/json', 'text/event-stream'] as const
 
 function allowedOrigins() {
   return process.env.MCP_ALLOWED_ORIGINS?.split(',').map((origin) => origin.trim()).filter(Boolean) ?? DEFAULT_ALLOWED_ORIGINS
@@ -62,14 +62,14 @@ function hasJsonContentType(request: Request) {
   return request.headers.get('content-type')?.toLowerCase().includes('application/json') ?? false
 }
 
-function hasRequiredAcceptTypes(request: Request) {
+function hasCompatibleAcceptType(request: Request) {
   const accept = request.headers.get('accept')?.toLowerCase()
 
   if (!accept) {
-    return false
+    return true
   }
 
-  return REQUIRED_ACCEPT_TYPES.every((type) => accept.includes(type))
+  return accept.includes('*/*') || ACCEPTED_RESPONSE_TYPES.some((type) => accept.includes(type))
 }
 
 export function OPTIONS(request: Request) {
@@ -108,8 +108,8 @@ export async function POST(request: Request) {
     return jsonRpcError(request, 415, -32600, 'Content-Type must be application/json')
   }
 
-  if (!hasRequiredAcceptTypes(request)) {
-    return jsonRpcError(request, 406, -32600, 'Accept must include application/json and text/event-stream')
+  if (!hasCompatibleAcceptType(request)) {
+    return jsonRpcError(request, 406, -32600, 'Accept must include application/json, text/event-stream, or */*')
   }
 
   try {

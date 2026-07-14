@@ -64,9 +64,10 @@ test('GET and OPTIONS implement method and CORS behavior', async () => {
 test('POST validates content negotiation and origins', async () => {
   const body = { jsonrpc: '2.0', id: 1, method: 'ping', params: {} }
 
-  assert.equal((await POST(request('POST', body, { accept: '' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { accept: 'application/json' }))).status, 406)
-  assert.equal((await POST(request('POST', body, { accept: 'text/event-stream' }))).status, 406)
+  assert.notEqual((await POST(request('POST', body, { accept: '' }))).status, 406)
+  assert.notEqual((await POST(request('POST', body, { accept: 'application/json' }))).status, 406)
+  assert.notEqual((await POST(request('POST', body, { accept: 'text/event-stream' }))).status, 406)
+  assert.notEqual((await POST(request('POST', body, { accept: '*/*' }))).status, 406)
   assert.equal((await POST(request('POST', body, { accept: 'text/plain' }))).status, 406)
   assert.equal((await POST(request('POST', body, { 'content-type': 'text/plain' }))).status, 415)
   assert.equal((await POST(request('POST', body, { origin: 'https://evil.example' }))).status, 403)
