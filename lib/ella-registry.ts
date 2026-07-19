@@ -12,8 +12,8 @@ export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
 export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.1.4' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
-export const ELLA_REGISTRY_DATA_VERSION = '2026-07-13.mcp-v1-1' as const
-export const ELLA_REGISTRY_LAST_MODIFIED = '2026-07-13' as const
+export const ELLA_REGISTRY_DATA_VERSION = '2026-07-19.works-v1-2' as const
+export const ELLA_REGISTRY_LAST_MODIFIED = '2026-07-19' as const
 export const ELLA_REGISTRY_SCHEMA_VERSION = '1.1' as const
 export const ELLA_REGISTRY_SOURCE = 'https://ellaentity.ai/entity.json' as const
 
