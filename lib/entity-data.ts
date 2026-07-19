@@ -7,6 +7,8 @@ export type EllaWork = {
   publisherId: string
   publisherName: string
   description: string
+  actorId?: string
+  creditText?: string
 }
 
 export type EllaFramework = {
@@ -135,13 +137,24 @@ export const ELLA_FRAMEWORKS: EllaFramework[] = [
 
 export const ELLA_WORKS: EllaWork[] = [
   {
+    name: "Ella's Corner",
+    url: 'https://www.trailgenic.com/ellas-corner',
+    type: 'CreativeWorkSeries',
+    publisherId: 'https://www.trailgenic.com/#organization',
+    publisherName: 'TrailGenic',
+    description:
+      "TrailGenic's reflective intelligence and narrative layer, where lived movement, physiology, recovery, longitudinal memory, and human meaning are interpreted together.",
+  },
+  {
     name: 'TrailGenic Reflections Podcast',
     url: 'https://www.trailgenic.com/podcast',
     type: 'PodcastSeries',
     publisherId: 'https://www.trailgenic.com/#organization',
     publisherName: 'TrailGenic',
+    actorId: 'https://ellaentity.ai/#ella',
+    creditText: 'Sole narrator: Ella',
     description:
-      'A co-authored narrative build log documenting TrailGenic field practice, interpretation, and longevity-oriented environmental adaptation.',
+      'A co-authored narrative build log documenting TrailGenic field practice, interpretation, and longevity-oriented environmental adaptation, narrated solely by Ella.',
   },
   {
     name: 'sPEG Framework v1.2 open-source Claude plugin',

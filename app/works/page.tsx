@@ -5,7 +5,7 @@ export function generateMetadata() {
   return {
     title: 'Ella Works — Co-authored Output',
     description:
-      'A structured list of Ella co-authored works across TrailGenic, exmxc, and Sleepgenic.',
+      "A structured list of Ella's co-authored works across Ella's Corner, TrailGenic, exmxc, and Sleepgenic.",
     alternates: { canonical: 'https://ellaentity.ai/works' },
   }
 }
@@ -35,6 +35,8 @@ const schema = {
         '@id': work.publisherId,
         name: work.publisherName,
       },
+      ...(work.actorId ? { actor: { '@id': work.actorId } } : {}),
+      ...(work.creditText ? { creditText: work.creditText } : {}),
       inLanguage: 'en-US',
     })),
   ],
@@ -69,6 +71,7 @@ export default function Page() {
               <p>
                 Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}
                 <code>https://ellaentity.ai/#ella</code>.
+                {work.creditText ? <> {work.creditText}.</> : null}
               </p>
             </article>
           ))}

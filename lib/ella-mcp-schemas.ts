@@ -62,6 +62,8 @@ const workDataSchema = z.object({
   publisherId: z.string().url(),
   publisherName: z.string(),
   description: z.string(),
+  actorId: z.string().url().optional(),
+  creditText: z.string().optional(),
 })
 
 const collaborationDataSchema = z.object({
