@@ -1,18 +1,18 @@
 import Link from 'next/link'
 
 const navItems = [
-  { href: '/ella', label: '/ella' },
-  { href: '/works', label: '/works' },
-  { href: '/domains', label: '/domains' },
-  { href: '/system', label: '/system' },
-  { href: '/entity.json', label: '/entity.json' },
+  { href: '/ella', label: 'Identity' },
+  { href: '/works', label: 'Works' },
+  { href: '/domains', label: 'Domains' },
+  { href: '/system', label: 'System' },
 ]
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="wordmark" href="/" aria-label="EllaEntity.ai home">
-        EllaEntity<span>.ai</span>
+        <span className="wordmark-sigil">E</span>
+        <span className="wordmark-text">EllaEntity<em>.ai</em></span>
       </Link>
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
@@ -21,6 +21,10 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
+      <a className="machine-link" href="/entity.json">
+        <span><i /> entity resolved</span>
+        <b aria-hidden="true">{`{ }`}</b>
+      </a>
     </header>
   )
 }
