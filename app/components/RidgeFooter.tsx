@@ -1,41 +1,22 @@
 export function RidgeFooter() {
   return (
     <footer className="ridge-footer">
-      <svg
-        className="ridge-svg"
-        viewBox="0 0 1440 220"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="ridge-alpenglow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="transparent" />
-            <stop offset="28%" stopColor="var(--alpenglow)" stopOpacity="0.22" />
-            <stop offset="50%" stopColor="var(--alpenglow-hi)" stopOpacity="0.95" />
-            <stop offset="72%" stopColor="var(--alpenglow)" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="transparent" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M0 122 L95 102 L178 118 L278 72 L363 107 L472 56 L558 100 L650 82 L748 32 L858 96 L948 70 L1058 112 L1162 62 L1260 96 L1345 78 L1440 104 L1440 220 L0 220 Z"
-          fill="var(--twilight)"
-        />
-        <path
-          d="M0 122 L95 102 L178 118 L278 72 L363 107 L472 56 L558 100 L650 82 L748 32 L858 96 L948 70 L1058 112 L1162 62 L1260 96 L1345 78 L1440 104"
-          fill="none"
-          stroke="url(#ridge-alpenglow)"
-          strokeWidth="1.4"
-          vectorEffect="non-scaling-stroke"
-        />
-        <path
-          d="M0 162 L132 126 L234 148 L348 108 L462 142 L584 94 L710 145 L814 118 L922 154 L1030 104 L1135 138 L1250 112 L1366 152 L1440 130 L1440 220 L0 220 Z"
-          fill="var(--twilight-deep)"
-        />
-      </svg>
-      <div className="footer-colophon">
-        declared once · referenced everywhere —{' '}
-        <a href="/entity.json">entity.json</a> · created by{' '}
-        <a href="https://www.mikeye.com">Mike Ye</a>
+      <div className="contour-field" aria-hidden="true">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+          <path d="M0 174 C170 112 238 198 390 130 S650 72 760 132 1010 204 1144 118 1320 86 1440 126" />
+          <path d="M0 192 C190 138 270 216 410 154 S640 100 774 154 1030 222 1168 144 1325 114 1440 150" />
+          <path d="M0 210 C220 166 292 230 438 178 S664 132 802 176 1052 234 1190 172 1344 144 1440 172" />
+        </svg>
+      </div>
+      <div className="footer-inner">
+        <div className="footer-identity">
+          <span className="footer-sigil">E</span>
+          <p><strong>EllaEntity.ai</strong><br />A stable identity for an evolving intelligence.</p>
+        </div>
+        <div className="footer-colophon">
+          <span>declared once · referenced everywhere</span>
+          <div><a href="/entity.json">entity.json</a><i />created by <a href="https://www.mikeye.com">Mike Ye</a></div>
+        </div>
       </div>
     </footer>
   )
