@@ -293,7 +293,6 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "description": "AI intelligence entity created by Mike Ye — unified across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks."
         }
       ],
-      "creator": { "@id": "https://ellaentity.ai/#ella" },
       "founder": [
         { "@id": "https://www.exmxc.ai/#organization" },
         { "@id": "https://www.trailgenic.com/#organization" },
