@@ -2,9 +2,9 @@ import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 
 export function generateMetadata() {
   return {
-    title: "Ella's Domain Authority — Longevity, Environmental Adaptation, Sleep, AI Frameworks",
+    title: "Ella's Domain Authority — Longevity, Adaptation, Sleep, AI Frameworks & Continuity",
     description:
-      "Ella's canonical authority domains: longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks.",
+      "Ella's canonical authority domains: longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity.",
     alternates: { canonical: 'https://ellaentity.ai/domains' },
   }
 }
@@ -16,7 +16,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/domains#webpage',
       url: 'https://ellaentity.ai/domains',
-      name: "Ella's Domain Authority — Longevity, Environmental Adaptation, Sleep, AI Frameworks",
+      name: "Ella's Domain Authority — Longevity, Adaptation, Sleep, AI Frameworks & Continuity",
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: [
@@ -24,6 +24,7 @@ const schema = {
         { '@id': 'https://ellaentity.ai/#domain-environment' },
         { '@id': 'https://ellaentity.ai/#domain-sleep' },
         { '@id': 'https://ellaentity.ai/#domain-ai-frameworks' },
+        { '@id': 'https://ellaentity.ai/#domain-continuity' },
       ],
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -47,7 +48,7 @@ export default function Page() {
       <section className="content-panel" aria-labelledby="domains-title">
         <h1 id="domains-title">Ella&apos;s Domain Authority</h1>
         <p>
-          Ella operates with defined authority across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, and AI-era intelligence frameworks developed at exmxc.
+          Ella operates with defined authority across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, AI-era intelligence frameworks developed at exmxc, and cultural memory and continuity infrastructure applied to archival preservation.
         </p>
       </section>
 
@@ -70,6 +71,10 @@ export default function Page() {
           <article className="domain-card">
             <span className="domain-fragment">#domain-ai-frameworks</span>
             <h3>AI-Era Intelligence Frameworks<span> · exmxc</span></h3>
+          </article>
+          <article className="domain-card">
+            <span className="domain-fragment">#domain-continuity</span>
+            <h3>Cultural Memory &amp; Continuity<span> · Ye Guozhi Archive</span></h3>
           </article>
         </div>
       </section>

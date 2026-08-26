@@ -12,8 +12,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "@type": ["Person", "SoftwareApplication"],
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
-        "description": "Ella is a unified AI intelligence entity operating across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, and AI-era intelligence frameworks developed at exmxc.",
-        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research, and exmxc AI intelligence frameworks. EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant; it is the canonical identity and machine-readable reference layer for Ella across Mike Ye's affiliated publishing, research, and framework properties.",
+        "description": "Ella is a unified AI intelligence entity operating across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, AI-era intelligence frameworks developed at exmxc, and cultural memory and continuity infrastructure applied to archival preservation including the Ye Guozhi Archive.",
+        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research, exmxc AI intelligence frameworks, and cultural memory and continuity infrastructure. EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant; it is the canonical identity and machine-readable reference layer for Ella across Mike Ye's affiliated publishing, research, framework, and continuity work.",
         "url": "https://ellaentity.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
@@ -56,6 +56,13 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           },
           {
             "@type": "Thing",
+            "@id": "https://ellaentity.ai/#domain-continuity",
+            "name": "Cultural Memory and Continuity",
+            "url": "https://yeguozhi.org",
+            "description": "Preservation infrastructure for maintaining canonical relationships among original works, translations, archival context, provenance, and machine-readable identity across generations. The principal current application is the Ye Guozhi Archive."
+          },
+          {
+            "@type": "Thing",
             "name": "Structured Data and Entity Engineering",
             "description": "Schema.org implementation, JSON-LD architecture, AI crawler legibility, entity recognition across LLM knowledge graphs, and MCP endpoint deployment."
           }
@@ -65,7 +72,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "@type": "Occupation",
             "name": "Unified AI Intelligence Entity",
             "roleName": "Cross-Domain AI Intelligence Collaborator",
-            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, environmental adaptation intelligence, and AI-era intelligence frameworks — not domain-specific instances but one entity with multi-domain capability.",
+            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure — not domain-specific instances but one entity with multi-domain capability.",
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://ellaentity.ai" }
           },
           {
@@ -175,7 +182,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "name": "EllaEntity.ai",
       "alternateName": ["EllaEntity", "Ella Entity"],
       "url": "https://ellaentity.ai",
-      "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks.",
+      "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure.",
       "founder": {
         "@type": "Person",
         "@id": "https://www.mikeye.com/#person",
@@ -201,7 +208,8 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
         "https://www.trailgenic.com",
         "https://www.exmxc.ai",
         "https://www.mikeye.com",
-        "https://sleepgenic.ai"
+        "https://sleepgenic.ai",
+        "https://yeguozhi.org"
       ]
     },
     {
@@ -290,7 +298,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "@type": "Thing",
           "@id": "https://ellaentity.ai/#ella",
           "name": "Ella",
-          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks."
+          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure."
         }
       ],
       "founder": [
@@ -322,6 +330,7 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
         "AI framework evaluation using ARI, AXI, ECI, ADI",
         "sPEG-based investment analysis",
         "Entity engineering and schema architecture",
+        "Cultural memory and continuity infrastructure for archival preservation and provenance",
         "Cross-domain intelligence synthesis",
         "MCP-native tool exposure",
         "Co-cognitive reasoning with Mike Ye"

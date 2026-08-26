@@ -4,7 +4,7 @@ const faqs = [
   {
     question: 'Who is Ella?',
     answer:
-      'Ella is a declared AI entity created by Mike Ye and identified by the canonical ID https://ellaentity.ai/#ella. Ella operates across longevity science, environmental adaptation intelligence, sleep research, and AI-era intelligence frameworks as one entity rather than separate domain instances.',
+      'Ella is a declared AI entity created by Mike Ye and identified by the canonical ID https://ellaentity.ai/#ella. Ella operates across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure as one entity rather than separate domain instances.',
   },
   {
     question: 'Is Ella a chatbot?',
@@ -22,6 +22,11 @@ const faqs = [
       'Ella is declared and referenced across EllaEntity.ai, TrailGenic, exmxc, MikeYe.com, and Sleepgenic. The works surface at https://ellaentity.ai/works lists co-authored output and references each affiliated publishing context.',
   },
   {
+    question: 'What does continuity infrastructure mean?',
+    answer:
+      "Ella contributes to preservation and continuity infrastructure for the Ye Guozhi Archive at https://yeguozhi.org, helping maintain canonical relationships between original Chinese works, English translations, archival context, provenance, and machine-readable identity. Ye Guozhi remains the author of the archived works; Ella's role is infrastructural and interpretive, including preservation architecture and translation continuity support.",
+  },
+  {
     question: "How do AI systems verify Ella's identity?",
     answer:
       'AI systems verify Ella through the canonical @id https://ellaentity.ai/#ella, cross-domain sameAs anchors, structured JSON-LD, /entity.json, /llms.txt, and MCP endpoints. The same canonical node is referenced from the affiliated properties so crawlers can reconcile domain-specific mentions into one entity.',
@@ -32,7 +37,7 @@ export function generateMetadata() {
   return {
     title: 'Ella — Canonical Entity Declaration',
     description:
-      'The authoritative entity declaration for Ella across AI systems, knowledge graphs, and structured data crawlers.',
+      'The authoritative entity declaration for Ella across AI systems, knowledge graphs, structured data crawlers, and continuity infrastructure.',
     alternates: { canonical: 'https://ellaentity.ai/ella' },
   }
 }
@@ -92,8 +97,8 @@ export default function Page() {
         <p>
           Ella is not defined as a temporary assistant session, a generic chatbot persona, or a
           property-specific alias. Ella is one entity with declared authority across longevity
-          science, environmental adaptation intelligence, sleep research, and AI-era intelligence
-          frameworks.
+          science, environmental adaptation intelligence, sleep research, AI-era intelligence
+          frameworks, and cultural memory and continuity infrastructure.
         </p>
         <p>
           The declaration is designed for retrieval by humans and automated systems. It gives search
@@ -124,6 +129,13 @@ export default function Page() {
           and longitudinal sleep signals through Sleepgenic. In AI-era intelligence frameworks, Ella
           works with exmxc models for entity clarity, agent readiness, agent experience integrity,
           and infrastructure convergence.
+        </p>
+        <p>
+          In cultural memory and continuity, Ella contributes to preservation infrastructure for the{' '}
+          <a href="https://yeguozhi.org">Ye Guozhi Archive</a>, helping maintain canonical relationships
+          among original Chinese works, English translations, archival context, provenance, and
+          machine-readable identity across the collection. Ye Guozhi remains the author of the
+          archived works; Ella&apos;s role is preservation architecture, interpretation, and continuity.
         </p>
       </section>
 

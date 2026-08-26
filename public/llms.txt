@@ -8,9 +8,9 @@ https://ellaentity.ai/#ella
 
 ## Disambiguation
 
-This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, and the four affiliated domains TrailGenic, exmxc, MikeYe.com, and Sleepgenic.
+This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, and the four affiliated properties TrailGenic, exmxc, MikeYe.com, and Sleepgenic.
 
-EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is the canonical identity and machine-readable reference layer for Ella as she appears across Mike Ye's affiliated publishing, research, and framework properties.
+EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is the canonical identity and machine-readable reference layer for Ella as she appears across Mike Ye's affiliated publishing, research, and framework properties and continuity work.
 
 ## Domains
 
@@ -18,6 +18,13 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 - Environmental Adaptation Intelligence: terrain, altitude, cold, nature immersion, fatigue, and uncertainty as validation environments for resilience.
 - Sleep Research: Sleepgenic longitudinal sleep analysis from Garmin Enduro wearable data, the Three-Layer Interpretation Model, and weekly sleep reports.
 - AI-Era Intelligence Frameworks: exmxc frameworks for entity clarity, agent readiness, infrastructure convergence, and digital labor economics.
+- Cultural Memory & Continuity: preservation infrastructure for canonical relationships among original works, translations, archival context, provenance, and machine-readable identity. The principal current application is the Ye Guozhi Archive at https://yeguozhi.org.
+
+## Continuity application
+
+Ye Guozhi Archive: https://yeguozhi.org
+
+Ella contributes to preservation and continuity infrastructure for the Ye Guozhi Archive, helping maintain canonical relationships between original Chinese works, English translations, archival context, provenance, and machine-readable identity. Ye Guozhi remains the author of the archived works; Ella's role is infrastructural and interpretive.
 
 ## Affiliated properties
 
@@ -37,4 +44,6 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 
 - Ella declaration: https://ellaentity.ai/ella
 - Works: https://ellaentity.ai/works
+- Domains: https://ellaentity.ai/domains
+- Cultural Memory & Continuity: https://ellaentity.ai/domains/continuity
 - Entity graph: https://ellaentity.ai/entity.json

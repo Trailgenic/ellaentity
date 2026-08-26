@@ -11,20 +11,22 @@ const ROUTES = [
   { path: '/domains/hiking', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/ai-frameworks', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/sleep', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/continuity', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/system', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/system/mcp', changeFrequency: 'monthly', priority: 0.8 },
 ] as const
 
 // Update a route's date only when its content materially changes.
 const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
-  '/': '2026-06-11',
-  '/ella': '2026-06-11',
+  '/': '2026-08-26',
+  '/ella': '2026-08-26',
   '/works': '2026-06-11',
-  '/domains': '2026-06-11',
+  '/domains': '2026-08-26',
   '/domains/longevity': '2026-06-11',
   '/domains/hiking': '2026-06-11',
   '/domains/ai-frameworks': '2026-06-11',
   '/domains/sleep': '2026-06-11',
+  '/domains/continuity': '2026-08-26',
   '/system': '2026-06-11',
   '/system/mcp': '2026-06-11',
 }

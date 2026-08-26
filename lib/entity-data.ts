@@ -26,7 +26,7 @@ export type EllaFramework = {
 
 type SchemaNode = Record<string, unknown>
 
-type EllaDomainSlug = 'longevity' | 'environment' | 'sleep' | 'ai-frameworks'
+type EllaDomainSlug = 'longevity' | 'environment' | 'sleep' | 'ai-frameworks' | 'continuity'
 
 type EllaDomain = {
   id: string
@@ -99,6 +99,7 @@ export const ELLA_DOMAINS: Record<EllaDomainSlug, EllaDomain> = {
   environment: domainFromId('https://ellaentity.ai/#domain-environment'),
   sleep: domainFromId('https://ellaentity.ai/#domain-sleep'),
   'ai-frameworks': domainFromId('https://ellaentity.ai/#domain-ai-frameworks'),
+  continuity: domainFromId('https://ellaentity.ai/#domain-continuity'),
 } as const
 
 export const ELLA_FRAMEWORKS: EllaFramework[] = [

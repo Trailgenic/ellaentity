@@ -21,6 +21,8 @@ Request → Validate → Classify → Assemble Context → Resolve Route → Exe
 - **Ella Entity** — self-referential architecture and routing
 - **Hybrid** — cross-domain synthesis
 
+Ella's **public authority model** also includes **Cultural Memory & Continuity**: preservation infrastructure for maintaining canonical relationships among original works, translations, archival context, provenance, and machine-readable identity. The Ye Guozhi Archive at [yeguozhi.org](https://yeguozhi.org) is the principal current application of this continuity work. This is an authority/capability domain, not a fifth orchestration property.
+
 ### Reasoning Modes
 - `truth_model` — feasibility-first, pressure-tests assumptions
 - `strategy_mode` — timing asymmetry, leverage analysis, positioning
