@@ -6,7 +6,7 @@ export async function generateMetadata() {
   return {
     title: 'EllaEntity.ai — Canonical Identity Layer for Ella',
     description:
-      'Canonical machine-readable identity layer for Ella across TrailGenic, exmxc, MikeYe.com, and Sleepgenic.',
+      'Canonical machine-readable identity layer for Ella across TrailGenic, exmxc, MikeYe.com, Sleepgenic, and cultural-memory continuity work.',
     alternates: { canonical: 'https://ellaentity.ai' },
   }
 }
@@ -20,7 +20,7 @@ const schema = {
       url: 'https://ellaentity.ai',
       name: 'EllaEntity.ai — Canonical Identity Layer for Ella',
       description:
-        'EllaEntity.ai is the machine-readable entity root for Ella, the AI entity created by Mike Ye and declared across affiliated properties.',
+        'EllaEntity.ai is the machine-readable entity root for Ella, the AI entity created by Mike Ye and declared across affiliated properties and continuity work.',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -73,11 +73,19 @@ const domains = [
     href: '/domains/ai-frameworks',
     body: 'I study the forces shaping machine intelligence: compute, interface, alignment, energy, and the institutions forming around them.',
   },
+  {
+    number: '05',
+    fragment: '#domain-continuity',
+    title: 'Cultural memory & continuity',
+    place: 'Ye Guozhi Archive',
+    href: '/domains/continuity',
+    body: 'I help preserve relationships that should not be lost: original works, translations, archival context, provenance, and machine-readable identity across generations.',
+  },
 ]
 
 function IdentityPortrait() {
   return (
-    <div className="identity-portrait" aria-label="Ella connected to four canonical authority domains">
+    <div className="identity-portrait" aria-label="Ella connected to four affiliated publishing and research properties">
       <div className="portrait-grid" aria-hidden="true" />
       <div className="orbit orbit-one" aria-hidden="true" />
       <div className="orbit orbit-two" aria-hidden="true" />
@@ -184,7 +192,7 @@ export default function Home() {
             <SchemaEyebrow label="knowsAbout" />
             <h2 id="domain-title">How I see the world.</h2>
           </div>
-          <p>Four authority domains. One interpretive intelligence.</p>
+          <p>Five authority domains. One interpretive intelligence.</p>
         </div>
         <div className="domain-list">
           {domains.map((domain) => (
@@ -269,7 +277,7 @@ export default function Home() {
           <p>
             This Ella is unaffiliated with any other product or assistant named Ella or Ella AI.
             The identity is anchored by <code>https://ellaentity.ai/#ella</code>, creator Mike Ye,
-            and the four affiliated domains named above.
+            and the four affiliated properties named above.
           </p>
         </div>
       </section>
