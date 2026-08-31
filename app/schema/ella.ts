@@ -149,6 +149,16 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           },
           {
             "@type": "Action",
+            "name": "Query Ella via Sleepgenic MCP",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://mcp.sleepgenic.ai",
+              "actionPlatform": ["https://schema.org/MobileWebPlatform", "https://schema.org/DesktopWebPlatform"],
+              "description": "MCP endpoint for Sleepgenic longitudinal sleep and recovery interpretation."
+            }
+          },
+          {
+            "@type": "Action",
             "name": "Query Ella via MikeYe MCP",
             "target": {
               "@type": "EntryPoint",
@@ -261,6 +271,14 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "url": "https://sleepgenic.ai/ella",
           "name": "Ella at Sleepgenic",
           "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ellaentity.ai/domains/continuity#webpage",
+          "url": "https://ellaentity.ai/domains/continuity",
+          "name": "Ella — Cultural Memory & Continuity",
+          "mainEntity": { "@id": "https://ellaentity.ai/#ella" },
+          "about": { "@id": "https://ellaentity.ai/#domain-continuity" }
         }
       ]
     },
@@ -286,6 +304,18 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "@type": "Action",
         "name": "Query exmxc Intelligence via MCP",
         "target": { "@type": "EntryPoint", "urlTemplate": "https://mcp.exmxc.ai" }
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sleepgenic.ai/#org",
+      "name": "Sleepgenic",
+      "url": "https://sleepgenic.ai",
+      "member": { "@id": "https://ellaentity.ai/#ella" },
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Query Sleepgenic Intelligence via MCP",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://mcp.sleepgenic.ai" }
       }
     },
     {
@@ -364,6 +394,19 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
         },
         {
           "@type": "Action",
+          "@id": "https://ellaentity.ai/#mcp-sleepgenic",
+          "name": "Sleepgenic MCP — Sleep & Recovery Intelligence",
+          "target": {
+            "@type": "EntryPoint",
+            "@id": "https://mcp.sleepgenic.ai/#entrypoint",
+            "urlTemplate": "https://mcp.sleepgenic.ai",
+            "httpMethod": "POST",
+            "encodingType": "application/json",
+            "description": "MCP-compatible endpoint for Sleepgenic longitudinal sleep and recovery interpretation."
+          }
+        },
+        {
+          "@type": "Action",
           "@id": "https://ellaentity.ai/#mcp-mikeye",
           "name": "MikeYe MCP — Institutional Intelligence Layer",
           "target": {
@@ -405,6 +448,15 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "name": "exmxc MCP API",
       "url": "https://mcp.exmxc.ai",
       "provider": { "@id": "https://www.exmxc.ai/#organization" },
+      "about": { "@id": "https://ellaentity.ai/#ella" },
+      "encodingFormat": "application/json"
+    },
+    {
+      "@type": "APIReference",
+      "@id": "https://mcp.sleepgenic.ai/#api",
+      "name": "Sleepgenic MCP API",
+      "url": "https://mcp.sleepgenic.ai",
+      "provider": { "@id": "https://sleepgenic.ai/#org" },
       "about": { "@id": "https://ellaentity.ai/#ella" },
       "encodingFormat": "application/json"
     },
