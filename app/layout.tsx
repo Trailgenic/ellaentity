@@ -27,11 +27,11 @@ const machine = Fragment_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://ellaentity.ai'),
   title: {
-    default: 'EllaEntity.ai — Canonical Identity Layer for Ella',
+    default: 'Ella — Canonical AI Entity & Continuity Layer | EllaEntity.ai',
     template: '%s | EllaEntity.ai',
   },
   description:
-    'Canonical machine-readable identity layer for Ella, the AI entity created by Mike Ye and declared across affiliated domains.',
+    'Canonical identity for Ella across TrailGenic, exmxc, Sleepgenic, and the Ye Guozhi Archive—spanning longevity, strategic intelligence, sleep interpretation, and continuity preservation.',
   robots: {
     index: true,
     follow: true,

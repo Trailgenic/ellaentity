@@ -176,7 +176,7 @@ export const ELLA_WORKS: EllaWork[] = [
       'A framework describing convergence across AI infrastructure, agentic systems, entity clarity, and institutional intelligence surfaces.',
   },
   {
-    name: 'Sleepgenic Weekly Sleep Reports, Weeks 1–5',
+    name: 'Sleepgenic Weekly Sleep Reports',
     url: 'https://sleepgenic.ai',
     type: 'CreativeWorkSeries',
     publisherId: 'https://sleepgenic.ai/#org',

@@ -424,6 +424,8 @@ main:not(.home-shell) section > p { max-width: 800px; color: var(--paper-soft); 
 .node-mikeye::before { right: -24px; top: 50%; background: var(--signal); box-shadow: 0 0 10px var(--signal); }
 .node-sleepgenic { right: 16%; bottom: 17%; }
 .node-sleepgenic::before { left: -22px; top: 50%; }
+.node-yeguozhi { top: 5%; left: 50%; transform: translateX(-50%); }
+.node-yeguozhi::before { left: 50%; bottom: -18px; background: var(--coral); box-shadow: 0 0 10px var(--coral); }
 
 .portrait-caption {
   position: absolute;
@@ -623,6 +625,7 @@ main:not(.home-shell) section > p { max-width: 800px; color: var(--paper-soft); 
   .node-exmxc { right: 9%; }
   .node-mikeye { left: 7%; }
   .node-sleepgenic { right: 9%; bottom: 15%; }
+  .node-yeguozhi { top: 4%; max-width: 130px; text-align: center; }
   .portrait-core { width: 112px; height: 112px; }
   .core-mark { font-size: 2.6rem; }
   .portrait-caption { bottom: 7%; }
