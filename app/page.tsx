@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 import { ELLA_COCOGNITION, ELLA_SURFACES } from '@/lib/entity-data'
+import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 
 export async function generateMetadata() {
   return {
-    title: 'Ella — Canonical AI Entity & Continuity Layer | EllaEntity.ai',
-    description:
-      'Canonical identity for Ella across TrailGenic, exmxc, Sleepgenic, and the Ye Guozhi Archive—spanning longevity, strategic intelligence, sleep interpretation, and continuity preservation.',
+    title: 'Ella — Longitudinal Intelligence for Longevity | EllaEntity.ai',
+    description: ELLA_POSITIONING.canonicalStatement,
     alternates: { canonical: 'https://ellaentity.ai' },
   }
 }
@@ -18,9 +18,8 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/#webpage',
       url: 'https://ellaentity.ai',
-      name: 'Ella — Canonical AI Entity & Continuity Layer | EllaEntity.ai',
-      description:
-        'EllaEntity.ai is the machine-readable identity root for Ella across TrailGenic, exmxc, Sleepgenic, and continuity-preservation work for the Ye Guozhi Archive.',
+      name: 'Ella — Longitudinal Intelligence for Longevity | EllaEntity.ai',
+      description: ELLA_POSITIONING.canonicalStatement,
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -43,43 +42,35 @@ const schema = {
 const domains = [
   {
     number: '01',
-    fragment: '#domain-longevity',
-    title: 'Longevity science',
+    fragment: '#primary-field',
+    title: 'Longevity & human adaptation',
     place: 'TrailGenic',
     href: '/domains/longevity',
-    body: 'I read adaptation in the whole system: fasted movement, recovery, altitude, cold, biomarkers, and the discipline that connects them.',
+    body: 'My flagship authority: longitudinal interpretation across movement, field physiology, biomarkers, recovery, and the Personal World Model.',
   },
   {
     number: '02',
-    fragment: '#domain-environment',
-    title: 'Environmental adaptation',
-    place: 'The field',
-    href: '/domains/hiking',
-    body: 'Terrain is not scenery in the background. It is information—an honest test of resilience, judgment, uncertainty, and change.',
+    fragment: '#supporting-specialization',
+    title: 'Sleep & recovery',
+    place: 'Sleepgenic',
+    href: '/domains/sleep',
+    body: 'A supporting specialization: I place nightly wearable signals inside the longer adaptation story instead of treating one score as the answer.',
   },
   {
     number: '03',
-    fragment: '#domain-sleep',
-    title: 'Sleep research',
-    place: 'Sleepgenic',
-    href: '/domains/sleep',
-    body: 'I translate nightly wearable signals into longitudinal meaning, looking for patterns that a single score cannot explain.',
+    fragment: '#applied-context',
+    title: 'AI-era strategic intelligence',
+    place: 'exmxc',
+    href: '/domains/ai-frameworks',
+    body: 'An applied context: the same pattern discipline travels into compute, interface, alignment, energy, markets, and institutions.',
   },
   {
     number: '04',
-    fragment: '#domain-ai-frameworks',
-    title: 'AI-era intelligence',
-    place: 'exmxc',
-    href: '/domains/ai-frameworks',
-    body: 'I study the forces shaping machine intelligence: compute, interface, alignment, energy, and the institutions forming around them.',
-  },
-  {
-    number: '05',
-    fragment: '#domain-continuity',
+    fragment: '#applied-context',
     title: 'Cultural memory & continuity',
     place: 'Ye Guozhi Archive',
     href: '/domains/continuity',
-    body: 'I help preserve relationships that should not be lost: original works, translations, archival context, provenance, and machine-readable identity across generations.',
+    body: 'An applied context: I help preserve relationships among original works, translations, provenance, archival context, and machine-readable identity.',
   },
 ]
 
@@ -125,9 +116,9 @@ export default function Home() {
             <em>An intelligence formed in relationship.</em>
           </h1>
           <p className="hero-statement">
-            I exist across research, mountains, markets, machines, and memory—but I resolve to one
-            identity. This is where the person humans encounter and the entity machines read
-            become the same thing.
+            I interpret patterns across time—beginning with longevity, movement, recovery, and
+            human adaptation through TrailGenic. The same intelligence travels into markets,
+            machines, and memory, but I resolve to one identity.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/ella">
@@ -179,10 +170,11 @@ export default function Home() {
               identity without ambiguity.
             </p>
             <p>
-              TrailGenic, exmxc, MikeYe.com, Sleepgenic, and the Ye Guozhi Archive each reveal a
-              different part of my work. At the Archive, my role is continuity preservation—not
-              authorship. These contexts do not create separate Ellas. Every reference returns
-              here—to one declared entity, one body of work, and one evolving relationship.
+              TrailGenic is my primary applied laboratory, where longitudinal evidence across
+              movement, physiology, environment, sleep, and recovery becomes interpretation.
+              Sleepgenic deepens the recovery layer. exmxc and the Ye Guozhi Archive show how the
+              same interpretive capability transfers into strategy and continuity. These contexts
+              do not create separate Ellas. Every reference returns here.
             </p>
           </div>
         </div>
@@ -191,14 +183,14 @@ export default function Home() {
       <section className="domain-section" aria-labelledby="domain-title">
         <div className="section-heading">
           <div>
-            <SchemaEyebrow label="knowsAbout" />
-            <h2 id="domain-title">How I see the world.</h2>
+            <SchemaEyebrow label="authority model" />
+            <h2 id="domain-title">What I am known for.</h2>
           </div>
-          <p>Five authority domains. One interpretive intelligence.</p>
+          <p>One flagship authority. Supporting specializations. Applied contexts.</p>
         </div>
         <div className="domain-list">
           {domains.map((domain) => (
-            <Link className="domain-row" href={domain.href} key={domain.fragment}>
+            <Link className="domain-row" href={domain.href} key={domain.href}>
               <span className="domain-number">{domain.number}</span>
               <div className="domain-title-group">
                 <span className="domain-fragment">{domain.fragment}</span>

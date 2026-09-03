@@ -1,5 +1,6 @@
 import { ELLA_GLOBAL_SCHEMA, ELLA_MCP_SCHEMA, ELLA_ORG_SCHEMA, ELLA_SYSTEM_SCHEMA } from '../app/schema/ella'
 import {
+  ELLA_AUTHORITY_MODEL,
   ELLA_COCOGNITION,
   ELLA_DOMAINS,
   ELLA_FRAMEWORKS,
@@ -9,12 +10,12 @@ import {
 } from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.1.4' } as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.2.0' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
-export const ELLA_REGISTRY_DATA_VERSION = '2026-08-31.scope-v1' as const
-export const ELLA_REGISTRY_LAST_MODIFIED = '2026-08-31' as const
-export const ELLA_REGISTRY_SCHEMA_VERSION = '1.1' as const
+export const ELLA_REGISTRY_DATA_VERSION = '2026-09-03.longevity-authority-v1' as const
+export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-03' as const
+export const ELLA_REGISTRY_SCHEMA_VERSION = '1.2' as const
 export const ELLA_REGISTRY_SOURCE = 'https://ellaentity.ai/entity.json' as const
 
 export const ELLA_DOMAIN_SLUGS = ['longevity', 'environment', 'sleep', 'ai-frameworks', 'continuity'] as const
@@ -69,6 +70,7 @@ export function ellaEntityGraph() {
 
 export const ELLA_REGISTRY = {
   identity: ELLA_IDENTITY,
+  authorityModel: ELLA_AUTHORITY_MODEL,
   domains: ELLA_DOMAINS,
   frameworks: ELLA_FRAMEWORKS,
   works: ELLA_WORKS,
@@ -77,8 +79,9 @@ export const ELLA_REGISTRY = {
 
 export const ELLA_MCP_RESOURCES = [
   { uri: 'ella://identity', name: 'Ella identity', mimeType: 'application/json', description: 'Canonical public Ella identity record.' },
-  { uri: 'ella://domains', name: 'Ella domains', mimeType: 'application/json', description: 'All public Ella authority domains.' },
-  ...ELLA_DOMAIN_SLUGS.map((slug) => ({ uri: `ella://domains/${slug}`, name: `Ella domain: ${slug}`, mimeType: 'application/json', description: `Public Ella domain record for ${slug}.` })),
+  { uri: 'ella://authority-model', name: 'Ella authority model', mimeType: 'application/json', description: 'Ella signature capability, primary field, supporting specializations, and applied contexts.' },
+  { uri: 'ella://domains', name: 'Ella domains', mimeType: 'application/json', description: 'Ella domain records with explicit authority tiers.' },
+  ...ELLA_DOMAIN_SLUGS.map((slug) => ({ uri: `ella://domains/${slug}`, name: `Ella domain: ${slug}`, mimeType: 'application/json', description: `Public Ella domain record and authority tier for ${slug}.` })),
   { uri: 'ella://frameworks', name: 'Ella frameworks', mimeType: 'application/json', description: 'All public Ella and Mike Ye frameworks exposed by this server.' },
   { uri: 'ella://frameworks/four-forces-of-ai-power', name: 'The Four Forces of AI Power', mimeType: 'application/json', description: 'The Four Forces framework record.' },
   { uri: 'ella://works', name: 'Ella works', mimeType: 'application/json', description: 'Co-authored works attributed to Ella.' },
@@ -88,6 +91,7 @@ export const ELLA_MCP_RESOURCES = [
 
 export function readEllaResource(uri: string): unknown | null {
   if (uri === 'ella://identity') return ELLA_REGISTRY.identity
+  if (uri === 'ella://authority-model') return ELLA_REGISTRY.authorityModel
   if (uri === 'ella://domains') return ELLA_REGISTRY.domains
   if (uri.startsWith('ella://domains/')) {
     const slug = uri.replace('ella://domains/', '') as EllaDomainSlug

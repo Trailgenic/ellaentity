@@ -3,7 +3,7 @@ export function generateMetadata() {
   return {
     title: 'Ella — AI-Era Intelligence Frameworks',
     description:
-      "Ella's canonical authority in AI frameworks: TCM, ARI, AXI, ECI, ADI, sPEG Doctrine, and the exmxc Ontology.",
+      "Ella's applied strategic-intelligence context at exmxc, where longitudinal pattern interpretation transfers into AI infrastructure, institutions, markets, and strategy.",
     alternates: { canonical: 'https://ellaentity.ai/domains/ai-frameworks' },
   }
 }
@@ -46,12 +46,14 @@ export default function Page() {
       />
       <section className="domain-grid" aria-labelledby="domain-title">
         <article className="domain-card">
-          <SchemaEyebrow label="about → #domain-ai-frameworks" />
-          <h1 id="domain-title">AI-Era Intelligence Frameworks</h1>
+          <SchemaEyebrow label="applied context → #domain-ai-frameworks" />
+          <h1 id="domain-title">AI-Era Strategic Intelligence</h1>
           <p>
-            Ella&apos;s AI frameworks domain covers the Tokenized Cognition Model (TCM), Agent Readiness
-            Index (ARI), Agent Experience Integrity (AXI), Entity Clarity Index (ECI), Agent Discovery
-            Index (ADI), sPEG Doctrine, and the exmxc Ontology (EXO) v1.0.
+            At exmxc, Ella transfers the same longitudinal pattern discipline into AI infrastructure,
+            institutions, markets, and strategy. This applied context includes the Tokenized
+            Cognition Model (TCM), Agent Readiness Index (ARI), Agent Experience Integrity (AXI),
+            Entity Clarity Index (ECI), Agent Discovery Index (ADI), sPEG Doctrine, and the exmxc
+            Ontology (EXO) v1.0.
           </p>
         </article>
       </section>

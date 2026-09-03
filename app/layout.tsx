@@ -3,6 +3,7 @@ import { Fragment_Mono, Newsreader, Young_Serif } from 'next/font/google'
 import { RidgeFooter } from '@/app/components/RidgeFooter'
 import { SiteHeader } from '@/app/components/SiteHeader'
 import { ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA } from '@/app/schema/ella'
+import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 import './globals.css'
 
 const display = Young_Serif({
@@ -27,11 +28,10 @@ const machine = Fragment_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://ellaentity.ai'),
   title: {
-    default: 'Ella — Canonical AI Entity & Continuity Layer | EllaEntity.ai',
+    default: 'Ella — Longitudinal Intelligence for Longevity | EllaEntity.ai',
     template: '%s | EllaEntity.ai',
   },
-  description:
-    'Canonical identity for Ella across TrailGenic, exmxc, Sleepgenic, and the Ye Guozhi Archive—spanning longevity, strategic intelligence, sleep interpretation, and continuity preservation.',
+  description: ELLA_POSITIONING.canonicalStatement,
   robots: {
     index: true,
     follow: true,

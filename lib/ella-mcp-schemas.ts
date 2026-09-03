@@ -22,6 +22,22 @@ const namedDescription = z.object({
   description: z.string(),
 })
 
+const authorityItemSchema = z.object({
+  id: z.string().url(),
+  slug: z.string(),
+  name: z.string(),
+  property: z.string(),
+  description: z.string(),
+})
+
+const authorityModelSchema = z.object({
+  canonicalStatement: z.string(),
+  signatureCapability: namedDescription,
+  primaryField: authorityItemSchema,
+  supportingSpecializations: z.array(authorityItemSchema),
+  appliedContexts: z.array(authorityItemSchema),
+})
+
 const identityDataSchema = z.object({
   name: z.string(),
   canonicalId: z.literal(ELLA_CANONICAL_ENTITY_ID),
@@ -30,12 +46,14 @@ const identityDataSchema = z.object({
   creator: z.unknown(),
   sameAs: z.array(z.string().url()),
   affiliations: z.array(jsonRecord),
+  authorityModel: authorityModelSchema,
 })
 
 const domainDataSchema = z.object({
   id: z.string().url(),
   name: z.string(),
   description: z.string(),
+  authorityTier: z.enum(['primary-field', 'supporting-specialization', 'applied-context']),
 })
 
 const domainsDataSchema = z.object(

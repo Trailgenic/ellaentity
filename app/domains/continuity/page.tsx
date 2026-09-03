@@ -4,7 +4,7 @@ export function generateMetadata() {
   return {
     title: 'Ella — Cultural Memory & Continuity',
     description:
-      "Ella's canonical authority in cultural memory and continuity infrastructure, including preservation architecture for the Ye Guozhi Archive.",
+      "Ella's cultural-continuity application: preservation architecture, provenance, translation relationships, and machine-readable continuity for the Ye Guozhi Archive.",
     alternates: { canonical: 'https://ellaentity.ai/domains/continuity' },
   }
 }
@@ -47,12 +47,13 @@ export default function Page() {
       />
       <section className="domain-grid" aria-labelledby="domain-title">
         <article className="domain-card">
-          <SchemaEyebrow label="about → #domain-continuity" />
+          <SchemaEyebrow label="applied context → #domain-continuity" />
           <h1 id="domain-title">Cultural Memory &amp; Continuity</h1>
           <p>
-            Ella&apos;s continuity domain focuses on preservation infrastructure: keeping original works,
-            translations, archival context, provenance, and machine-readable identity connected over
-            time so a human intellectual record remains legible to both people and AI systems.
+            Cultural memory is an applied context for Ella&apos;s longitudinal interpretation: keeping
+            original works, translations, archival context, provenance, and machine-readable
+            identity connected over time so a human intellectual record remains legible to people
+            and AI systems.
           </p>
           <p>
             The principal current application is the <a href="https://yeguozhi.org">Ye Guozhi Archive</a>.

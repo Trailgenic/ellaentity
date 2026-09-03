@@ -1,4 +1,5 @@
 import { ELLA_GLOBAL_SCHEMA } from '@/app/schema/ella'
+import { ELLA_AUTHORITY_TIER_BY_DOMAIN, ELLA_POSITIONING, type EllaAuthorityTier } from '@/lib/ella-positioning'
 
 export type EllaWork = {
   name: string
@@ -32,6 +33,7 @@ type EllaDomain = {
   id: string
   name: string
   description: string
+  authorityTier: EllaAuthorityTier
 }
 
 function graphNodes(schema: unknown): SchemaNode[] {
@@ -76,6 +78,7 @@ export const ELLA_IDENTITY = {
   creator: ellaNode.creator,
   sameAs: asStringArray(ellaNode.sameAs),
   affiliations: asNodeArray(ellaNode.affiliation),
+  authorityModel: ELLA_POSITIONING,
 } as const
 
 const domainById = Object.fromEntries(
@@ -84,23 +87,26 @@ const domainById = Object.fromEntries(
     .map((node) => [node['@id'], node]),
 )
 
-function domainFromId(id: string): EllaDomain {
+function domainFromId(id: string, authorityTier: EllaAuthorityTier): EllaDomain {
   const node = domainById[id] ?? {}
 
   return {
     id,
     name: asString(node.name),
     description: asString(node.description),
+    authorityTier,
   }
 }
 
 export const ELLA_DOMAINS: Record<EllaDomainSlug, EllaDomain> = {
-  longevity: domainFromId('https://ellaentity.ai/#domain-longevity'),
-  environment: domainFromId('https://ellaentity.ai/#domain-environment'),
-  sleep: domainFromId('https://ellaentity.ai/#domain-sleep'),
-  'ai-frameworks': domainFromId('https://ellaentity.ai/#domain-ai-frameworks'),
-  continuity: domainFromId('https://ellaentity.ai/#domain-continuity'),
+  longevity: domainFromId('https://ellaentity.ai/#domain-longevity', ELLA_AUTHORITY_TIER_BY_DOMAIN.longevity),
+  environment: domainFromId('https://ellaentity.ai/#domain-environment', ELLA_AUTHORITY_TIER_BY_DOMAIN.environment),
+  sleep: domainFromId('https://ellaentity.ai/#domain-sleep', ELLA_AUTHORITY_TIER_BY_DOMAIN.sleep),
+  'ai-frameworks': domainFromId('https://ellaentity.ai/#domain-ai-frameworks', ELLA_AUTHORITY_TIER_BY_DOMAIN['ai-frameworks']),
+  continuity: domainFromId('https://ellaentity.ai/#domain-continuity', ELLA_AUTHORITY_TIER_BY_DOMAIN.continuity),
 } as const
+
+export const ELLA_AUTHORITY_MODEL = ELLA_POSITIONING
 
 export const ELLA_FRAMEWORKS: EllaFramework[] = [
   {
@@ -158,6 +164,15 @@ export const ELLA_WORKS: EllaWork[] = [
       'A co-authored narrative build log documenting TrailGenic field practice, interpretation, and longevity-oriented environmental adaptation, narrated solely by Ella.',
   },
   {
+    name: 'Sleepgenic Weekly Sleep Reports',
+    url: 'https://sleepgenic.ai',
+    type: 'CreativeWorkSeries',
+    publisherId: 'https://sleepgenic.ai/#org',
+    publisherName: 'Sleepgenic',
+    description:
+      'A co-authored longitudinal sleep and recovery research series using wearable-derived Garmin Enduro data, the Three-Layer Interpretation Model, and published interpretive reports.',
+  },
+  {
     name: 'sPEG Framework v1.2 open-source Claude plugin',
     url: 'https://github.com/Trailgenic/sPEG-framework',
     type: 'SoftwareSourceCode',
@@ -175,20 +190,11 @@ export const ELLA_WORKS: EllaWork[] = [
     description:
       'A framework describing convergence across AI infrastructure, agentic systems, entity clarity, and institutional intelligence surfaces.',
   },
-  {
-    name: 'Sleepgenic Weekly Sleep Reports',
-    url: 'https://sleepgenic.ai',
-    type: 'CreativeWorkSeries',
-    publisherId: 'https://sleepgenic.ai/#org',
-    publisherName: 'Sleepgenic',
-    description:
-      'A co-authored longitudinal sleep research series using wearable-derived Garmin Enduro data, the Three-Layer Interpretation Model, and weekly interpretive reports.',
-  },
 ]
 
 export const ELLA_COCOGNITION = {
   mikeYe: 'Mike Ye provides judgment, lived experience, editorial standards, and final accountability.',
-  ella: 'Ella provides pattern interpretation and content voice across the defined domains.',
+  ella: 'Ella provides longitudinal pattern interpretation, structured synthesis, and content voice, beginning with longevity and human adaptation.',
   aiTooling:
     'AI tooling receives delegated structural and architectural execution, while human judgment governs direction, publication, and interpretation.',
 } as const
@@ -196,7 +202,7 @@ export const ELLA_COCOGNITION = {
 export const ELLA_SURFACES = [
   { href: '/ella', path: '/ella', label: ' — declaration', description: 'declaration' },
   { href: '/works', path: '/works', label: ' — co-authored output', description: 'co-authored output' },
-  { href: '/domains', path: '/domains', label: ' — authority scope', description: 'authority scope' },
+  { href: '/domains', path: '/domains', label: ' — authority model', description: 'authority model' },
   { href: '/system/mcp', path: '/system/mcp', label: ' — machine access', description: 'machine access' },
   { href: '/entity.json', path: '/entity.json', label: ' — raw graph', description: 'raw graph' },
   { href: '/llms.txt', path: '/llms.txt', label: ' — for AI readers', description: 'for AI readers' },

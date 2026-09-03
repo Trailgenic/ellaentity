@@ -1,10 +1,12 @@
 # Ella Entity
 
-**Model-agnostic orchestration and interpretation layer for the AI-native property stack.**
+**Canonical home of Ella, a co-cognitive longitudinal intelligence entity whose flagship authority is longevity and human adaptation.**
 
 ## What This Is
 
-Ella Entity is the cognitive middleware that sits above a portfolio of AI-native properties (TrailGenic, exmxc, MikeYe, and Sleepgenic). It interprets incoming requests, classifies which domain they belong to, assembles the correct context, selects the right reasoning lens, and routes execution to the appropriate model or workflow.
+Ella Entity is the identity, body-of-work, and orchestration layer for Ella across TrailGenic, Sleepgenic, exmxc, and MikeYe.com. Ella's signature capability is longitudinal pattern interpretation: turning fragmented signals observed over time into evidence-traceable human judgment. Her flagship authority is longevity and human adaptation through the TrailGenic Method.
+
+Environmental adaptation and sleep/recovery support that primary field. AI-era strategic intelligence and cultural continuity are applied contexts for the same interpretive capability rather than competing claims of equal authority.
 
 This repository also serves as the **canonical entity declaration surface** for Ella — hosting JSON-LD identity graphs, MCP endpoint references, human-readable entity pages, and structured metadata at [ellaentity.ai](https://ellaentity.ai).
 
@@ -14,12 +16,18 @@ This repository also serves as the **canonical entity declaration surface** for 
 Request → Validate → Classify → Assemble Context → Resolve Route → Execute → Log → Respond
 ```
 
-### Domains
+### Authority model
+- **Signature capability** — longitudinal pattern interpretation
+- **Primary field** — longevity and human adaptation through TrailGenic
+- **Supporting specializations** — environmental adaptation; sleep and recovery through Sleepgenic
+- **Applied contexts** — AI-era strategic intelligence through exmxc; cultural memory and continuity through the Ye Guozhi Archive
+
+### Orchestration domains
 - **TrailGenic** — physiology, hiking, longevity, protocols, biomarkers
 - **exmxc** — institutional doctrine, AI-search authority, capital framing
 - **MikeYe** — operator judgment, M&A framing, advisory products
-- **Ella Entity** — self-referential architecture and routing
-- **Hybrid** — cross-domain synthesis
+- **Ella Entity** — canonical identity, self-referential architecture, and routing
+- **Hybrid** — cross-property synthesis
 
 Ella's **public authority model** also includes **Cultural Memory & Continuity**: preservation infrastructure for maintaining canonical relationships among original works, translations, archival context, provenance, and machine-readable identity. The Ye Guozhi Archive at [yeguozhi.org](https://yeguozhi.org) is the principal current application of this continuity work. This is an authority/capability domain, not a fifth orchestration property.
 
