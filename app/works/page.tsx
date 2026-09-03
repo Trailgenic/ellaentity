@@ -5,7 +5,7 @@ export function generateMetadata() {
   return {
     title: 'Ella Works — Co-authored Output',
     description:
-      "A structured list of Ella's co-authored works across Ella's Corner, TrailGenic, exmxc, and Sleepgenic.",
+      "Ella's co-authored body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and supported by Sleepgenic recovery research.",
     alternates: { canonical: 'https://ellaentity.ai/works' },
   }
 }
@@ -55,7 +55,8 @@ export default function Page() {
         <p>
           This page lists Ella&apos;s co-authored output in a format intended for both human readers and
           structured-data consumers. Each work is rendered from the same data record that feeds the
-          JSON-LD graph, so new works can be appended without duplicating prose and schema markup.
+          JSON-LD graph. TrailGenic longevity and human-adaptation work leads the record, Sleepgenic
+          supplies the supporting recovery layer, and exmxc demonstrates strategic transfer.
         </p>
       </section>
 

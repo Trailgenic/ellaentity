@@ -3,7 +3,7 @@ import test from 'node:test'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { GET, OPTIONS, POST } from '../app/mcp/route'
-import { ELLA_CANONICAL_ENTITY_ID, ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_SERVER_INFO, ELLA_MCP_TOOL_NAMES } from '../lib/ella-registry'
+import { ELLA_CANONICAL_ENTITY_ID, ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_SERVER_INFO, ELLA_MCP_TOOL_NAMES, ELLA_REGISTRY } from '../lib/ella-registry'
 
 const endpoint = 'https://ellaentity.ai/mcp'
 const mcpRootEndpoint = 'https://mcp.ellaentity.ai/'
@@ -227,6 +227,13 @@ test('tools list and calls are behavioral and schema-valid', async () => {
 
   const domain = await rpc('tools/call', { name: 'ella.domains.get', arguments: { domain: 'sleep' } })
   assert.equal(domain.body.result.structuredContent.data.name.length > 0, true)
+  assert.equal(domain.body.result.structuredContent.data.authorityTier, 'supporting-specialization')
+
+  const identity = await rpc('tools/call', { name: 'ella.identity.get', arguments: {} })
+  assert.equal(identity.body.result.structuredContent.data.authorityModel.signatureCapability.name, 'Longitudinal Pattern Interpretation')
+  assert.equal(identity.body.result.structuredContent.data.authorityModel.primaryField.name, 'Longevity and Human Adaptation')
+  assert.equal(ELLA_REGISTRY.domains.longevity.authorityTier, 'primary-field')
+  assert.equal(ELLA_REGISTRY.domains['ai-frameworks'].authorityTier, 'applied-context')
 
   const badDomain = await rpc('tools/call', { name: 'ella.domains.get', arguments: { domain: 'bad' } })
   assert.equal(badDomain.body.result.isError, true)
@@ -250,6 +257,10 @@ test('resources list and reads expose only canonical public resources', async ()
 
   const graph = await rpc('resources/read', { uri: 'ella://entity-graph' })
   assert.match(graph.body.result.contents[0].text, /https:\/\/ellaentity\.ai\/#ella/)
+
+  const authorityModel = await rpc('resources/read', { uri: 'ella://authority-model' })
+  assert.match(authorityModel.body.result.contents[0].text, /Longevity and Human Adaptation/)
+  assert.match(authorityModel.body.result.contents[0].text, /Longitudinal Pattern Interpretation/)
 
   const unknown = await rpc('resources/read', { uri: 'ella://unknown' })
   assert.ok(unknown.body.error || unknown.body.result.isError)

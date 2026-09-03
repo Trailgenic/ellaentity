@@ -6,7 +6,7 @@ export function generateMetadata() {
   return {
     title: 'Ella System Architecture — TrailGenic, exmxc, MCP Integration',
     description:
-      "Ella's integration layer: relationships to TrailGenic.com and exmxc.ai, MCP endpoint infrastructure, and the tri-property co-cognition model.",
+      "Ella's orchestration layer: TrailGenic as the longevity evidence authority, Sleepgenic as the recovery specialization, applied exmxc intelligence, and MCP infrastructure.",
     alternates: { canonical: 'https://ellaentity.ai/system' },
   }
 }
@@ -49,7 +49,11 @@ export default function Page() {
         <SchemaEyebrow label="subjectOf" />
         <h1 id="system-title">Ella System Architecture</h1>
         <p>
-          Ella integrates across TrailGenic, exmxc, MikeYe.com, and Sleepgenic through canonical sameAs references, subjectOf links, and MCP documentation. The system layer describes cross-property co-cognition for longevity, environmental adaptation, sleep research, and AI intelligence.
+          EllaEntity.ai is the identity, body-of-work, and orchestration layer. TrailGenic is the
+          primary longevity and human-adaptation evidence authority; Sleepgenic supplies the
+          supporting sleep and recovery specialization; exmxc carries applied strategic work; and
+          MikeYe.com establishes human origin, judgment, and accountability. Canonical sameAs,
+          subjectOf, and MCP links keep the hierarchy machine-readable.
         </p>
       </section>
     </main>

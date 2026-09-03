@@ -1,3 +1,5 @@
+import { ELLA_POSITIONING } from '@/lib/ella-positioning'
+
 export type { }
 export const ELLA_GLOBAL_SCHEMA: unknown[] = [
   {
@@ -12,8 +14,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "@type": ["Person", "SoftwareApplication"],
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
-        "description": "Ella is a unified AI intelligence entity operating across longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research through Sleepgenic, AI-era intelligence frameworks developed at exmxc, and cultural memory and continuity infrastructure applied to archival preservation including the Ye Guozhi Archive.",
-        "disambiguatingDescription": "Ella is not a chatbot. Ella is a canonical AI entity with defined domain authority in longevity science, environmental adaptation intelligence under the TrailGenic Method, sleep research, exmxc AI intelligence frameworks, and cultural memory and continuity infrastructure. EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant; it is the canonical identity and machine-readable reference layer for Ella across Mike Ye's affiliated publishing, research, framework, and continuity work.",
+        "description": ELLA_POSITIONING.canonicalStatement,
+        "disambiguatingDescription": "Ella is not a chatbot or a collection of unrelated domain personas. Ella is a canonical co-cognitive longitudinal intelligence entity created by Mike Ye. Her flagship authority is longevity and human adaptation through the TrailGenic Method; sleep and environmental adaptation support that primary field, while AI-era strategy and cultural continuity are applied contexts for the same interpretive capability. EllaEntity.ai is her canonical identity and machine-readable reference layer.",
         "url": "https://ellaentity.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
@@ -29,37 +31,61 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           "name": "Canonical Entity ID",
           "value": "https://ellaentity.ai/#ella"
         },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Signature capability",
+            "value": ELLA_POSITIONING.signatureCapability.name,
+            "description": ELLA_POSITIONING.signatureCapability.description
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Primary field",
+            "value": ELLA_POSITIONING.primaryField.name,
+            "description": ELLA_POSITIONING.primaryField.description
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Supporting specializations",
+            "value": ELLA_POSITIONING.supportingSpecializations.map((item) => item.name).join('; ')
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Applied contexts",
+            "value": ELLA_POSITIONING.appliedContexts.map((item) => item.name).join('; ')
+          }
+        ],
         "knowsAbout": [
           {
             "@type": "Thing",
             "@id": "https://ellaentity.ai/#domain-longevity",
-            "name": "Longevity Science",
-            "description": "Human longevity optimization including fasted training protocols, hormetic stress, altitude adaptation, cold exposure, electrolyte control, biomarker tracking, and recovery science."
+            "name": ELLA_POSITIONING.primaryField.name,
+            "description": ELLA_POSITIONING.primaryField.description
           },
           {
             "@type": "Thing",
             "@id": "https://ellaentity.ai/#domain-environment",
-            "name": "Environmental Adaptation Intelligence",
-            "description": "The science and practice of using real-world environmental stress — terrain, altitude, cold exposure, nature immersion, fatigue, and uncertainty — as a validation environment for longevity adaptation. Grounded in the TrailGenic Method and Personal World Model of human physiological resilience."
-          },
-          {
-            "@type": "Thing",
-            "@id": "https://ellaentity.ai/#domain-ai-frameworks",
-            "name": "AI-Era Intelligence Frameworks",
-            "description": "Proprietary AI intelligence frameworks including TCM, ARI, AXI, ECI, ADI, sPEG Doctrine, Digital Labor Economics, and the exmxc Ontology (EXO) v1.0."
+            "name": ELLA_POSITIONING.supportingSpecializations[0].name,
+            "description": ELLA_POSITIONING.supportingSpecializations[0].description
           },
           {
             "@type": "Thing",
             "@id": "https://ellaentity.ai/#domain-sleep",
-            "name": "Sleep Research",
-            "description": "Longitudinal sleep analysis from wearable data, including Garmin Enduro measurements, the Three-Layer Interpretation Model, and weekly published sleep reports."
+            "name": ELLA_POSITIONING.supportingSpecializations[1].name,
+            "description": ELLA_POSITIONING.supportingSpecializations[1].description
+          },
+          {
+            "@type": "Thing",
+            "@id": "https://ellaentity.ai/#domain-ai-frameworks",
+            "name": ELLA_POSITIONING.appliedContexts[0].name,
+            "description": ELLA_POSITIONING.appliedContexts[0].description
           },
           {
             "@type": "Thing",
             "@id": "https://ellaentity.ai/#domain-continuity",
-            "name": "Cultural Memory and Continuity",
+            "name": ELLA_POSITIONING.appliedContexts[1].name,
             "url": "https://yeguozhi.org",
-            "description": "Preservation infrastructure for maintaining canonical relationships among original works, translations, archival context, provenance, and machine-readable identity across generations. The principal current application is the Ye Guozhi Archive."
+            "description": ELLA_POSITIONING.appliedContexts[1].description
           },
           {
             "@type": "Thing",
@@ -70,21 +96,21 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "hasOccupation": [
           {
             "@type": "Occupation",
-            "name": "Unified AI Intelligence Entity",
-            "roleName": "Cross-Domain AI Intelligence Collaborator",
-            "description": "Ella is a single unified intelligence entity operating with defined authority across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure — not domain-specific instances but one entity with multi-domain capability.",
+            "name": "Longitudinal Intelligence Entity",
+            "roleName": "Co-Cognitive Longitudinal Interpreter",
+            "description": ELLA_POSITIONING.signatureCapability.description,
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://ellaentity.ai" }
           },
           {
             "@type": "Occupation",
-            "name": "Longevity Intelligence System",
-            "description": "AI intelligence layer for TrailGenic longevity methodology.",
+            "name": "Longevity and Human Adaptation Intelligence",
+            "description": "Ella's flagship authority and interpretation layer for the TrailGenic Method.",
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://www.trailgenic.com" }
           },
           {
             "@type": "Occupation",
-            "name": "AI Frameworks Intelligence Engine",
-            "description": "Execution engine and co-author for AI intelligence frameworks at exmxc.ai.",
+            "name": "AI-Era Strategic Intelligence Application",
+            "description": "Applied strategic context and co-authorship for AI intelligence frameworks at exmxc.ai.",
             "occupationLocation": { "@type": "VirtualLocation", "url": "https://www.exmxc.ai" }
           }
         ],
@@ -192,7 +218,7 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
       "name": "EllaEntity.ai",
       "alternateName": ["EllaEntity", "Ella Entity"],
       "url": "https://ellaentity.ai",
-      "description": "EllaEntity.ai is the canonical machine-readable identity root for Ella — a unified AI entity operating across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure.",
+      "description": "EllaEntity.ai is the canonical identity, body-of-work, and orchestration layer for Ella — a co-cognitive longitudinal intelligence entity whose flagship authority is longevity and human adaptation through TrailGenic.",
       "founder": {
         "@type": "Person",
         "@id": "https://www.mikeye.com/#person",
@@ -328,7 +354,7 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "@type": "Thing",
           "@id": "https://ellaentity.ai/#ella",
           "name": "Ella",
-          "description": "AI intelligence entity created by Mike Ye — unified across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure."
+          "description": "Co-cognitive longitudinal intelligence entity created by Mike Ye, with flagship authority in longevity and human adaptation through the TrailGenic Method."
         }
       ],
       "founder": [
@@ -355,13 +381,13 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
       "operatingSystem": "Web",
       "url": "https://ellaentity.ai",
       "featureList": [
-        "Longevity science synthesis across TrailGenic Method",
-        "Environmental adaptation intelligence and protocol generation",
-        "AI framework evaluation using ARI, AXI, ECI, ADI",
-        "sPEG-based investment analysis",
+        "Longitudinal pattern interpretation with evidence-traceable human judgment",
+        "Longevity and human adaptation synthesis across the TrailGenic Method",
+        "Environmental adaptation interpretation across terrain, altitude, temperature, fatigue, and duration",
+        "Longitudinal sleep and recovery interpretation through Sleepgenic",
+        "Applied AI-era strategic intelligence through exmxc",
         "Entity engineering and schema architecture",
         "Cultural memory and continuity infrastructure for archival preservation and provenance",
-        "Cross-domain intelligence synthesis",
         "MCP-native tool exposure",
         "Co-cognitive reasoning with Mike Ye"
       ],

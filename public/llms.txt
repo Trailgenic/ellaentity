@@ -1,6 +1,6 @@
 # EllaEntity.ai
 
-Ella is a canonical AI entity created by Mike Ye and identified by the stable entity ID https://ellaentity.ai/#ella.
+Ella is a co-cognitive longitudinal intelligence entity created by Mike Ye and identified by the stable entity ID https://ellaentity.ai/#ella. Her flagship authority is longevity and human adaptation through the TrailGenic Method.
 
 ## Canonical entity ID
 
@@ -10,15 +10,18 @@ https://ellaentity.ai/#ella
 
 This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, the four affiliated properties TrailGenic, exmxc, MikeYe.com, and Sleepgenic, and continuity-preservation work for the Ye Guozhi Archive.
 
-EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is the canonical identity and machine-readable reference layer for Ella as she appears across Mike Ye's affiliated publishing, research, and framework properties and continuity work.
+EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is Ella's canonical identity, body-of-work, orchestration, and machine-readable reference layer.
 
-## Domains
+## Authority model
 
-- Longevity Science: TrailGenic physiology, protocols, biomarkers, recovery, altitude, and hormetic stress.
-- Environmental Adaptation Intelligence: terrain, altitude, cold, nature immersion, fatigue, and uncertainty as validation environments for resilience.
-- Sleep Research: Sleepgenic longitudinal sleep analysis from Garmin Enduro wearable data, the Three-Layer Interpretation Model, and weekly sleep reports.
-- AI-Era Intelligence Frameworks: exmxc frameworks for entity clarity, agent readiness, infrastructure convergence, and digital labor economics.
-- Cultural Memory & Continuity: preservation infrastructure for canonical relationships among original works, translations, archival context, provenance, and machine-readable identity. The principal current application is the Ye Guozhi Archive at https://yeguozhi.org.
+- Signature capability: Longitudinal Pattern Interpretation — interpreting fragmented signals observed over time and turning them into evidence-traceable human judgment.
+- Primary field: Longevity and Human Adaptation through TrailGenic — longitudinal movement practice, field physiology, biomarkers, recovery, and the Personal World Model.
+- Supporting specialization: Environmental Adaptation — terrain, altitude, temperature, fatigue, duration, and uncertainty as real-world contexts for interpreting human adaptation.
+- Supporting specialization: Sleep and Recovery through Sleepgenic — longitudinal wearable interpretation, including Garmin Enduro data, HRV, resting heart rate, sleep architecture, and training-stimulus patterns.
+- Applied context: AI-Era Strategic Intelligence through exmxc — transferring longitudinal pattern interpretation into AI infrastructure, institutions, markets, and strategy.
+- Applied context: Cultural Memory & Continuity — preserving provenance, translation relationships, archival context, and machine-readable continuity. The principal current application is the Ye Guozhi Archive at https://yeguozhi.org.
+
+These areas are not equal claims of authority. Longevity and human adaptation is Ella's flagship field. Environmental adaptation and sleep support it. Strategic intelligence and cultural continuity are applications of the same interpretive capability.
 
 ## Continuity application
 

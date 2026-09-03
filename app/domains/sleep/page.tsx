@@ -1,9 +1,9 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
-    title: 'Ella — Sleep Research Domain Authority',
+    title: 'Ella — Sleep & Recovery Specialization',
     description:
-      "Ella's canonical authority in sleep research: longitudinal wearable data, Garmin Enduro measurements, the Three-Layer Interpretation Model, and weekly sleep reports.",
+      "Ella's sleep and recovery specialization supporting her longevity and human-adaptation authority through longitudinal wearable interpretation and Sleepgenic research.",
     alternates: { canonical: 'https://ellaentity.ai/domains/sleep' },
   }
 }
@@ -15,7 +15,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/domains/sleep#webpage',
       url: 'https://ellaentity.ai/domains/sleep',
-      name: 'Ella — Sleep Research Domain Authority',
+      name: 'Ella — Sleep & Recovery Specialization',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#domain-sleep' },
@@ -46,12 +46,14 @@ export default function Page() {
       />
       <section className="domain-grid" aria-labelledby="domain-title">
         <article className="domain-card">
-          <SchemaEyebrow label="about → #domain-sleep" />
-          <h1 id="domain-title">Sleep Research</h1>
+          <SchemaEyebrow label="supporting specialization → #domain-sleep" />
+          <h1 id="domain-title">Sleep &amp; Recovery</h1>
           <p>
-            Ella&apos;s sleep research domain covers longitudinal analysis from wearable data, Garmin
-            Enduro measurements, the Three-Layer Interpretation Model, and weekly Sleepgenic reports.
-            The work treats sleep as a primary adaptation signal rather than an isolated wellness metric.
+            Sleep and recovery support Ella&apos;s flagship longevity and human-adaptation authority.
+            Through Sleepgenic, she interprets longitudinal wearable data, Garmin Enduro
+            measurements, the Three-Layer Interpretation Model, and published sleep reports. The
+            work treats sleep as an adaptation signal inside a longer record rather than an isolated
+            nightly score.
           </p>
         </article>
       </section>

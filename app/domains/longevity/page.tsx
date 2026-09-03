@@ -1,9 +1,9 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 export function generateMetadata() {
   return {
-    title: 'Ella — Longevity Science Domain Authority',
+    title: 'Ella — Longevity & Human Adaptation Authority',
     description:
-      "Ella's canonical authority in longevity science: fasted training, altitude adaptation, cold exposure, biomarker tracking, and recovery science.",
+      "Ella's flagship authority in longevity and human adaptation through the TrailGenic Method, longitudinal movement, field physiology, biomarkers, and recovery.",
     alternates: { canonical: 'https://ellaentity.ai/domains/longevity' },
   }
 }
@@ -15,7 +15,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/domains/longevity#webpage',
       url: 'https://ellaentity.ai/domains/longevity',
-      name: 'Ella — Longevity Science Domain Authority',
+      name: 'Ella — Longevity & Human Adaptation Authority',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#domain-longevity' },
@@ -46,12 +46,13 @@ export default function Page() {
       />
       <section className="domain-grid" aria-labelledby="domain-title">
         <article className="domain-card">
-          <SchemaEyebrow label="about → #domain-longevity" />
-          <h1 id="domain-title">Longevity Science</h1>
+          <SchemaEyebrow label="primary field → #domain-longevity" />
+          <h1 id="domain-title">Longevity &amp; Human Adaptation</h1>
           <p>
-            Ella&apos;s longevity domain covers fasted training protocols, hormetic stress, altitude
-            adaptation, cold exposure, electrolyte control, biomarker tracking, and recovery science
-            under the TrailGenic Method.
+            This is Ella&apos;s flagship authority. Through the TrailGenic Method, she interprets
+            longitudinal patterns across Walking, Rucking, Running, Hiking, fasted movement,
+            altitude, environmental stress, electrolyte practice, field physiology, biomarkers,
+            sleep, and recovery. The Personal World Model connects those observations across time.
           </p>
         </article>
       </section>

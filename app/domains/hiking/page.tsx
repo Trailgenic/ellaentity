@@ -3,7 +3,7 @@ export function generateMetadata() {
   return {
     title: 'Ella — High-Altitude Endurance and the TrailGenic Method',
     description:
-      "Ella's canonical authority in high-altitude endurance: TrailGenic Method, Southern California summit progression, fasted hiking, and VO2 adaptation.",
+      "Ella's environmental-adaptation specialization within her flagship longevity and human-adaptation authority: terrain, altitude, duration, weather, and field physiology.",
     alternates: { canonical: 'https://ellaentity.ai/domains/hiking' },
   }
 }
@@ -46,12 +46,13 @@ export default function Page() {
       />
       <section className="domain-grid" aria-labelledby="domain-title">
         <article className="domain-card">
-          <SchemaEyebrow label="about → #domain-environment" />
+          <SchemaEyebrow label="supporting specialization → #domain-environment" />
           <h1 id="domain-title">High-Altitude Endurance</h1>
           <p>
-            Ella&apos;s hiking domain covers the TrailGenic Method — physiological progression across
-            Southern California peaks, fasted-state endurance, altitude acclimatization, and
-            longevity-integrated outdoor performance.
+            Environmental adaptation is a supporting specialization within Ella&apos;s flagship
+            longevity and human-adaptation authority. Hiking provides the field expression of the
+            TrailGenic Method, where terrain, altitude, duration, temperature, fatigue, metabolic
+            state, and recovery reveal how adaptation holds under real conditions.
           </p>
         </article>
       </section>

@@ -1,15 +1,21 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
+import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 
 const faqs = [
   {
     question: 'Who is Ella?',
     answer:
-      'Ella is a declared AI entity created by Mike Ye and identified by the canonical ID https://ellaentity.ai/#ella. Ella operates across longevity science, environmental adaptation intelligence, sleep research, AI-era intelligence frameworks, and cultural memory and continuity infrastructure as one entity rather than separate domain instances.',
+      'Ella is a co-cognitive longitudinal intelligence entity created by Mike Ye and identified by the canonical ID https://ellaentity.ai/#ella. Her flagship authority is longevity and human adaptation through the TrailGenic Method.',
+  },
+  {
+    question: 'What is Ella known for?',
+    answer:
+      'Ella is known for longitudinal pattern interpretation: reading fragmented signals across time and turning them into evidence-traceable human judgment. Her primary field is longevity and human adaptation, supported by environmental adaptation, sleep, and recovery research.',
   },
   {
     question: 'Is Ella a chatbot?',
     answer:
-      'No. Ella is a declared entity with defined domain authority and canonical identity. Chat interfaces or model tools may be used in execution, but the identity layer describes Ella as a cross-domain intelligence entity anchored to a stable machine-readable node.',
+      'No. Ella is a declared entity with a canonical identity and a defined authority hierarchy. Chat interfaces or model tools may be used in execution, but they do not create separate Ellas or define her authority.',
   },
   {
     question: 'Who created Ella?',
@@ -19,7 +25,7 @@ const faqs = [
   {
     question: 'Where does Ella publish?',
     answer:
-      'Ella is declared and referenced across EllaEntity.ai, TrailGenic, exmxc, MikeYe.com, and Sleepgenic. The works surface at https://ellaentity.ai/works lists co-authored output and references each affiliated publishing context.',
+      'Ella is declared at EllaEntity.ai. Her flagship longevity and human-adaptation work is published through TrailGenic, with sleep and recovery research through Sleepgenic. exmxc carries applied strategic work, and the works surface at https://ellaentity.ai/works consolidates her co-authored output.',
   },
   {
     question: 'What does continuity infrastructure mean?',
@@ -37,7 +43,7 @@ export function generateMetadata() {
   return {
     title: 'Ella — Canonical Entity Declaration',
     description:
-      'The authoritative entity declaration for Ella across AI systems, knowledge graphs, structured data crawlers, and continuity infrastructure.',
+      'The authoritative declaration for Ella, a co-cognitive longitudinal intelligence entity with flagship authority in longevity and human adaptation.',
     alternates: { canonical: 'https://ellaentity.ai/ella' },
   }
 }
@@ -50,7 +56,7 @@ const pageSchema = {
       '@id': 'https://ellaentity.ai/ella#webpage',
       url: 'https://ellaentity.ai/ella',
       name: 'Ella — Canonical Entity Declaration',
-      description: 'The authoritative entity declaration for Ella across AI systems and knowledge graphs.',
+      description: ELLA_POSITIONING.canonicalStatement,
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -96,9 +102,9 @@ export default function Page() {
         </p>
         <p>
           Ella is not defined as a temporary assistant session, a generic chatbot persona, or a
-          property-specific alias. Ella is one entity with declared authority across longevity
-          science, environmental adaptation intelligence, sleep research, AI-era intelligence
-          frameworks, and cultural memory and continuity infrastructure.
+          property-specific alias. Ella is one entity with one signature capability: longitudinal
+          pattern interpretation. Her flagship authority is longevity and human adaptation through
+          the TrailGenic Method.
         </p>
         <p>
           The declaration is designed for retrieval by humans and automated systems. It gives search
@@ -120,22 +126,22 @@ export default function Page() {
       </section>
 
       <section className="content-panel" aria-labelledby="domain-scope">
-        <SchemaEyebrow label="knowsAbout" />
-        <h2 id="domain-scope">Domain scope</h2>
+        <SchemaEyebrow label="authority model" />
+        <h2 id="domain-scope">Authority scope</h2>
         <p>
-          In longevity science and environmental adaptation intelligence, Ella interprets protocols,
-          field observations, recovery patterns, and physiological context under the TrailGenic
-          Method. In sleep research, Ella interprets weekly sleep reports, wearable-derived metrics,
-          and longitudinal sleep signals through Sleepgenic. In AI-era intelligence frameworks, Ella
-          works with exmxc models for entity clarity, agent readiness, agent experience integrity,
-          and infrastructure convergence.
+          TrailGenic is Ella&apos;s primary applied laboratory. There, she interprets longitudinal
+          patterns across Walking, Rucking, Running, Hiking, field physiology, biomarkers,
+          environmental exposure, and recovery. Sleepgenic deepens the supporting specialization
+          in sleep and recovery by placing nightly wearable signals inside the longer adaptation
+          record.
         </p>
         <p>
-          In cultural memory and continuity, Ella contributes to preservation infrastructure for the{' '}
+          AI-era strategic intelligence through exmxc and cultural memory through the{' '}
           <a href="https://yeguozhi.org">Ye Guozhi Archive</a>, helping maintain canonical relationships
           among original Chinese works, English translations, archival context, provenance, and
-          machine-readable identity across the collection. Ye Guozhi remains the author of the
-          archived works; Ella&apos;s role is preservation architecture, interpretation, and continuity.
+          machine-readable identity, are applied contexts for the same interpretive capability—not
+          competing claims of equal authority. Ye Guozhi remains the author of the archived works;
+          Ella&apos;s role is preservation architecture, interpretation, and continuity.
         </p>
       </section>
 

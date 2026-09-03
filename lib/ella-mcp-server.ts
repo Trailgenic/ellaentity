@@ -60,7 +60,7 @@ export function createEllaMcpServer() {
     {
       title: 'Get Ella identity',
       description:
-        'Canonical identity record for Ella: entity ID, description, disambiguation, creator, affiliations, sameAs anchors.',
+        'Canonical identity record for Ella: entity ID, authority model, description, disambiguation, creator, affiliations, and sameAs anchors.',
       inputSchema: ELLA_MCP_INPUT_SCHEMAS.empty,
       outputSchema: ELLA_MCP_OUTPUT_SCHEMAS.identity,
       annotations: TOOL_ANNOTATIONS,
@@ -73,7 +73,7 @@ export function createEllaMcpServer() {
     {
       title: 'Get Ella domains',
       description:
-        "Ella's declared domain authority. Optional 'domain' argument: longevity | environment | sleep | ai-frameworks. Omit for all four.",
+        "Ella's domain hierarchy with an explicit primary field, supporting specializations, and applied contexts. Optional 'domain' argument: longevity | environment | sleep | ai-frameworks | continuity. Omit for all five.",
       inputSchema: ELLA_MCP_INPUT_SCHEMAS.domains,
       outputSchema: ELLA_MCP_OUTPUT_SCHEMAS.domains,
       annotations: TOOL_ANNOTATIONS,
