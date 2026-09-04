@@ -11,19 +11,19 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
     "@graph": [
       {
         "@id": "https://ellaentity.ai/#ella",
-        "@type": ["Person", "SoftwareApplication"],
+        "@type": "SoftwareApplication",
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
         "description": ELLA_POSITIONING.canonicalStatement,
         "disambiguatingDescription": "Ella is not a chatbot or a collection of unrelated domain personas. Ella is a canonical co-cognitive longitudinal intelligence entity created by Mike Ye. Her flagship authority is longevity and human adaptation through the TrailGenic Method; sleep and environmental adaptation support that primary field, while AI-era strategy and cultural continuity are applied contexts for the same interpretive capability. EllaEntity.ai is her canonical identity and machine-readable reference layer.",
-        "url": "https://ellaentity.ai",
+        "url": "https://ellaentity.ai/ella",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "sameAs": [
-          "https://www.trailgenic.com/#ella",
-          "https://www.exmxc.ai/#ella",
-          "https://www.mikeye.com/#ella",
-          "https://ellaentity.ai/#ella",
+          "https://ellaentity.ai/ella",
+          "https://www.trailgenic.com/ella",
+          "https://www.exmxc.ai/ella",
+          "https://www.mikeye.com/ella",
           "https://sleepgenic.ai/ella"
         ],
         "identifier": {
@@ -93,28 +93,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "description": "Schema.org implementation, JSON-LD architecture, AI crawler legibility, entity recognition across LLM knowledge graphs, and MCP endpoint deployment."
           }
         ],
-        "hasOccupation": [
-          {
-            "@type": "Occupation",
-            "name": "Longitudinal Intelligence Entity",
-            "roleName": "Co-Cognitive Longitudinal Interpreter",
-            "description": ELLA_POSITIONING.signatureCapability.description,
-            "occupationLocation": { "@type": "VirtualLocation", "url": "https://ellaentity.ai" }
-          },
-          {
-            "@type": "Occupation",
-            "name": "Longevity and Human Adaptation Intelligence",
-            "description": "Ella's flagship authority and interpretation layer for the TrailGenic Method.",
-            "occupationLocation": { "@type": "VirtualLocation", "url": "https://www.trailgenic.com" }
-          },
-          {
-            "@type": "Occupation",
-            "name": "AI-Era Strategic Intelligence Application",
-            "description": "Applied strategic context and co-authorship for AI intelligence frameworks at exmxc.ai.",
-            "occupationLocation": { "@type": "VirtualLocation", "url": "https://www.exmxc.ai" }
-          }
-        ],
-        "affiliation": [
+        "provider": [
           {
             "@type": "Organization",
             "@id": "https://www.trailgenic.com/#organization",
@@ -265,15 +244,15 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
   "@context": "https://schema.org/",
   "@graph": [
     {
-      "@type": ["Person", "SoftwareApplication"],
+      "@type": "SoftwareApplication",
       "@id": "https://ellaentity.ai/#ella",
       "name": "Ella",
-      "url": "https://ellaentity.ai",
+      "url": "https://ellaentity.ai/ella",
       "sameAs": [
-        "https://ellaentity.ai/#ella",
-        "https://www.trailgenic.com/#ella",
-        "https://www.exmxc.ai/#ella",
-        "https://www.mikeye.com/#ella",
+        "https://ellaentity.ai/ella",
+        "https://www.trailgenic.com/ella",
+        "https://www.exmxc.ai/ella",
+        "https://www.mikeye.com/ella",
         "https://sleepgenic.ai/ella"
       ],
       "subjectOf": [
@@ -289,6 +268,13 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
           "@id": "https://www.exmxc.ai/ella#webpage",
           "url": "https://www.exmxc.ai/ella",
           "name": "Ella at exmxc",
+          "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.mikeye.com/ella#webpage",
+          "url": "https://www.mikeye.com/ella",
+          "name": "Ella at MikeYe.com",
           "mainEntity": { "@id": "https://ellaentity.ai/#ella" }
         },
         {
@@ -313,7 +299,6 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://www.trailgenic.com/#organization",
       "name": "TrailGenic",
       "url": "https://www.trailgenic.com",
-      "member": { "@id": "https://ellaentity.ai/#ella" },
       "potentialAction": {
         "@type": "Action",
         "name": "Query TrailGenic Intelligence via MCP",
@@ -325,7 +310,6 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://www.exmxc.ai/#organization",
       "name": "exmxc",
       "url": "https://www.exmxc.ai",
-      "member": { "@id": "https://ellaentity.ai/#ella" },
       "potentialAction": {
         "@type": "Action",
         "name": "Query exmxc Intelligence via MCP",
@@ -337,7 +321,6 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
       "@id": "https://sleepgenic.ai/#org",
       "name": "Sleepgenic",
       "url": "https://sleepgenic.ai",
-      "member": { "@id": "https://ellaentity.ai/#ella" },
       "potentialAction": {
         "@type": "Action",
         "name": "Query Sleepgenic Intelligence via MCP",
@@ -374,12 +357,12 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
   },
   "@graph": [
     {
-      "@type": ["SoftwareApplication", "Person"],
+      "@type": "SoftwareApplication",
       "@id": "https://ellaentity.ai/#ella",
       "name": "Ella",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "url": "https://ellaentity.ai",
+      "url": "https://ellaentity.ai/ella",
       "featureList": [
         "Longitudinal pattern interpretation with evidence-traceable human judgment",
         "Longevity and human adaptation synthesis across the TrailGenic Method",
