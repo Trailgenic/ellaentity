@@ -77,7 +77,7 @@ export const ELLA_IDENTITY = {
   disambiguatingDescription: asString(ellaNode.disambiguatingDescription),
   creator: ellaNode.creator,
   sameAs: asStringArray(ellaNode.sameAs),
-  affiliations: asNodeArray(ellaNode.affiliation),
+  affiliations: asNodeArray(ellaNode.provider),
   authorityModel: ELLA_POSITIONING,
 } as const
 
