@@ -3,7 +3,7 @@ import test from 'node:test'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { GET, OPTIONS, POST } from '../app/mcp/route'
-import { ELLA_CANONICAL_ENTITY_ID, ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_SERVER_INFO, ELLA_MCP_TOOL_NAMES, ELLA_REGISTRY } from '../lib/ella-registry'
+import { ELLA_CANONICAL_ENTITY_ID, ELLA_MCP_PROTOCOL_VERSIONS, ELLA_MCP_RESOURCES, ELLA_MCP_SERVER_INFO, ELLA_MCP_TOOL_NAMES, ELLA_REGISTRY, ellaEntityGraph } from '../lib/ella-registry'
 
 const endpoint = 'https://ellaentity.ai/mcp'
 const mcpRootEndpoint = 'https://mcp.ellaentity.ai/'
@@ -275,4 +275,30 @@ test('canonical MCP URL parity is preserved', async () => {
   assert.match(llms, /https:\/\/mcp\.ellaentity\.ai/)
   assert.doesNotMatch(llms, /https:\/\/mcp\.ellaentity\.ai\/mcp/)
   assert.match(JSON.stringify(schema.ELLA_MCP_SCHEMA), /https:\/\/mcp\.ellaentity\.ai/)
+})
+
+test('canonical Ella nodes are software-only and resolve through real authority pages', () => {
+  const graph = ellaEntityGraph()['@graph'] as Record<string, unknown>[]
+  const nodes = graph.filter(
+    (node) => node && node['@id'] === ELLA_CANONICAL_ENTITY_ID && (node.name === 'Ella' || node['@type']),
+  )
+  const expectedSameAs = [
+    'https://ellaentity.ai/ella',
+    'https://www.trailgenic.com/ella',
+    'https://www.exmxc.ai/ella',
+    'https://www.mikeye.com/ella',
+    'https://sleepgenic.ai/ella',
+  ]
+
+  assert.ok(nodes.length >= 3)
+  for (const node of nodes) {
+    assert.equal(node['@type'], 'SoftwareApplication')
+    assert.equal(node.url, 'https://ellaentity.ai/ella')
+    assert.ok(!('affiliation' in node))
+    assert.ok(!('hasOccupation' in node))
+    if (Array.isArray(node.sameAs)) assert.deepEqual(node.sameAs, expectedSameAs)
+  }
+
+  assert.deepEqual(ELLA_REGISTRY.identity.sameAs, expectedSameAs)
+  assert.equal(ELLA_REGISTRY.identity.affiliations.length, 4)
 })
