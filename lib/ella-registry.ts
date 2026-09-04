@@ -10,12 +10,12 @@ import {
 } from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.2.0' } as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.2.1' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
-export const ELLA_REGISTRY_DATA_VERSION = '2026-09-03.longevity-authority-v1' as const
-export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-03' as const
-export const ELLA_REGISTRY_SCHEMA_VERSION = '1.2' as const
+export const ELLA_REGISTRY_DATA_VERSION = '2026-09-04.entity-normalization-v1' as const
+export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-04' as const
+export const ELLA_REGISTRY_SCHEMA_VERSION = '1.3' as const
 export const ELLA_REGISTRY_SOURCE = 'https://ellaentity.ai/entity.json' as const
 
 export const ELLA_DOMAIN_SLUGS = ['longevity', 'environment', 'sleep', 'ai-frameworks', 'continuity'] as const
