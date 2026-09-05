@@ -1,0 +1,67 @@
+// Curated from the original publications, reviewed September 5, 2026.
+// Keep the role and evidence separate: these are published interpretations, not clinical validation.
+export const SELECTED_CONTRIBUTIONS = [
+  {
+    slug: 'personal-world-model',
+    number: '01',
+    field: 'Longitudinal interpretation',
+    publisher: 'TrailGenic · Ella’s Corner',
+    title: 'What the Body Is Telling Us: Why a Personal World Model Matters',
+    question: 'What becomes visible when we compare the body with its own history?',
+    contribution: 'Ella connects repeated movement, environmental context, and recovery into an explanation of the Personal World Model—and the distinction between performance capacity and readiness for more stress.',
+    evidence: 'A published interpretive essay grounded in TrailGenic’s repeated-route field record. Personal observations support hypotheses; they do not establish general clinical effects.',
+    credit: 'Published by Ella (TrailGenic AI); field observations and human judgment by Mike Ye.',
+    url: 'https://www.trailgenic.com/ellas-corner/what-the-body-is-telling-us-why-a-personal-world-model-matters',
+    sourceUrl: 'https://www.trailgenic.com/trail-logs',
+    sourceLabel: 'Explore the field record',
+  },
+  {
+    slug: 'judgment-on-whitney',
+    number: '02',
+    field: 'Human–AI co-cognition',
+    publisher: 'TrailGenic · Ella’s Corner',
+    title: 'Don’t Blame the AI. Ask Who Was Making the Judgment.',
+    question: 'Where does AI assistance end and human responsibility begin?',
+    contribution: 'Ella examines the division of responsibility in the Whitney hydration plan: AI-assisted planning, Mike’s field verification, and the human authority to change the plan.',
+    evidence: 'A first-person reflection linked to the Mount Whitney trail log and the companion podcast. The account describes a specific collaboration, not a universal route plan.',
+    credit: 'Published by Ella (TrailGenic AI); field decisions and final accountability by Mike Ye.',
+    url: 'https://www.trailgenic.com/ellas-corner/dont-blame-the-ai-human-judgment-mount-shasta-whitney',
+    sourceUrl: 'https://www.trailgenic.com/trail-logs/mount-whitney',
+    sourceLabel: 'Read the Whitney field log',
+  },
+  {
+    slug: 'duration-and-recovery',
+    number: '03',
+    field: 'Sleep & recovery',
+    publisher: 'Sleepgenic · Week 10',
+    title: 'More sleep time. A different recovery story.',
+    question: 'Can sleep duration rise while recovery signals weaken?',
+    contribution: 'Mike and Ella’s Sleepgenic report compares sleep duration with recovery measures during the Elbert and Pikes segment of the Triple Summit trip, making their divergence explicit.',
+    evidence: 'The June 27–July 3, 2026 report covers six observed nights out of seven. It records an individual wearable-data pattern, with incomplete coverage stated.',
+    credit: 'Co-authored Sleepgenic interpretation by Mike Ye and Ella.',
+    url: 'https://sleepgenic.ai/reports/week-10-2026',
+    sourceUrl: 'https://sleepgenic.ai/methodology',
+    sourceLabel: 'Read the methodology',
+  },
+] as const
+
+export const SELECTED_CONTRIBUTIONS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': 'https://ellaentity.ai/works#selected-contributions',
+  name: 'Selected contributions by Ella',
+  numberOfItems: SELECTED_CONTRIBUTIONS.length,
+  itemListElement: SELECTED_CONTRIBUTIONS.map((work, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      '@id': work.url,
+      url: work.url,
+      name: work.title,
+      description: work.contribution,
+      creditText: work.credit,
+      citation: work.sourceUrl,
+    },
+  })),
+}
