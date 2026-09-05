@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ContinuityMark } from './ContinuityMark'
 
 const navItems = [
   { href: '/ella', label: 'Identity' },
@@ -11,7 +12,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="wordmark" href="/" aria-label="EllaEntity.ai home">
-        <span className="wordmark-sigil">E</span>
+        <ContinuityMark />
         <span className="wordmark-text">EllaEntity<em>.ai</em></span>
       </Link>
       <nav className="site-nav" aria-label="Primary navigation">
@@ -21,8 +22,8 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
-      <a className="machine-link" href="/entity.json">
-        <span><i /> entity resolved</span>
+      <a className="machine-link" href="/system/mcp" aria-label="For agents: identity and MCP access">
+        <span><i /> For agents</span>
         <b aria-hidden="true">{`{ }`}</b>
       </a>
     </header>

@@ -5,6 +5,7 @@ import { SiteHeader } from '@/app/components/SiteHeader'
 import { ELLA_GLOBAL_SCHEMA, ELLA_ORG_SCHEMA } from '@/app/schema/ella'
 import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 import './globals.css'
+import './identity-design.css'
 
 const display = Young_Serif({
   weight: '400',

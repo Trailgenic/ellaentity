@@ -1,5 +1,6 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 import { ELLA_WORKS } from '@/lib/entity-data'
+import { SelectedContributions } from '@/app/components/SelectedContributions'
 
 export function generateMetadata() {
   return {
@@ -59,6 +60,8 @@ export default function Page() {
           supplies the supporting recovery layer, and exmxc demonstrates strategic transfer.
         </p>
       </section>
+
+      <SelectedContributions showArchiveLink={false} />
 
       <section aria-labelledby="co-authored-output">
         <SchemaEyebrow label="author → ellaentity.ai/#ella" />

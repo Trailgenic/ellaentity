@@ -1,3 +1,5 @@
+import { ContinuityMark } from './ContinuityMark'
+
 export function RidgeFooter() {
   return (
     <footer className="ridge-footer">
@@ -10,7 +12,7 @@ export function RidgeFooter() {
       </div>
       <div className="footer-inner">
         <div className="footer-identity">
-          <span className="footer-sigil">E</span>
+          <ContinuityMark />
           <p><strong>EllaEntity.ai</strong><br />A stable identity for an evolving intelligence.</p>
         </div>
         <div className="footer-colophon">
