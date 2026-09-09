@@ -26,12 +26,16 @@ const schema = {
     },
     ...ELLA_WORKS.map((work, index) => ({
       '@type': work.type,
-      '@id': `${work.url}#ella-work`,
+      '@id': work.id ?? `${work.url}#ella-work`,
       position: index + 1,
       name: work.name,
       url: work.url,
       description: work.description,
-      author: { '@id': 'https://ellaentity.ai/#ella' },
+      author: work.coauthorId
+        ? [{ '@id': work.coauthorId }, { '@id': 'https://ellaentity.ai/#ella' }]
+        : { '@id': 'https://ellaentity.ai/#ella' },
+      ...(work.datePublished ? { datePublished: work.datePublished } : {}),
+      ...(work.reportNumber ? { reportNumber: work.reportNumber } : {}),
       publisher: {
         '@id': work.publisherId,
         name: work.publisherName,
@@ -71,6 +75,7 @@ export default function Page() {
             <article className="work-card" key={work.url}>
               <span className="work-type">{work.type}</span>
               <h3><a href={work.url}>{work.name}</a></h3>
+              {work.datePublished ? <p>Published <time dateTime={work.datePublished}>September 9, 2026</time> · Report {work.reportNumber}</p> : null}
               <p>{work.description}</p>
               <p>
                 Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}

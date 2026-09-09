@@ -76,7 +76,11 @@ const frameworkDataSchema = z.object({
 const workDataSchema = z.object({
   name: z.string(),
   url: z.string().url(),
-  type: z.enum(['PodcastSeries', 'SoftwareSourceCode', 'CreativeWork', 'CreativeWorkSeries']),
+  type: z.enum(['PodcastSeries', 'SoftwareSourceCode', 'CreativeWork', 'CreativeWorkSeries', 'Report']),
+  id: z.string().url().optional(),
+  datePublished: z.string().optional(),
+  reportNumber: z.string().optional(),
+  coauthorId: z.string().url().optional(),
   publisherId: z.string().url(),
   publisherName: z.string(),
   description: z.string(),

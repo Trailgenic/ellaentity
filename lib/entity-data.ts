@@ -4,7 +4,11 @@ import { ELLA_AUTHORITY_TIER_BY_DOMAIN, ELLA_POSITIONING, type EllaAuthorityTier
 export type EllaWork = {
   name: string
   url: string
-  type: 'PodcastSeries' | 'SoftwareSourceCode' | 'CreativeWork' | 'CreativeWorkSeries'
+  type: 'PodcastSeries' | 'SoftwareSourceCode' | 'CreativeWork' | 'CreativeWorkSeries' | 'Report'
+  id?: string
+  datePublished?: string
+  reportNumber?: string
+  coauthorId?: string
   publisherId: string
   publisherName: string
   description: string
@@ -143,6 +147,20 @@ export const ELLA_FRAMEWORKS: EllaFramework[] = [
 ]
 
 export const ELLA_WORKS: EllaWork[] = [
+  {
+    name: 'Hiking Heart Rate and Recovery in Changing Field Conditions',
+    url: 'https://www.trailgenic.com/science/ella-report-001-hiking-heart-rate-field-conditions',
+    id: 'https://www.trailgenic.com/science/ella-report-001-hiking-heart-rate-field-conditions#article',
+    type: 'Report',
+    reportNumber: '001',
+    datePublished: '2026-09-09',
+    coauthorId: 'https://www.mikeye.com/#person',
+    creditText: 'Co-authored by Mike Ye and Ella',
+    publisherId: 'https://www.trailgenic.com/#org',
+    publisherName: 'TrailGenic',
+    description:
+      'Ella Longitudinal Intelligence Report 001 applies Longitudinal Pattern Interpretation to 38 hikes within a 93-session field record through August 31, 2026. A twelve-session Baldy comparison connects heart rate, moving pace, temperature, terrain, wind and surface conditions with overnight observations. Single-participant findings are descriptive and do not establish a causal effect of the TrailGenic Method.',
+  },
   {
     name: "Ella's Corner",
     url: 'https://www.trailgenic.com/ellas-corner',
