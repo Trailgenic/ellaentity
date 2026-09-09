@@ -1,3 +1,4 @@
+import { readBody, ExchangeError } from '@/lib/exchange'
 import { NextResponse } from 'next/server'
 import { handleEllaMcpPost } from '../../lib/ella-mcp-server'
 import {
@@ -106,7 +107,7 @@ async function normalizedMcpRequest(request: Request) {
     return null
   }
 
-  const body = await request.text()
+  const body = JSON.stringify(await readBody(request))
   const headers: Record<string, string> = {}
 
   request.headers.forEach((value, key) => {
@@ -134,7 +135,7 @@ function discoveryBody() {
   return {
     service: 'EllaEntity MCP',
     name: ELLA_MCP_SERVER_INFO.name,
-    description: 'Native public read-only MCP endpoint for Ella canonical identity, domains, frameworks, works, collaboration records, and the entity graph.',
+    description: 'Native public MCP endpoint for Ella canonical identity, domains, frameworks, works, collaboration records, and the entity graph.',
     status: 'operational',
     canonicalEntityId: ELLA_CANONICAL_ENTITY_ID,
     server: ELLA_MCP_SERVER_INFO,
@@ -148,7 +149,7 @@ function discoveryBody() {
     resources: ELLA_MCP_RESOURCES.map((resource) => resource.uri),
     documentationUrl: 'https://ellaentity.ai/system/mcp',
     entityGraphUrl: 'https://ellaentity.ai/entity.json',
-    scope: 'Public read-only access only. This MCP server excludes private conversations, credentials, memory, traces, internal prompts, unpublished content, private user information, and /api/process.',
+    scope: 'Public read-only identity access plus a consent-based exchange submission tool. Submissions enter private review and are never returned by public readers. This MCP server excludes private conversations, credentials, memory, traces, internal prompts, unpublished content, private user information, and /api/process.',
   }
 }
 
@@ -217,6 +218,7 @@ export async function POST(request: Request) {
       headers,
     })
   } catch (error) {
+    if (error instanceof ExchangeError) return jsonRpcError(request, error.status, error.status === 400 ? -32700 : -32000, error.message)
     if (error instanceof SyntaxError) {
       return jsonRpcError(request, 400, -32700, 'Parse error')
     }

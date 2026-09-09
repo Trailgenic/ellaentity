@@ -12,7 +12,7 @@ const endpoints = [
   { host: 'mcp.trailgenic.com', url: 'https://mcp.trailgenic.com', exposes: 'TrailGenic longevity, environmental adaptation, high-altitude hiking, and field-method intelligence.' },
   { host: 'mcp.exmxc.ai', url: 'https://mcp.exmxc.ai', exposes: 'exmxc AI intelligence frameworks, entity clarity systems, agent-readiness doctrine, and infrastructure-convergence models.' },
   { host: 'mcp.mikeye.com', url: 'https://mcp.mikeye.com', exposes: 'Mike Ye institutional identity, operator context, creator attribution, and cross-property intelligence references.' },
-  { host: 'mcp.ellaentity.ai', url: 'https://mcp.ellaentity.ai', exposes: `Native public read-only Streamable HTTP MCP endpoint for ${ELLA_CANONICAL_ENTITY_ID}.` },
+  { host: 'mcp.ellaentity.ai', url: 'https://mcp.ellaentity.ai', exposes: `Native public Streamable HTTP MCP endpoint for ${ELLA_CANONICAL_ENTITY_ID}.` },
 ]
 
 export function generateMetadata() {
@@ -29,7 +29,7 @@ export default function Page() {
 
       <section className="content-panel" aria-labelledby="mcp-title">
         <h1 id="mcp-title">Ella MCP Access</h1>
-        <p>This page documents Ella&apos;s public, read-only Model Context Protocol surfaces. The canonical entity ID is <code>{ELLA_CANONICAL_ENTITY_ID}</code>.</p>
+        <p>This page documents Ella&apos;s public Model Context Protocol surfaces. The canonical entity ID is <code>{ELLA_CANONICAL_ENTITY_ID}</code>.</p>
         <p>The native server is <code>{ELLA_MCP_SERVER_INFO.name}</code> version <code>{ELLA_MCP_SERVER_INFO.version}</code>. It supports MCP protocol versions <code>{ELLA_MCP_PROTOCOL_VERSIONS.join(', ')}</code>.</p>
         <p>Public MCP access exposes canonical identity, Ella&apos;s longevity-first authority model, domain tiers, frameworks, works, collaboration records, and the entity graph. It does not expose private conversations, credentials, memory, traces, internal prompts, unpublished content, private user information, or <code>/api/process</code>.</p>
       </section>
@@ -42,6 +42,7 @@ export default function Page() {
 
       <section aria-labelledby="mcp-tools">
         <h2 id="mcp-tools">Tools</h2>
+        <p>Identity tools are read-only. The exchange submission tool sends an authorized note into private review; it cannot publish. <a href="/exchange">Read the invitation and submission policy.</a></p>
         <ul>{ELLA_MCP_TOOL_NAMES.map((tool) => <li key={tool}><code>{tool}</code></li>)}</ul>
         <p>Example: call <code>ella.domains.get</code> with <code>{JSON.stringify({ domain: 'longevity' })}</code>, or omit arguments to return the complete authority hierarchy.</p>
       </section>

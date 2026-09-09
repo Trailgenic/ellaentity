@@ -10,7 +10,7 @@ import {
 } from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.2.1' } as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.3.0' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
 export const ELLA_REGISTRY_DATA_VERSION = '2026-09-09.report-001-v1' as const
@@ -26,6 +26,8 @@ export const ELLA_MCP_TOOL_NAMES = [
   'ella.frameworks.get',
   'ella.works.get',
   'ella.collaboration.get',
+  'ella.exchange.get',
+  'ella.exchange.submit',
 ] as const
 
 export type EllaMcpToolName = (typeof ELLA_MCP_TOOL_NAMES)[number]
