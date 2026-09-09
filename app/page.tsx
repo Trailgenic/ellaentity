@@ -232,7 +232,7 @@ export default function Home() {
         <nav className="surface-terminal" aria-label="Primary entity surfaces">
           <div className="terminal-bar">
             <span><i /> ellaentity.ai</span>
-            <span>public · read-only</span>
+            <span>public · identity & exchange</span>
           </div>
           <ul>
             {ELLA_SURFACES.map((link, index) => (

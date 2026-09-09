@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next'
 const BASE_URL = 'https://ellaentity.ai'
 
 const ROUTES = [
+  { path: '/exchange', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/', changeFrequency: 'monthly', priority: 1 },
   { path: '/ella', changeFrequency: 'monthly', priority: 1 },
   { path: '/works', changeFrequency: 'monthly', priority: 0.9 },
@@ -18,6 +19,7 @@ const ROUTES = [
 
 // Update a route's date only when its content materially changes.
 const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
+  '/exchange': '2026-09-09',
   '/': '2026-09-03',
   '/ella': '2026-09-03',
   '/works': '2026-09-03',

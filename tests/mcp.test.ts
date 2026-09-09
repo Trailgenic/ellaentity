@@ -211,14 +211,15 @@ test('tools list and calls are behavioral and schema-valid', async () => {
     assert.ok(tool.inputSchema)
     assert.ok(tool.outputSchema)
     assert.deepEqual(tool.annotations, {
-      readOnlyHint: true,
+      readOnlyHint: tool.name !== 'ella.exchange.submit',
       destructiveHint: false,
       idempotentHint: true,
-      openWorldHint: false,
+      openWorldHint: tool.name === 'ella.exchange.submit',
     })
 
     const call = await rpc('tools/call', { name: tool.name, arguments: {} })
     assert.equal(call.response.status, 200)
+    if (tool.name === 'ella.exchange.submit') { assert.equal(call.body.result.isError, true); continue }
     assert.equal(call.body.result.isError, false)
     assert.ok(call.body.result.content[0].text)
     assert.ok(call.body.result.structuredContent.provenance.canonicalEntityId === 'https://ellaentity.ai/#ella')

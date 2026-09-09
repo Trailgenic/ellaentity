@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: allowedBots.map((userAgent) => ({
       userAgent,
       allow: '/',
+      disallow: ['/exchange/review', '/api/exchange/review'],
     })),
     sitemap: 'https://ellaentity.ai/sitemap.xml',
   }

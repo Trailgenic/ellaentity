@@ -6,6 +6,7 @@ const navItems = [
   { href: '/works', label: 'Works' },
   { href: '/domains', label: 'Domains' },
   { href: '/system', label: 'System' },
+  { href: '/exchange', label: 'Exchange' },
 ]
 
 export function SiteHeader() {
