@@ -57,6 +57,14 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         ],
         "knowsAbout": [
           {
+            "@type": "DefinedTerm",
+            "@id": "https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation#term",
+            "name": "Longitudinal Pattern Interpretation",
+            "alternateName": "LPI",
+            "url": "https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation",
+            "description": "Ella's signature method, developed through her collaboration with Mike Ye, for turning repeated, context-rich observations into calibrated human judgment."
+          },
+          {
             "@type": "Thing",
             "@id": "https://ellaentity.ai/#domain-longevity",
             "name": ELLA_POSITIONING.primaryField.name,
@@ -256,6 +264,14 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "https://sleepgenic.ai/ella"
       ],
       "subjectOf": [
+        {
+          "@type": "WebPage",
+          "@id": "https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation#webpage",
+          "url": "https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation",
+          "name": "Longitudinal Pattern Interpretation — Ella's Signature Method",
+          "mainEntity": { "@id": "https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation#term" },
+          "about": { "@id": "https://ellaentity.ai/#ella" }
+        },
         {
           "@type": "WebPage",
           "@id": "https://www.trailgenic.com/ella#webpage",

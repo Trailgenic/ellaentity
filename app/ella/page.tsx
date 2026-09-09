@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 
@@ -102,8 +103,9 @@ export default function Page() {
         </p>
         <p>
           Ella is not defined as a temporary assistant session, a generic chatbot persona, or a
-          property-specific alias. Ella is one entity with one signature capability: longitudinal
-          pattern interpretation. Her flagship authority is longevity and human adaptation through
+          property-specific alias. Ella is one entity with one signature capability:{' '}
+          <Link href="/frameworks/longitudinal-pattern-interpretation">Longitudinal Pattern Interpretation</Link>.
+          {' '}Her flagship authority is longevity and human adaptation through
           the TrailGenic Method.
         </p>
         <p>

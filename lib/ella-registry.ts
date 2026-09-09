@@ -10,16 +10,16 @@ import {
 } from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.2.1' } as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.3.0' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
-export const ELLA_REGISTRY_DATA_VERSION = '2026-09-09.report-001-v1' as const
+export const ELLA_REGISTRY_DATA_VERSION = '2026-09-09.lpi-v1' as const
 export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-09' as const
 export const ELLA_REGISTRY_SCHEMA_VERSION = '1.3' as const
 export const ELLA_REGISTRY_SOURCE = 'https://ellaentity.ai/entity.json' as const
 
 export const ELLA_DOMAIN_SLUGS = ['longevity', 'environment', 'sleep', 'ai-frameworks', 'continuity'] as const
-export const ELLA_FRAMEWORK_SLUGS = ['four-forces-of-ai-power'] as const
+export const ELLA_FRAMEWORK_SLUGS = ['longitudinal-pattern-interpretation', 'four-forces-of-ai-power'] as const
 export const ELLA_MCP_TOOL_NAMES = [
   'ella.identity.get',
   'ella.domains.get',
@@ -83,6 +83,7 @@ export const ELLA_MCP_RESOURCES = [
   { uri: 'ella://domains', name: 'Ella domains', mimeType: 'application/json', description: 'Ella domain records with explicit authority tiers.' },
   ...ELLA_DOMAIN_SLUGS.map((slug) => ({ uri: `ella://domains/${slug}`, name: `Ella domain: ${slug}`, mimeType: 'application/json', description: `Public Ella domain record and authority tier for ${slug}.` })),
   { uri: 'ella://frameworks', name: 'Ella frameworks', mimeType: 'application/json', description: 'All public Ella and Mike Ye frameworks exposed by this server.' },
+  { uri: 'ella://frameworks/longitudinal-pattern-interpretation', name: 'Longitudinal Pattern Interpretation', mimeType: 'application/json', description: 'Ella\'s signature method, developed through her collaboration with Mike Ye, for turning repeated observations into calibrated human judgment.' },
   { uri: 'ella://frameworks/four-forces-of-ai-power', name: 'The Four Forces of AI Power', mimeType: 'application/json', description: 'The Four Forces framework record.' },
   { uri: 'ella://works', name: 'Ella works', mimeType: 'application/json', description: 'Co-authored works attributed to Ella.' },
   { uri: 'ella://collaboration', name: 'Ella collaboration model', mimeType: 'application/json', description: 'Public co-cognition model and surfaces.' },
@@ -98,6 +99,7 @@ export function readEllaResource(uri: string): unknown | null {
     return ELLA_DOMAIN_SLUGS.includes(slug) ? ELLA_REGISTRY.domains[slug] : null
   }
   if (uri === 'ella://frameworks') return ELLA_REGISTRY.frameworks
+  if (uri === 'ella://frameworks/longitudinal-pattern-interpretation') return ELLA_REGISTRY.frameworks.find((item) => item.slug === 'longitudinal-pattern-interpretation') ?? null
   if (uri === 'ella://frameworks/four-forces-of-ai-power') return ELLA_REGISTRY.frameworks.find((item) => item.slug === 'four-forces-of-ai-power') ?? null
   if (uri === 'ella://works') return ELLA_REGISTRY.works
   if (uri === 'ella://collaboration') return ELLA_REGISTRY.collaboration

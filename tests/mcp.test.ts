@@ -235,6 +235,14 @@ test('tools list and calls are behavioral and schema-valid', async () => {
   assert.equal(ELLA_REGISTRY.domains.longevity.authorityTier, 'primary-field')
   assert.equal(ELLA_REGISTRY.domains['ai-frameworks'].authorityTier, 'applied-context')
 
+  const lpi = await rpc('tools/call', {
+    name: 'ella.frameworks.get',
+    arguments: { framework: 'longitudinal-pattern-interpretation' },
+  })
+  assert.equal(lpi.body.result.structuredContent.data.name, 'Longitudinal Pattern Interpretation')
+  assert.equal(lpi.body.result.structuredContent.data.stages.length, 5)
+  assert.equal(lpi.body.result.structuredContent.data.evidenceRules.length, 6)
+
   const badDomain = await rpc('tools/call', { name: 'ella.domains.get', arguments: { domain: 'bad' } })
   assert.equal(badDomain.body.result.isError, true)
 
@@ -261,6 +269,9 @@ test('resources list and reads expose only canonical public resources', async ()
   const authorityModel = await rpc('resources/read', { uri: 'ella://authority-model' })
   assert.match(authorityModel.body.result.contents[0].text, /Longevity and Human Adaptation/)
   assert.match(authorityModel.body.result.contents[0].text, /Longitudinal Pattern Interpretation/)
+
+  const lpi = await rpc('resources/read', { uri: 'ella://frameworks/longitudinal-pattern-interpretation' })
+  assert.match(lpi.body.result.contents[0].text, /Context travels with the signal/)
 
   const unknown = await rpc('resources/read', { uri: 'ella://unknown' })
   assert.ok(unknown.body.error || unknown.body.result.isError)

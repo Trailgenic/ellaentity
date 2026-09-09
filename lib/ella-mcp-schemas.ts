@@ -70,7 +70,11 @@ const frameworkDataSchema = z.object({
   url: z.string().url(),
   description: z.string(),
   domain: z.enum(ELLA_DOMAIN_SLUGS),
-  forces: z.array(namedDescription),
+  forces: z.array(namedDescription).optional(),
+  stages: z.array(namedDescription).optional(),
+  evidenceRules: z.array(z.string()).optional(),
+  outputs: z.array(z.string()).optional(),
+  boundaries: z.array(z.string()).optional(),
 })
 
 const workDataSchema = z.object({

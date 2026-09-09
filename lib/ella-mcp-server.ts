@@ -92,7 +92,7 @@ export function createEllaMcpServer() {
     {
       title: 'Get Ella frameworks',
       description:
-        "Ella and Mike Ye's declared frameworks. Currently returns The Four Forces of AI Power: Compute, Interface, Alignment, and Energy.",
+        "Ella and Mike Ye's declared frameworks, led by Longitudinal Pattern Interpretation and including The Four Forces of AI Power.",
       inputSchema: ELLA_MCP_INPUT_SCHEMAS.frameworks,
       outputSchema: ELLA_MCP_OUTPUT_SCHEMAS.frameworks,
       annotations: TOOL_ANNOTATIONS,

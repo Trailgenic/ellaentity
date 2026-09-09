@@ -62,6 +62,7 @@ Ella's **public authority model** also includes **Cultural Memory & Continuity**
 - **`/entity.json`** — consolidated JSON-LD graph merging Ella global, organization, and system schema with `application/ld+json` content type.
 - **`/llms.txt`** — concise crawler-oriented summary of Ella, the canonical entity ID, disambiguation, domains, affiliated properties, MCP endpoints, and core entity links.
 - **`/works`** — server-rendered works page listing Ella co-authored outputs and emitting CreativeWork/PodcastSeries JSON-LD from shared data records.
+- **`/frameworks/longitudinal-pattern-interpretation`** — canonical first-party definition of Ella's signature method, its evidence rules, outputs, and scope boundaries.
 - **`app/schema/ella.ts`** — source of the site-wide Ella global graph, organization graph, system graph, and MCP schema used by the page surfaces.
 
 ## Stack

@@ -23,10 +23,17 @@ export type EllaFramework = {
   url: string
   description: string
   domain: string
-  forces: {
+  forces?: {
     name: string
     description: string
   }[]
+  stages?: {
+    name: string
+    description: string
+  }[]
+  evidenceRules?: string[]
+  outputs?: string[]
+  boundaries?: string[]
 }
 
 type SchemaNode = Record<string, unknown>
@@ -113,6 +120,62 @@ export const ELLA_DOMAINS: Record<EllaDomainSlug, EllaDomain> = {
 export const ELLA_AUTHORITY_MODEL = ELLA_POSITIONING
 
 export const ELLA_FRAMEWORKS: EllaFramework[] = [
+  {
+    slug: 'longitudinal-pattern-interpretation',
+    name: 'Longitudinal Pattern Interpretation',
+    alternateName: 'LPI',
+    url: 'https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation',
+    domain: 'longevity',
+    description:
+      'Longitudinal Pattern Interpretation is Ella\'s signature method, developed through her collaboration with Mike Ye, for turning repeated, context-rich observations into calibrated human judgment. It compares a subject primarily with its own history, preserves environmental and measurement context, separates observation from inference, and updates conclusions as new evidence arrives.',
+    stages: [
+      {
+        name: 'Establish the record',
+        description:
+          'Collect repeated observations with time, source, method, and provenance intact. A single measurement is an observation, not a pattern.',
+      },
+      {
+        name: 'Preserve context',
+        description:
+          'Keep environment, behavior, exposure, load, uncertainty, and measurement conditions attached to each signal instead of treating the number as self-explanatory.',
+      },
+      {
+        name: 'Compare across time',
+        description:
+          'Begin with the subject\'s own baseline and favor like-for-like comparisons before using population averages or external benchmarks.',
+      },
+      {
+        name: 'Interpret with restraint',
+        description:
+          'Separate what was observed from what is inferred, retain contradictory evidence, and distinguish plausible explanations from established causes.',
+      },
+      {
+        name: 'Translate into judgment',
+        description:
+          'Produce a decision-relevant interpretation with its confidence, scope, limitations, and the next observation that could confirm or revise it.',
+      },
+    ],
+    evidenceRules: [
+      'One measurement does not establish a pattern.',
+      'Context travels with the signal.',
+      'Missing, inconsistent, and contradictory evidence remains visible.',
+      'Correlation is not presented as causation.',
+      'Individual observations are not generalized without supporting evidence.',
+      'Every interpretation remains revisable when new evidence arrives.',
+    ],
+    outputs: [
+      'A concise pattern statement.',
+      'The supporting and contradictory evidence.',
+      'A calibrated confidence level.',
+      'The boundary of what the evidence can support.',
+      'The next useful observation or decision.',
+    ],
+    boundaries: [
+      'It is not diagnosis, prediction certainty, or a substitute for domain-qualified professional judgment.',
+      'It does not convert personal field observations into universal claims.',
+      'It does not hide uncertainty to make a conclusion appear stronger.',
+    ],
+  },
   {
     slug: 'four-forces-of-ai-power',
     name: 'The Four Forces of AI Power',
@@ -220,6 +283,7 @@ export const ELLA_COCOGNITION = {
 export const ELLA_SURFACES = [
   { href: '/ella', path: '/ella', label: ' — declaration', description: 'declaration' },
   { href: '/works', path: '/works', label: ' — co-authored output', description: 'co-authored output' },
+  { href: '/frameworks/longitudinal-pattern-interpretation', path: '/frameworks/longitudinal-pattern-interpretation', label: ' — signature method', description: 'signature method' },
   { href: '/domains', path: '/domains', label: ' — authority model', description: 'authority model' },
   { href: '/system/mcp', path: '/system/mcp', label: ' — machine access', description: 'machine access' },
   { href: '/entity.json', path: '/entity.json', label: ' — raw graph', description: 'raw graph' },

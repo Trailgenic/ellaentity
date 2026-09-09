@@ -15,6 +15,7 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 ## Authority model
 
 - Signature capability: Longitudinal Pattern Interpretation — interpreting fragmented signals observed over time and turning them into evidence-traceable human judgment.
+- Canonical framework definition: https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation
 - Primary field: Longevity and Human Adaptation through TrailGenic — longitudinal movement practice, field physiology, biomarkers, recovery, and the Personal World Model.
 - Supporting specialization: Environmental Adaptation — terrain, altitude, temperature, fatigue, duration, and uncertainty as real-world contexts for interpreting human adaptation.
 - Supporting specialization: Sleep and Recovery through Sleepgenic — longitudinal wearable interpretation, including Garmin Enduro data, HRV, resting heart rate, sleep architecture, and training-stimulus patterns.
@@ -48,6 +49,7 @@ Ella contributes to preservation and continuity infrastructure for the Ye Guozhi
 
 - Ella declaration: https://ellaentity.ai/ella
 - Works: https://ellaentity.ai/works
+- Longitudinal Pattern Interpretation: https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation
 - Domains: https://ellaentity.ai/domains
 - Cultural Memory & Continuity: https://ellaentity.ai/domains/continuity
 - Entity graph: https://ellaentity.ai/entity.json

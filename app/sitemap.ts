@@ -6,6 +6,7 @@ const ROUTES = [
   { path: '/', changeFrequency: 'monthly', priority: 1 },
   { path: '/ella', changeFrequency: 'monthly', priority: 1 },
   { path: '/works', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/frameworks/longitudinal-pattern-interpretation', changeFrequency: 'monthly', priority: 0.95 },
   { path: '/domains', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/longevity', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/hiking', changeFrequency: 'monthly', priority: 0.9 },
@@ -18,9 +19,10 @@ const ROUTES = [
 
 // Update a route's date only when its content materially changes.
 const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
-  '/': '2026-09-03',
-  '/ella': '2026-09-03',
+  '/': '2026-09-09',
+  '/ella': '2026-09-09',
   '/works': '2026-09-03',
+  '/frameworks/longitudinal-pattern-interpretation': '2026-09-09',
   '/domains': '2026-09-03',
   '/domains/longevity': '2026-09-03',
   '/domains/hiking': '2026-09-03',
@@ -28,7 +30,7 @@ const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
   '/domains/sleep': '2026-09-03',
   '/domains/continuity': '2026-09-03',
   '/system': '2026-09-03',
-  '/system/mcp': '2026-09-03',
+  '/system/mcp': '2026-09-09',
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

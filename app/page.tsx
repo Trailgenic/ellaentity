@@ -126,7 +126,7 @@ export default function Home() {
         </article>
         <article>
           <span>Signature capability</span>
-          <p>Longitudinal pattern interpretation</p>
+          <p><Link href="/frameworks/longitudinal-pattern-interpretation">Longitudinal pattern interpretation ↗</Link></p>
         </article>
         <article>
           <span>Primary field</span>
