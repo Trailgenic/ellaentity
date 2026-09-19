@@ -49,6 +49,14 @@ export const ELLA_POSITIONING = {
       description:
         'An applied context where Ella helps preserve provenance, translation relationships, archival context, and machine-readable continuity across generations.',
     },
+    {
+      id: 'https://ellaentity.ai/#domain-strategic-signal',
+      slug: 'strategic-signal',
+      name: 'Structured Transaction Intelligence',
+      property: 'Strategic Signal',
+      description:
+        'An applied context where Ella serves as Research Analyst, applying structured synthesis, ontology reasoning, evidence-boundary discipline, cross-record comparison, and longitudinal pattern interpretation to transaction datasets and public records.',
+    },
   ],
 } as const
 
@@ -60,4 +68,5 @@ export const ELLA_AUTHORITY_TIER_BY_DOMAIN = {
   sleep: 'supporting-specialization',
   'ai-frameworks': 'applied-context',
   continuity: 'applied-context',
+  'strategic-signal': 'applied-context',
 } as const satisfies Record<string, EllaAuthorityTier>
