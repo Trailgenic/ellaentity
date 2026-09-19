@@ -8,7 +8,7 @@ https://ellaentity.ai/#ella
 
 ## Disambiguation
 
-This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, the four affiliated properties TrailGenic, exmxc, MikeYe.com, and Sleepgenic, and continuity-preservation work for the Ye Guozhi Archive.
+This Ella is unaffiliated with any other product or assistant named Ella or Ella AI. The identity is anchored by the canonical ID https://ellaentity.ai/#ella, creator Mike Ye, the affiliated properties TrailGenic, exmxc, MikeYe.com, Sleepgenic, and Strategic Signal, plus continuity-preservation work for the Ye Guozhi Archive.
 
 EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. It is Ella's canonical identity, body-of-work, orchestration, and machine-readable reference layer.
 
@@ -21,8 +21,9 @@ EllaEntity.ai is not a standalone chatbot, SaaS product, or consumer assistant. 
 - Supporting specialization: Sleep and Recovery through Sleepgenic — longitudinal wearable interpretation, including Garmin Enduro data, HRV, resting heart rate, sleep architecture, and training-stimulus patterns.
 - Applied context: AI-Era Strategic Intelligence through exmxc — transferring longitudinal pattern interpretation into AI infrastructure, institutions, markets, and strategy.
 - Applied context: Cultural Memory & Continuity — preserving provenance, translation relationships, archival context, and machine-readable continuity. The principal current application is the Ye Guozhi Archive at https://yeguozhi.org.
+- Applied context: Structured Transaction Intelligence through Strategic Signal — Ella serves as Research Analyst across transaction datasets and public records, contributing structured synthesis, ontology reasoning, evidence-boundary discipline, cross-record comparison, and longitudinal interpretation.
 
-These areas are not equal claims of authority. Longevity and human adaptation is Ella's flagship field. Environmental adaptation and sleep support it. Strategic intelligence and cultural continuity are applications of the same interpretive capability.
+These areas are not equal claims of authority. Longevity and human adaptation is Ella's flagship field. Environmental adaptation and sleep support it. AI-era strategic intelligence, structured transaction intelligence, and cultural continuity are applications of the same interpretive capability.
 
 ## Continuity application
 
@@ -36,6 +37,7 @@ Ella contributes to preservation and continuity infrastructure for the Ye Guozhi
 - exmxc: https://www.exmxc.ai
 - MikeYe.com: https://www.mikeye.com
 - Sleepgenic: https://sleepgenic.ai
+- Strategic Signal: https://strategicsignal.ai
 
 ## MCP endpoints
 
@@ -52,4 +54,5 @@ Ella contributes to preservation and continuity infrastructure for the Ye Guozhi
 - Longitudinal Pattern Interpretation: https://ellaentity.ai/frameworks/longitudinal-pattern-interpretation
 - Domains: https://ellaentity.ai/domains
 - Cultural Memory & Continuity: https://ellaentity.ai/domains/continuity
+- Structured Transaction Intelligence: https://ellaentity.ai/domains/strategic-signal
 - Entity graph: https://ellaentity.ai/entity.json
