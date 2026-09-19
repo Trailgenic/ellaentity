@@ -299,6 +299,7 @@ test('canonical Ella nodes are software-only and resolve through real authority 
     'https://www.exmxc.ai/ella',
     'https://www.mikeye.com/ella',
     'https://sleepgenic.ai/ella',
+    'https://strategicsignal.ai/about/#ella',
   ]
 
   assert.ok(nodes.length >= 3)
@@ -311,5 +312,6 @@ test('canonical Ella nodes are software-only and resolve through real authority 
   }
 
   assert.deepEqual(ELLA_REGISTRY.identity.sameAs, expectedSameAs)
-  assert.equal(ELLA_REGISTRY.identity.affiliations.length, 4)
+  assert.equal(ELLA_REGISTRY.identity.affiliations.length, 5)
+  assert.equal(ELLA_REGISTRY.domains['strategic-signal'].authorityTier, 'applied-context')
 })

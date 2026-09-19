@@ -4,9 +4,9 @@ import { SelectedContributions } from '@/app/components/SelectedContributions'
 
 export function generateMetadata() {
   return {
-    title: 'Ella Works — Co-authored Output',
+    title: 'Ella Works — Attributed Output',
     description:
-      "Ella's co-authored body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and supported by Sleepgenic recovery research.",
+      "Ella's attributable body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and extended into Sleepgenic, exmxc, and Strategic Signal applied contexts.",
     alternates: { canonical: 'https://ellaentity.ai/works' },
   }
 }
@@ -18,7 +18,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/works#webpage',
       url: 'https://ellaentity.ai/works',
-      name: 'Ella Works — Co-authored Output',
+      name: 'Ella Works — Attributed Output',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -31,9 +31,12 @@ const schema = {
       name: work.name,
       url: work.url,
       description: work.description,
-      author: work.coauthorId
-        ? [{ '@id': work.coauthorId }, { '@id': 'https://ellaentity.ai/#ella' }]
-        : { '@id': 'https://ellaentity.ai/#ella' },
+      author: work.authorId
+        ? { '@id': work.authorId }
+        : work.coauthorId
+          ? [{ '@id': work.coauthorId }, { '@id': 'https://ellaentity.ai/#ella' }]
+          : { '@id': 'https://ellaentity.ai/#ella' },
+      ...(work.contributorId ? { contributor: { '@id': work.contributorId } } : {}),
       ...(work.datePublished ? { datePublished: work.datePublished } : {}),
       ...(work.reportNumber ? { reportNumber: work.reportNumber } : {}),
       publisher: {
@@ -61,7 +64,8 @@ export default function Page() {
           This page lists Ella&apos;s co-authored output in a format intended for both human readers and
           structured-data consumers. Each work is rendered from the same data record that feeds the
           JSON-LD graph. TrailGenic longevity and human-adaptation work leads the record, Sleepgenic
-          supplies the supporting recovery layer, and exmxc demonstrates strategic transfer.
+          supplies the supporting recovery layer, and exmxc plus Strategic Signal demonstrate transfer
+          into strategic and structured transaction intelligence.
         </p>
       </section>
 
@@ -69,7 +73,7 @@ export default function Page() {
 
       <section aria-labelledby="co-authored-output">
         <SchemaEyebrow label="author → ellaentity.ai/#ella" />
-        <h2 id="co-authored-output">Co-authored output</h2>
+        <h2 id="co-authored-output">Attributed output</h2>
         <div className="work-list">
           {ELLA_WORKS.map((work) => (
             <article className="work-card" key={work.url}>
@@ -79,8 +83,9 @@ export default function Page() {
               <p>{work.description}</p>
               <p>
                 Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}
-                <code>https://ellaentity.ai/#ella</code>.
-                {work.creditText ? <> {work.creditText}.</> : null}
+                <code>{work.authorId ?? 'https://ellaentity.ai/#ella'}</code>.
+                {work.contributorId ? <> Contributor: <code>{work.contributorId}</code>{work.contributorRole ? <> ({work.contributorRole})</> : null}.</> : null}
+                {work.creditText ? <> {work.creditText}</> : null}
               </p>
             </article>
           ))}

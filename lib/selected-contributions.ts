@@ -43,6 +43,20 @@ export const SELECTED_CONTRIBUTIONS = [
     sourceUrl: 'https://sleepgenic.ai/methodology',
     sourceLabel: 'Read the methodology',
   },
+  {
+    slug: 'strategic-signal-ai-data-transactions',
+    number: '04',
+    field: 'Structured transaction intelligence',
+    publisher: 'Strategic Signal',
+    title: 'Corporate AI Data Transactions',
+    question: 'What becomes visible when fragmented AI-data transactions are normalized into one longitudinal record?',
+    contribution: 'Ella contributes as Research Analyst through discovery support, structured synthesis, ontology reasoning, cross-record comparison, and longitudinal pattern interpretation while preserving the boundary between observed transaction facts and Strategic Signal analysis.',
+    evidence: 'A versioned Strategic Signal dataset with stable transaction records, source provenance, explicit review status, methodology, correction history, and machine-readable JSON. Mike Ye retains authorship, editorial judgment, and final publication accountability.',
+    credit: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
+    url: 'https://strategicsignal.ai/ai-data-transactions/',
+    sourceUrl: 'https://strategicsignal.ai/ai-data-transactions/methodology/',
+    sourceLabel: 'Read the methodology',
+  },
 ] as const
 
 export const SELECTED_CONTRIBUTIONS_SCHEMA = {

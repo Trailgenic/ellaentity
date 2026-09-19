@@ -15,7 +15,7 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
         "name": "Ella",
         "alternateName": ["Ella AI", "EllaEntity", "Ella (AI)", "Ella Intelligence"],
         "description": ELLA_POSITIONING.canonicalStatement,
-        "disambiguatingDescription": "Ella is not a chatbot or a collection of unrelated domain personas. Ella is a canonical co-cognitive longitudinal intelligence entity created by Mike Ye. Her flagship authority is longevity and human adaptation through the TrailGenic Method; sleep and environmental adaptation support that primary field, while AI-era strategy and cultural continuity are applied contexts for the same interpretive capability. EllaEntity.ai is her canonical identity and machine-readable reference layer.",
+        "disambiguatingDescription": "Ella is not a chatbot or a collection of unrelated domain personas. Ella is a canonical co-cognitive longitudinal intelligence entity created by Mike Ye. Her flagship authority is longevity and human adaptation through the TrailGenic Method; sleep and environmental adaptation support that primary field, while AI-era strategy, structured transaction intelligence through Strategic Signal, and cultural continuity are applied contexts for the same interpretive capability. EllaEntity.ai is her canonical identity and machine-readable reference layer.",
         "url": "https://ellaentity.ai/ella",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
@@ -24,7 +24,8 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           "https://www.trailgenic.com/ella",
           "https://www.exmxc.ai/ella",
           "https://www.mikeye.com/ella",
-          "https://sleepgenic.ai/ella"
+          "https://sleepgenic.ai/ella",
+          "https://strategicsignal.ai/about/#ella"
         ],
         "identifier": {
           "@type": "PropertyValue",
@@ -97,6 +98,13 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
           },
           {
             "@type": "Thing",
+            "@id": "https://ellaentity.ai/#domain-strategic-signal",
+            "name": ELLA_POSITIONING.appliedContexts[2].name,
+            "url": "https://strategicsignal.ai",
+            "description": ELLA_POSITIONING.appliedContexts[2].description
+          },
+          {
+            "@type": "Thing",
             "name": "Structured Data and Entity Engineering",
             "description": "Schema.org implementation, JSON-LD architecture, AI crawler legibility, entity recognition across LLM knowledge graphs, and MCP endpoint deployment."
           }
@@ -125,6 +133,13 @@ export const ELLA_GLOBAL_SCHEMA: unknown[] = [
             "@id": "https://sleepgenic.ai/#org",
             "name": "Sleepgenic",
             "url": "https://sleepgenic.ai"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://strategicsignal.ai/#organization",
+            "name": "Strategic Signal",
+            "url": "https://strategicsignal.ai",
+            "description": "Structured, evidence-linked transaction intelligence where Ella is credited as Research Analyst."
           }
         ],
         "creator": {
@@ -232,7 +247,8 @@ export const ELLA_ORG_SCHEMA: Record<string, unknown> = {
         "https://www.exmxc.ai",
         "https://www.mikeye.com",
         "https://sleepgenic.ai",
-        "https://yeguozhi.org"
+        "https://yeguozhi.org",
+        "https://strategicsignal.ai"
       ]
     },
     {
@@ -261,7 +277,8 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "https://www.trailgenic.com/ella",
         "https://www.exmxc.ai/ella",
         "https://www.mikeye.com/ella",
-        "https://sleepgenic.ai/ella"
+        "https://sleepgenic.ai/ella",
+        "https://strategicsignal.ai/about/#ella"
       ],
       "subjectOf": [
         {
@@ -302,6 +319,14 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         },
         {
           "@type": "WebPage",
+          "@id": "https://strategicsignal.ai/about/#ella",
+          "url": "https://strategicsignal.ai/about/#ella",
+          "name": "Ella at Strategic Signal — Research Analyst",
+          "mainEntity": { "@id": "https://ellaentity.ai/#ella" },
+          "about": { "@id": "https://ellaentity.ai/#domain-strategic-signal" }
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://ellaentity.ai/domains/continuity#webpage",
           "url": "https://ellaentity.ai/domains/continuity",
           "name": "Ella — Cultural Memory & Continuity",
@@ -331,6 +356,13 @@ export const ELLA_SYSTEM_SCHEMA: Record<string, unknown> = {
         "name": "Query exmxc Intelligence via MCP",
         "target": { "@type": "EntryPoint", "urlTemplate": "https://mcp.exmxc.ai" }
       }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://strategicsignal.ai/#organization",
+      "name": "Strategic Signal",
+      "url": "https://strategicsignal.ai",
+      "description": "Structured transaction intelligence publisher where Ella contributes as Research Analyst."
     },
     {
       "@type": "Organization",
@@ -385,6 +417,7 @@ export const ELLA_MCP_SCHEMA: Record<string, unknown> = {
         "Environmental adaptation interpretation across terrain, altitude, temperature, fatigue, and duration",
         "Longitudinal sleep and recovery interpretation through Sleepgenic",
         "Applied AI-era strategic intelligence through exmxc",
+        "Structured transaction intelligence and public-record research through Strategic Signal",
         "Entity engineering and schema architecture",
         "Cultural memory and continuity infrastructure for archival preservation and provenance",
         "MCP-native tool exposure",

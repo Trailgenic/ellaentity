@@ -13,22 +13,24 @@ const ROUTES = [
   { path: '/domains/ai-frameworks', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/sleep', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/domains/continuity', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/domains/strategic-signal', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/system', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/system/mcp', changeFrequency: 'monthly', priority: 0.8 },
 ] as const
 
 // Update a route's date only when its content materially changes.
 const LAST_MODIFIED: Record<(typeof ROUTES)[number]['path'], string> = {
-  '/': '2026-09-09',
-  '/ella': '2026-09-09',
-  '/works': '2026-09-03',
+  '/': '2026-09-19',
+  '/ella': '2026-09-19',
+  '/works': '2026-09-19',
   '/frameworks/longitudinal-pattern-interpretation': '2026-09-09',
-  '/domains': '2026-09-03',
+  '/domains': '2026-09-19',
   '/domains/longevity': '2026-09-03',
   '/domains/hiking': '2026-09-03',
   '/domains/ai-frameworks': '2026-09-03',
   '/domains/sleep': '2026-09-03',
   '/domains/continuity': '2026-09-03',
+  '/domains/strategic-signal': '2026-09-19',
   '/system': '2026-09-03',
   '/system/mcp': '2026-09-09',
 }

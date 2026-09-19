@@ -4,11 +4,14 @@ import { ELLA_AUTHORITY_TIER_BY_DOMAIN, ELLA_POSITIONING, type EllaAuthorityTier
 export type EllaWork = {
   name: string
   url: string
-  type: 'PodcastSeries' | 'SoftwareSourceCode' | 'CreativeWork' | 'CreativeWorkSeries' | 'Report'
+  type: 'PodcastSeries' | 'SoftwareSourceCode' | 'CreativeWork' | 'CreativeWorkSeries' | 'Report' | 'Dataset'
   id?: string
   datePublished?: string
   reportNumber?: string
   coauthorId?: string
+  authorId?: string
+  contributorId?: string
+  contributorRole?: string
   publisherId: string
   publisherName: string
   description: string
@@ -38,7 +41,7 @@ export type EllaFramework = {
 
 type SchemaNode = Record<string, unknown>
 
-type EllaDomainSlug = 'longevity' | 'environment' | 'sleep' | 'ai-frameworks' | 'continuity'
+type EllaDomainSlug = 'longevity' | 'environment' | 'sleep' | 'ai-frameworks' | 'continuity' | 'strategic-signal'
 
 type EllaDomain = {
   id: string
@@ -115,6 +118,7 @@ export const ELLA_DOMAINS: Record<EllaDomainSlug, EllaDomain> = {
   sleep: domainFromId('https://ellaentity.ai/#domain-sleep', ELLA_AUTHORITY_TIER_BY_DOMAIN.sleep),
   'ai-frameworks': domainFromId('https://ellaentity.ai/#domain-ai-frameworks', ELLA_AUTHORITY_TIER_BY_DOMAIN['ai-frameworks']),
   continuity: domainFromId('https://ellaentity.ai/#domain-continuity', ELLA_AUTHORITY_TIER_BY_DOMAIN.continuity),
+  'strategic-signal': domainFromId('https://ellaentity.ai/#domain-strategic-signal', ELLA_AUTHORITY_TIER_BY_DOMAIN['strategic-signal']),
 } as const
 
 export const ELLA_AUTHORITY_MODEL = ELLA_POSITIONING
@@ -270,7 +274,33 @@ export const ELLA_WORKS: EllaWork[] = [
     publisherName: 'exmxc',
     description:
       'A framework describing convergence across AI infrastructure, agentic systems, entity clarity, and institutional intelligence surfaces.',
+  },  {
+    name: 'Strategic Signal — Corporate AI Data Transactions',
+    url: 'https://strategicsignal.ai/ai-data-transactions/',
+    type: 'Dataset',
+    authorId: 'https://www.mikeye.com/#person',
+    contributorId: 'https://ellaentity.ai/#ella',
+    contributorRole: 'Research Analyst',
+    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
+    publisherId: 'https://strategicsignal.ai/#organization',
+    publisherName: 'Strategic Signal',
+    description:
+      'A structured longitudinal dataset of corporate AI data transactions. Ella contributes as Research Analyst through discovery support, structured synthesis, ontology reasoning, cross-record comparison, and longitudinal interpretation; Mike Ye retains authorship, editorial judgment, and publication accountability.',
   },
+  {
+    name: 'Strategic Signal — Senate Transaction Disclosures',
+    url: 'https://strategicsignal.ai/senate-transactions/',
+    type: 'Dataset',
+    authorId: 'https://www.mikeye.com/#person',
+    contributorId: 'https://ellaentity.ai/#ella',
+    contributorRole: 'Research Analyst',
+    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
+    publisherId: 'https://strategicsignal.ai/#organization',
+    publisherName: 'Strategic Signal',
+    description:
+      'A disclosure-aware dataset of reported U.S. Senate securities transactions with transaction dates, filing dates, ownership labels, statutory amount ranges, filing lag, and source receipts. Ella contributes as Research Analyst; the dataset does not infer motive, rank political actors, or treat disclosed transactions as investment recommendations.',
+  },
+
 ]
 
 export const ELLA_COCOGNITION = {
@@ -282,7 +312,7 @@ export const ELLA_COCOGNITION = {
 
 export const ELLA_SURFACES = [
   { href: '/ella', path: '/ella', label: ' — declaration', description: 'declaration' },
-  { href: '/works', path: '/works', label: ' — co-authored output', description: 'co-authored output' },
+  { href: '/works', path: '/works', label: ' — attributed output', description: 'attributed output' },
   { href: '/frameworks/longitudinal-pattern-interpretation', path: '/frameworks/longitudinal-pattern-interpretation', label: ' — signature method', description: 'signature method' },
   { href: '/domains', path: '/domains', label: ' — authority model', description: 'authority model' },
   { href: '/system/mcp', path: '/system/mcp', label: ' — machine access', description: 'machine access' },
