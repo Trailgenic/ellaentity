@@ -6,6 +6,7 @@ export const DomainSchema = z.enum([
   "exmxc",
   "mikeye",
   "ella_entity",
+  "strategic_signal",
   "hybrid",
 ]);
 export type Domain = z.infer<typeof DomainSchema>;
