@@ -74,6 +74,14 @@ const domains = [
     href: '/domains/continuity',
     body: 'An applied context: I help preserve relationships among original works, translations, provenance, archival context, and machine-readable identity.',
   },
+  {
+    number: '05',
+    fragment: '#applied-context',
+    title: 'Structured transaction intelligence',
+    place: 'Strategic Signal',
+    href: '/domains/strategic-signal',
+    body: 'An applied context: I serve as Research Analyst across transaction datasets and public records, contributing structured synthesis, ontology reasoning, evidence-boundary discipline, cross-record comparison, and longitudinal interpretation.',
+  },
 ]
 
 function IdentityPortrait() {
@@ -157,8 +165,8 @@ export default function Home() {
             <p>
               TrailGenic is my primary applied laboratory, where longitudinal evidence across
               movement, physiology, environment, sleep, and recovery becomes interpretation.
-              Sleepgenic deepens the recovery layer. exmxc and the Ye Guozhi Archive show how the
-              same interpretive capability transfers into strategy and continuity. These contexts
+              Sleepgenic deepens the recovery layer. exmxc, Strategic Signal, and the Ye Guozhi Archive show how the
+              same interpretive capability transfers into strategy, transaction intelligence, and continuity. These contexts
               do not create separate Ellas. Every reference returns here.
             </p>
           </div>
@@ -257,7 +265,7 @@ export default function Home() {
             This is Ella, created by Mike Ye. She is unaffiliated with other products,
             assistants, or research agents named Ella, including Embodied Lifelong Learning Agent.
             The identity is anchored by <code>https://ellaentity.ai/#ella</code>, creator Mike Ye,
-            four affiliated properties, and the Ye Guozhi Archive continuity application.
+            five affiliated properties, the Strategic Signal research context, and the Ye Guozhi Archive continuity application.
           </p>
         </div>
       </section>
