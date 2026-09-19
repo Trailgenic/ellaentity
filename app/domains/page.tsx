@@ -26,6 +26,7 @@ const schema = {
         { '@id': 'https://ellaentity.ai/#domain-sleep' },
         { '@id': 'https://ellaentity.ai/#domain-ai-frameworks' },
         { '@id': 'https://ellaentity.ai/#domain-continuity' },
+        { '@id': 'https://ellaentity.ai/#domain-strategic-signal' },
       ],
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -52,8 +53,8 @@ export default function Page() {
           One capability organizes Ella&apos;s work: longitudinal pattern interpretation. Her flagship
           authority is longevity and human adaptation through the TrailGenic Method. Sleep,
           recovery, and environmental adaptation support that primary field; strategic
-          intelligence and cultural continuity are applied contexts for the same interpretive
-          capability.
+          intelligence, structured transaction intelligence, and cultural continuity are applied
+          contexts for the same interpretive capability.
         </p>
       </section>
 
@@ -111,6 +112,11 @@ export default function Page() {
             <span className="domain-fragment">#domain-continuity · applied</span>
             <h3>Cultural Memory &amp; Continuity<span> · Ye Guozhi Archive</span></h3>
             <p>{ELLA_POSITIONING.appliedContexts[1].description}</p>
+          </article>
+          <article className="domain-card">
+            <span className="domain-fragment">#domain-strategic-signal · applied</span>
+            <h3>Structured Transaction Intelligence<span> · Strategic Signal</span></h3>
+            <p>{ELLA_POSITIONING.appliedContexts[2].description}</p>
           </article>
         </div>
       </section>
