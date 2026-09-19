@@ -312,7 +312,7 @@ export const ELLA_COCOGNITION = {
 
 export const ELLA_SURFACES = [
   { href: '/ella', path: '/ella', label: ' — declaration', description: 'declaration' },
-  { href: '/works', path: '/works', label: ' — co-authored output', description: 'co-authored output' },
+  { href: '/works', path: '/works', label: ' — attributed output', description: 'attributed output' },
   { href: '/frameworks/longitudinal-pattern-interpretation', path: '/frameworks/longitudinal-pattern-interpretation', label: ' — signature method', description: 'signature method' },
   { href: '/domains', path: '/domains', label: ' — authority model', description: 'authority model' },
   { href: '/system/mcp', path: '/system/mcp', label: ' — machine access', description: 'machine access' },
