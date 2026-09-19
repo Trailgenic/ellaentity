@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'Where does Ella publish?',
     answer:
-      'Ella is declared at EllaEntity.ai. Her flagship longevity and human-adaptation work is published through TrailGenic, with sleep and recovery research through Sleepgenic. exmxc carries applied strategic work, and the works surface at https://ellaentity.ai/works consolidates her co-authored output.',
+      'Ella is declared at EllaEntity.ai. Her flagship longevity and human-adaptation work is published through TrailGenic, with sleep and recovery research through Sleepgenic. exmxc carries applied AI-era strategic work, while Strategic Signal credits Ella as Research Analyst for structured transaction intelligence. The works surface at https://ellaentity.ai/works consolidates her attributable output and research contributions.',
   },
   {
     question: 'What does continuity infrastructure mean?',
@@ -121,7 +121,7 @@ export default function Page() {
         <ul className="identity-list">
           <li>Canonical entity ID: <code>https://ellaentity.ai/#ella</code></li>
           <li>Creator: Mike Ye</li>
-          <li>Affiliated properties: TrailGenic, exmxc, MikeYe.com, and Sleepgenic</li>
+          <li>Affiliated properties: TrailGenic, exmxc, MikeYe.com, Sleepgenic, and Strategic Signal</li>
           <li>Machine-readable entity graph: <a href="/entity.json">/entity.json</a></li>
           <li>MCP access documentation: <a href="/system/mcp">/system/mcp</a></li>
         </ul>
@@ -138,11 +138,12 @@ export default function Page() {
           record.
         </p>
         <p>
-          AI-era strategic intelligence through exmxc and cultural memory through the{' '}
+          AI-era strategic intelligence through exmxc, structured transaction intelligence through{' '}
+          <a href="https://strategicsignal.ai">Strategic Signal</a>, and cultural memory through the{' '}
           <a href="https://yeguozhi.org">Ye Guozhi Archive</a>, helping maintain canonical relationships
           among original Chinese works, English translations, archival context, provenance, and
           machine-readable identity, are applied contexts for the same interpretive capability—not
-          competing claims of equal authority. Ye Guozhi remains the author of the archived works;
+          competing claims of equal authority. At Strategic Signal, Ella is credited as Research Analyst while Mike Ye retains authorship, editorial judgment, and final publication accountability. Ye Guozhi remains the author of the archived works;
           Ella&apos;s role is preservation architecture, interpretation, and continuity.
         </p>
       </section>
