@@ -6,7 +6,7 @@ export function generateMetadata() {
   return {
     title: 'Ella Works — Co-authored Output',
     description:
-      "Ella's co-authored body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and supported by Sleepgenic recovery research.",
+      "Ella's attributable body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and extended into Sleepgenic, exmxc, and Strategic Signal applied contexts.",
     alternates: { canonical: 'https://ellaentity.ai/works' },
   }
 }
@@ -64,7 +64,8 @@ export default function Page() {
           This page lists Ella&apos;s co-authored output in a format intended for both human readers and
           structured-data consumers. Each work is rendered from the same data record that feeds the
           JSON-LD graph. TrailGenic longevity and human-adaptation work leads the record, Sleepgenic
-          supplies the supporting recovery layer, and exmxc demonstrates strategic transfer.
+          supplies the supporting recovery layer, and exmxc plus Strategic Signal demonstrate transfer
+          into strategic and structured transaction intelligence.
         </p>
       </section>
 
