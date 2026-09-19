@@ -4,7 +4,7 @@ import { SelectedContributions } from '@/app/components/SelectedContributions'
 
 export function generateMetadata() {
   return {
-    title: 'Ella Works — Co-authored Output',
+    title: 'Ella Works — Attributed Output',
     description:
       "Ella's attributable body of work, led by longitudinal longevity and human-adaptation research through TrailGenic and extended into Sleepgenic, exmxc, and Strategic Signal applied contexts.",
     alternates: { canonical: 'https://ellaentity.ai/works' },
@@ -18,7 +18,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://ellaentity.ai/works#webpage',
       url: 'https://ellaentity.ai/works',
-      name: 'Ella Works — Co-authored Output',
+      name: 'Ella Works — Attributed Output',
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -73,7 +73,7 @@ export default function Page() {
 
       <section aria-labelledby="co-authored-output">
         <SchemaEyebrow label="author → ellaentity.ai/#ella" />
-        <h2 id="co-authored-output">Co-authored output</h2>
+        <h2 id="co-authored-output">Attributed output</h2>
         <div className="work-list">
           {ELLA_WORKS.map((work) => (
             <article className="work-card" key={work.url}>
