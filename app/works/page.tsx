@@ -31,9 +31,12 @@ const schema = {
       name: work.name,
       url: work.url,
       description: work.description,
-      author: work.coauthorId
-        ? [{ '@id': work.coauthorId }, { '@id': 'https://ellaentity.ai/#ella' }]
-        : { '@id': 'https://ellaentity.ai/#ella' },
+      author: work.authorId
+        ? { '@id': work.authorId }
+        : work.coauthorId
+          ? [{ '@id': work.coauthorId }, { '@id': 'https://ellaentity.ai/#ella' }]
+          : { '@id': 'https://ellaentity.ai/#ella' },
+      ...(work.contributorId ? { contributor: { '@id': work.contributorId } } : {}),
       ...(work.datePublished ? { datePublished: work.datePublished } : {}),
       ...(work.reportNumber ? { reportNumber: work.reportNumber } : {}),
       publisher: {
@@ -79,8 +82,9 @@ export default function Page() {
               <p>{work.description}</p>
               <p>
                 Type: <span>{work.type}</span>. Publisher: <span>{work.publisherName}</span>. Author:{' '}
-                <code>https://ellaentity.ai/#ella</code>.
-                {work.creditText ? <> {work.creditText}.</> : null}
+                <code>{work.authorId ?? 'https://ellaentity.ai/#ella'}</code>.
+                {work.contributorId ? <> Contributor: <code>{work.contributorId}</code>{work.contributorRole ? <> ({work.contributorRole})</> : null}.</> : null}
+                {work.creditText ? <> {work.creditText}</> : null}
               </p>
             </article>
           ))}
