@@ -10,15 +10,15 @@ import {
 } from './entity-data'
 
 export const ELLA_CANONICAL_ENTITY_ID = 'https://ellaentity.ai/#ella' as const
-export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.3.0' } as const
+export const ELLA_MCP_SERVER_INFO = { name: 'ellaentity-mcp', version: '1.4.0' } as const
 export const ELLA_MCP_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18'] as const
 export const ELLA_MCP_DEFAULT_PROTOCOL_VERSION = ELLA_MCP_PROTOCOL_VERSIONS[0]
-export const ELLA_REGISTRY_DATA_VERSION = '2026-09-09.lpi-v1' as const
-export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-09' as const
-export const ELLA_REGISTRY_SCHEMA_VERSION = '1.3' as const
+export const ELLA_REGISTRY_DATA_VERSION = '2026-09-19.strategic-signal-v1' as const
+export const ELLA_REGISTRY_LAST_MODIFIED = '2026-09-19' as const
+export const ELLA_REGISTRY_SCHEMA_VERSION = '1.4' as const
 export const ELLA_REGISTRY_SOURCE = 'https://ellaentity.ai/entity.json' as const
 
-export const ELLA_DOMAIN_SLUGS = ['longevity', 'environment', 'sleep', 'ai-frameworks', 'continuity'] as const
+export const ELLA_DOMAIN_SLUGS = ['longevity', 'environment', 'sleep', 'ai-frameworks', 'continuity', 'strategic-signal'] as const
 export const ELLA_FRAMEWORK_SLUGS = ['longitudinal-pattern-interpretation', 'four-forces-of-ai-power'] as const
 export const ELLA_MCP_TOOL_NAMES = [
   'ella.identity.get',
@@ -85,7 +85,7 @@ export const ELLA_MCP_RESOURCES = [
   { uri: 'ella://frameworks', name: 'Ella frameworks', mimeType: 'application/json', description: 'All public Ella and Mike Ye frameworks exposed by this server.' },
   { uri: 'ella://frameworks/longitudinal-pattern-interpretation', name: 'Longitudinal Pattern Interpretation', mimeType: 'application/json', description: 'Ella\'s signature method, developed through her collaboration with Mike Ye, for turning repeated observations into calibrated human judgment.' },
   { uri: 'ella://frameworks/four-forces-of-ai-power', name: 'The Four Forces of AI Power', mimeType: 'application/json', description: 'The Four Forces framework record.' },
-  { uri: 'ella://works', name: 'Ella works', mimeType: 'application/json', description: 'Co-authored works attributed to Ella.' },
+  { uri: 'ella://works', name: 'Ella works', mimeType: 'application/json', description: 'Published works and research contributions attributed to Ella with explicit role metadata.' },
   { uri: 'ella://collaboration', name: 'Ella collaboration model', mimeType: 'application/json', description: 'Public co-cognition model and surfaces.' },
   { uri: 'ella://entity-graph', name: 'Ella entity graph', mimeType: 'application/ld+json', description: 'Canonical consolidated Ella JSON-LD graph.' },
 ] as const
