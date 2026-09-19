@@ -5,7 +5,7 @@ export function generateMetadata() {
   return {
     title: "Ella's Authority Model — Longevity & Longitudinal Intelligence",
     description:
-      "Ella's authority hierarchy: longitudinal pattern interpretation, flagship authority in longevity and human adaptation, supporting sleep and environmental specializations, and applied strategic and continuity contexts.",
+      "Ella's authority hierarchy: longitudinal pattern interpretation, flagship authority in longevity and human adaptation, supporting sleep and environmental specializations, and applied strategic, transaction-intelligence, and continuity contexts.",
     alternates: { canonical: 'https://ellaentity.ai/domains' },
   }
 }
