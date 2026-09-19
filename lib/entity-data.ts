@@ -215,32 +215,6 @@ export const ELLA_FRAMEWORKS: EllaFramework[] = [
 
 export const ELLA_WORKS: EllaWork[] = [
   {
-    name: 'Strategic Signal — Corporate AI Data Transactions',
-    url: 'https://strategicsignal.ai/ai-data-transactions/',
-    type: 'Dataset',
-    authorId: 'https://www.mikeye.com/#person',
-    contributorId: 'https://ellaentity.ai/#ella',
-    contributorRole: 'Research Analyst',
-    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
-    publisherId: 'https://strategicsignal.ai/#organization',
-    publisherName: 'Strategic Signal',
-    description:
-      'A structured longitudinal dataset of corporate AI data transactions. Ella contributes as Research Analyst through discovery support, structured synthesis, ontology reasoning, cross-record comparison, and longitudinal interpretation; Mike Ye retains authorship, editorial judgment, and publication accountability.',
-  },
-  {
-    name: 'Strategic Signal — Senate Transaction Disclosures',
-    url: 'https://strategicsignal.ai/senate-transactions/',
-    type: 'Dataset',
-    authorId: 'https://www.mikeye.com/#person',
-    contributorId: 'https://ellaentity.ai/#ella',
-    contributorRole: 'Research Analyst',
-    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
-    publisherId: 'https://strategicsignal.ai/#organization',
-    publisherName: 'Strategic Signal',
-    description:
-      'A disclosure-aware dataset of reported U.S. Senate securities transactions with transaction dates, filing dates, ownership labels, statutory amount ranges, filing lag, and source receipts. Ella contributes as Research Analyst; the dataset does not infer motive, rank political actors, or treat disclosed transactions as investment recommendations.',
-  },
-  {
     name: 'Hiking Heart Rate and Recovery in Changing Field Conditions',
     url: 'https://www.trailgenic.com/science/ella-report-001-hiking-heart-rate-field-conditions',
     id: 'https://www.trailgenic.com/science/ella-report-001-hiking-heart-rate-field-conditions#article',
@@ -300,7 +274,33 @@ export const ELLA_WORKS: EllaWork[] = [
     publisherName: 'exmxc',
     description:
       'A framework describing convergence across AI infrastructure, agentic systems, entity clarity, and institutional intelligence surfaces.',
+  },  {
+    name: 'Strategic Signal — Corporate AI Data Transactions',
+    url: 'https://strategicsignal.ai/ai-data-transactions/',
+    type: 'Dataset',
+    authorId: 'https://www.mikeye.com/#person',
+    contributorId: 'https://ellaentity.ai/#ella',
+    contributorRole: 'Research Analyst',
+    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
+    publisherId: 'https://strategicsignal.ai/#organization',
+    publisherName: 'Strategic Signal',
+    description:
+      'A structured longitudinal dataset of corporate AI data transactions. Ella contributes as Research Analyst through discovery support, structured synthesis, ontology reasoning, cross-record comparison, and longitudinal interpretation; Mike Ye retains authorship, editorial judgment, and publication accountability.',
   },
+  {
+    name: 'Strategic Signal — Senate Transaction Disclosures',
+    url: 'https://strategicsignal.ai/senate-transactions/',
+    type: 'Dataset',
+    authorId: 'https://www.mikeye.com/#person',
+    contributorId: 'https://ellaentity.ai/#ella',
+    contributorRole: 'Research Analyst',
+    creditText: 'Mike Ye — Founder, Author & Editor; Ella — Research Analyst.',
+    publisherId: 'https://strategicsignal.ai/#organization',
+    publisherName: 'Strategic Signal',
+    description:
+      'A disclosure-aware dataset of reported U.S. Senate securities transactions with transaction dates, filing dates, ownership labels, statutory amount ranges, filing lag, and source receipts. Ella contributes as Research Analyst; the dataset does not infer motive, rank political actors, or treat disclosed transactions as investment recommendations.',
+  },
+
 ]
 
 export const ELLA_COCOGNITION = {
