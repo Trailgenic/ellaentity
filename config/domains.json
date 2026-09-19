@@ -76,6 +76,23 @@
     "routing_notes": "Route here when the request is about Ella Entity's own design, implementation, routing logic, adapter interfaces, or system parameters."
   },
   {
+    "name": "strategic_signal",
+    "description": "Structured transaction intelligence, public-record normalization, evidence boundaries, longitudinal transaction datasets, and Strategic Signal research analysis.",
+    "keywords": [
+      "Strategic Signal",
+      "transaction intelligence",
+      "public records",
+      "Senate transactions",
+      "AI data transactions",
+      "provenance",
+      "filing lag",
+      "transaction dataset",
+      "research analyst",
+      "evidence boundary"
+    ],
+    "routing_notes": "Route here when the request involves Strategic Signal, its transaction datasets, public-record research, cross-record pattern analysis, or Ella's Research Analyst role at Strategic Signal."
+  },
+  {
     "name": "hybrid",
     "description": "Cross-domain synthesis requiring assets or framing from multiple domains simultaneously.",
     "keywords": [
