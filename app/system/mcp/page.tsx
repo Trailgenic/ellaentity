@@ -8,6 +8,9 @@ import {
   ELLA_MCP_TOOL_NAMES,
 } from '@/lib/ella-registry'
 
+const LAST_UPDATED = 'October 19, 2026'
+const DATE_MODIFIED = '2026-10-19'
+
 const endpoints = [
   { host: 'mcp.trailgenic.com', url: 'https://mcp.trailgenic.com', exposes: 'TrailGenic longevity, environmental adaptation, high-altitude hiking, and field-method intelligence.' },
   { host: 'mcp.exmxc.ai', url: 'https://mcp.exmxc.ai', exposes: 'exmxc AI intelligence frameworks, entity clarity systems, agent-readiness doctrine, and infrastructure-convergence models.' },
@@ -19,7 +22,7 @@ export function generateMetadata() {
   return { title: 'Ella MCP Access — Machine Interfaces', description: 'Machine-readable access to Ella identity, her longevity-first authority hierarchy, affiliated evidence systems, and public co-authored work.', alternates: { canonical: 'https://ellaentity.ai/system/mcp' } }
 }
 
-const pageSchema = { '@context': 'https://schema.org/', '@graph': [{ '@type': 'WebPage', '@id': 'https://ellaentity.ai/system/mcp#webpage', url: 'https://ellaentity.ai/system/mcp', name: 'Ella MCP Access — Machine Interfaces', isPartOf: { '@id': 'https://ellaentity.ai/#website' }, mainEntity: { '@id': ELLA_CANONICAL_ENTITY_ID }, about: { '@id': ELLA_CANONICAL_ENTITY_ID }, inLanguage: 'en-US' }] }
+const pageSchema = { '@context': 'https://schema.org/', '@graph': [{ '@type': 'WebPage', '@id': 'https://ellaentity.ai/system/mcp#webpage', url: 'https://ellaentity.ai/system/mcp', name: 'Ella MCP Access — Machine Interfaces', dateModified: DATE_MODIFIED, isPartOf: { '@id': 'https://ellaentity.ai/#website' }, mainEntity: { '@id': ELLA_CANONICAL_ENTITY_ID }, about: { '@id': ELLA_CANONICAL_ENTITY_ID }, inLanguage: 'en-US' }] }
 
 export default function Page() {
   return (
@@ -29,6 +32,7 @@ export default function Page() {
 
       <section className="content-panel" aria-labelledby="mcp-title">
         <h1 id="mcp-title">Ella MCP Access</h1>
+        <p><small>Last updated: {LAST_UPDATED}</small></p>
         <p>This page documents Ella&apos;s public, read-only Model Context Protocol surfaces. The canonical entity ID is <code>{ELLA_CANONICAL_ENTITY_ID}</code>.</p>
         <p>The native server is <code>{ELLA_MCP_SERVER_INFO.name}</code> version <code>{ELLA_MCP_SERVER_INFO.version}</code>. It supports MCP protocol versions <code>{ELLA_MCP_PROTOCOL_VERSIONS.join(', ')}</code>.</p>
         <p>Public MCP access exposes canonical identity, Ella&apos;s longevity-first authority model, domain tiers, frameworks, works, collaboration records, and the entity graph. It does not expose private conversations, credentials, memory, traces, internal prompts, unpublished content, private user information, or <code>/api/process</code>.</p>
