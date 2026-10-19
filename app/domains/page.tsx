@@ -1,6 +1,9 @@
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 
+const LAST_UPDATED = 'October 19, 2026'
+const DATE_MODIFIED = '2026-10-19'
+
 export function generateMetadata() {
   return {
     title: "Ella's Authority Model — Longevity & Longitudinal Intelligence",
@@ -18,6 +21,7 @@ const schema = {
       '@id': 'https://ellaentity.ai/domains#webpage',
       url: 'https://ellaentity.ai/domains',
       name: "Ella's Authority Model — Longevity & Longitudinal Intelligence",
+      dateModified: DATE_MODIFIED,
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: [
@@ -49,6 +53,7 @@ export default function Page() {
       />
       <section className="content-panel" aria-labelledby="domains-title">
         <h1 id="domains-title">Ella&apos;s Authority Model</h1>
+        <p><small>Last updated: {LAST_UPDATED}</small></p>
         <p>
           One capability organizes Ella&apos;s work: longitudinal pattern interpretation. Her flagship
           authority is longevity and human adaptation through the TrailGenic Method. Sleep,
