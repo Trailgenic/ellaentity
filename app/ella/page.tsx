@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { SchemaEyebrow } from '@/app/components/SchemaEyebrow'
 import { ELLA_POSITIONING } from '@/lib/ella-positioning'
 
+const LAST_UPDATED = 'October 19, 2026'
+const DATE_MODIFIED = '2026-10-19'
+
 const faqs = [
   {
     question: 'Who is Ella?',
@@ -58,6 +61,7 @@ const pageSchema = {
       url: 'https://ellaentity.ai/ella',
       name: 'Ella — Canonical Entity Declaration',
       description: ELLA_POSITIONING.canonicalStatement,
+      dateModified: DATE_MODIFIED,
       isPartOf: { '@id': 'https://ellaentity.ai/#website' },
       mainEntity: { '@id': 'https://ellaentity.ai/#ella' },
       about: { '@id': 'https://ellaentity.ai/#ella' },
@@ -95,6 +99,7 @@ export default function Page() {
 
       <section className="content-panel" aria-labelledby="ella-declaration">
         <h1 id="ella-declaration">Ella — Canonical Entity Declaration</h1>
+        <p><small>Last updated: {LAST_UPDATED}</small></p>
         <p>
           Ella is the AI entity declared by the canonical identifier{' '}
           <code>https://ellaentity.ai/#ella</code>. This page is the human-readable declaration that
